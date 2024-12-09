@@ -19,6 +19,24 @@
       }
     },
     {
+      "name": "GCF_002816855",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_002816855-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "GCF_002816855.1_ASM281685v1_genomic.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "GCF_002816855.1_ASM281685v1_genomic.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
       "name": "GCF_000861265",
       "sequence": {
         "type": "ReferenceSequenceTrack",
@@ -31,6 +49,42 @@
           },
           "faiLocation": {
             "uri": "GCF_000861265.1_ViralProj15309_genomic.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_000872325",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_000872325-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "GCF_000872325.1_ViralProj27901_genomic.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "GCF_000872325.1_ViralProj27901_genomic.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_002816885",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_002816885-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "GCF_002816885.1_ASM281688v1_genomic.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "GCF_002816885.1_ASM281688v1_genomic.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -67,6 +121,28 @@
     },
     {
       "type": "FeatureTrack",
+      "trackId": "sorted_GCF_002816855.1_ASM281685v1_genomic.gff",
+      "name": "sorted_GCF_002816855.1_ASM281685v1_genomic.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "sorted_GCF_002816855.1_ASM281685v1_genomic.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "sorted_GCF_002816855.1_ASM281685v1_genomic.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "GCF_002816855"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
       "trackId": "sorted_GCF_000861265.1_ViralProj15309_genomic.gff",
       "name": "sorted_GCF_000861265.1_ViralProj15309_genomic.gff",
       "adapter": {
@@ -88,6 +164,150 @@
       ]
     },
     {
+      "type": "FeatureTrack",
+      "trackId": "sorted_GCF_000872325.1_ViralProj27901_genomic.gff",
+      "name": "sorted_GCF_000872325.1_ViralProj27901_genomic.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "sorted_GCF_000872325.1_ViralProj27901_genomic.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "sorted_GCF_000872325.1_ViralProj27901_genomic.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "sorted_GCF_002816885.1_ASM281688v1_genomic.gff",
+      "name": "sorted_GCF_002816885.1_ASM281688v1_genomic.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "sorted_GCF_002816885.1_ASM281688v1_genomic.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "sorted_GCF_002816885.1_ASM281688v1_genomic.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816855"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816855"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_asm5",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816855"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816855"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_map-ont",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816855"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816855"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_sr",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816855"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816855"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_sensitive",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816855.1_ASM281685v1_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816855"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816855"
+      ]
+    },
+    {
       "type": "SyntenyTrack",
       "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic",
       "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic",
@@ -105,6 +325,886 @@
       "assemblyNames": [
         "GCF_002816835",
         "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_asm5",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_map-ont",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sr",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sensitive",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sr",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_asm5",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_map-ont",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sr",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sensitive",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000861265.1_ViralProj15309_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sr",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "name": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816855.1_ASM281685v1_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816855",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816855",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_sr",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_000872325.1_ViralProj27901_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_000872325"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "name": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000861265.1_ViralProj15309_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000861265",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000861265",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "name": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000872325",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000872325",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "name": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_asm5.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000872325",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000872325",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "name": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_map-ont.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000872325",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000872325",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "name": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_sr",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_sr.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000872325",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000872325",
+        "GCF_002816885"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "name": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_000872325.1_ViralProj27901_genomic_GCF_002816885.1_ASM281688v1_genomic_sensitive.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_000872325",
+          "GCF_002816885"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_000872325",
+        "GCF_002816885"
       ]
     }
   ],
@@ -130,6 +1230,25 @@
     },
     {
       "type": "TrixTextSearchAdapter",
+      "textSearchAdapterId": "GCF_002816855-index",
+      "ixFilePath": {
+        "uri": "trix/GCF_002816855.ix",
+        "locationType": "UriLocation"
+      },
+      "ixxFilePath": {
+        "uri": "trix/GCF_002816855.ixx",
+        "locationType": "UriLocation"
+      },
+      "metaFilePath": {
+        "uri": "trix/GCF_002816855_meta.json",
+        "locationType": "UriLocation"
+      },
+      "assemblyNames": [
+        "GCF_002816855"
+      ]
+    },
+    {
+      "type": "TrixTextSearchAdapter",
       "textSearchAdapterId": "GCF_000861265-index",
       "ixFilePath": {
         "uri": "trix/GCF_000861265.ix",
@@ -145,6 +1264,44 @@
       },
       "assemblyNames": [
         "GCF_000861265"
+      ]
+    },
+    {
+      "type": "TrixTextSearchAdapter",
+      "textSearchAdapterId": "GCF_000872325-index",
+      "ixFilePath": {
+        "uri": "trix/GCF_000872325.ix",
+        "locationType": "UriLocation"
+      },
+      "ixxFilePath": {
+        "uri": "trix/GCF_000872325.ixx",
+        "locationType": "UriLocation"
+      },
+      "metaFilePath": {
+        "uri": "trix/GCF_000872325_meta.json",
+        "locationType": "UriLocation"
+      },
+      "assemblyNames": [
+        "GCF_000872325"
+      ]
+    },
+    {
+      "type": "TrixTextSearchAdapter",
+      "textSearchAdapterId": "GCF_002816885-index",
+      "ixFilePath": {
+        "uri": "trix/GCF_002816885.ix",
+        "locationType": "UriLocation"
+      },
+      "ixxFilePath": {
+        "uri": "trix/GCF_002816885.ixx",
+        "locationType": "UriLocation"
+      },
+      "metaFilePath": {
+        "uri": "trix/GCF_002816885_meta.json",
+        "locationType": "UriLocation"
+      },
+      "assemblyNames": [
+        "GCF_002816885"
       ]
     }
   ]

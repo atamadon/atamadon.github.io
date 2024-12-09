@@ -1,8 +1,8 @@
 {
-  "dateCreated": "2024-12-09T05:01:49.180Z",
+  "dateCreated": "2024-12-09T05:01:49.191Z",
   "tracks": [
     {
-      "trackId": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff",
+      "trackId": "sorted_GCF_002816855.1_ASM281685v1_genomic.gff",
       "attributesIndexed": [
         "Name",
         "ID"
@@ -14,12 +14,12 @@
       "adapterConf": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff.gz",
+          "uri": "sorted_GCF_002816855.1_ASM281685v1_genomic.gff.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff.gz.tbi",
+            "uri": "sorted_GCF_002816855.1_ASM281685v1_genomic.gff.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -28,6 +28,6 @@
     }
   ],
   "assemblyNames": [
-    "GCF_002816835"
+    "GCF_002816855"
   ]
 }

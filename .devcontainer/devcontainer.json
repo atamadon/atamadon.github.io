@@ -3,7 +3,7 @@
 {
 	"name": "Default Linux Universal",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/universal:2-linux"
+	"image": "mcr.microsoft.com/devcontainers/universal:2-linux",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -13,6 +13,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
+	"postStartCommand": "/bin/bash ./installation/install_devcontainer.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
