@@ -5,9 +5,8 @@ Rhinovirus Viewer is a web-based tool for visualizing rhinovirus genomic data us
 ## Features
 
 - Visualize rhinovirus genomic data
-- Explore multiple rhinovirus strains
+- Explore rhinovirus A, B, and C strains
 - Integrated with JBrowse2 for advanced genomic visualization
-- Dark mode interface
 
 ## Usage Options
 
@@ -20,24 +19,35 @@ You can simply use the Rhinovirus Viewer hosted on GitHub Pages:
 
 ### Option 2: Install on Debian/Ubuntu Based Linux Distribution
 
-Follow these steps to install and set up Rhinovirus Viewer on a Debian/Ubuntu based Linux distribution using the `install_linux.sh` script:
+Follow these steps to install and set up Rhinovirus Viewer on a Debian/Ubuntu based Linux distribution using the `install_linux.sh` script located in the `installation/` directory:
 
 1. **Clone the Repository**
 
     ```sh
-    git clone https://github.com/yourusername/rhinovirus-viewer.git
-    cd rhinovirus-viewer
+    git clone https://github.com/atamadon/atamadon.github.io.git
+    cd atamadon.github.io
     ```
 
 2. **Run the Installation Script**
+    ```sh
+    chmod +x installation/install_linux.sh
+    ```
 
     ```sh
-    ./install_linux.sh
+    ./installation/install_linux.sh
     ```
 
 3. **Access the Viewer**
 
-    Navigate to `http://your-server-ip/jbrowse2` in your web browser.
+    Navigate to `http://your-server-ip/jbrowse2` in your web browser. Apache will output the IP address to the shell. Otherwise, run:
+    ```sh
+    ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1
+    ```
+    To locate the server's IP address. 
+
+4. **NOTE: Your milage may vary**
+
+    Please be mindful of your system's installation environment. This method is prone to dependency errors, issues with networking, and general linux file permission headaches. Use the devcontainer option for a streamlined experience. 
 
 ### Option 3: Use a DevContainer in Visual Studio Code (Preferred)
 
@@ -50,13 +60,13 @@ The preferred option is to use a DevContainer in Visual Studio Code, which autom
 2. **Clone the Repository**
 
     ```sh
-    git clone https://github.com/yourusername/rhinovirus-viewer.git
-    cd rhinovirus-viewer
+    git clone https://github.com/atamadon/atamadon.github.io.git
+    cd atamadon.github.io
     ```
 
 3. **Open in Visual Studio Code**
 
-    Open the project in Visual Studio Code. You should see a prompt to reopen the project in a DevContainer. If not, press `F1` and select `Remote-Containers: Reopen in Container`.
+    Open the project in Visual Studio Code. You should see a prompt to reopen the project in a DevContainer. If not, open the `Command Palatte` and select `Remote-Containers: Reopen in Container`.
 
 4. **Run the DevContainer Setup Script**
 
