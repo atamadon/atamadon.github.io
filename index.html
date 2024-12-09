@@ -13,25 +13,50 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #121212;
+            color: #e0e0e0;
         }
         h1 {
             font-size: 3em;
-            color: #333;
+            color: #ffffff;
         }
-        a {
+        .ribbon {
+            display: flex;
+            justify-content: center;
+            background-color: #1f1f1f;
+            width: 100%;
+            padding: 10px 0;
+        }
+        .ribbon a {
+            color: #bb86fc;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+        .ribbon a:hover {
+            text-decoration: underline;
+        }
+        .content a {
             font-size: 1.5em;
-            color: #007bff;
+            color: #bb86fc;
             text-decoration: none;
             margin-top: 20px;
         }
-        a:hover {
+        .content a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <h1>Rhinovirus Viewer</h1>
-    <a href="https://atamadon.github.io/jbrowse2" target="_blank">Go to JBrowse2 Instance</a>
+    <div class="ribbon">
+        <a href="#report">Report</a>
+        <a href="https://jbrowse.org/jb2/docs/" target="_blank">JBrowse Documentation</a>
+        <a href="#info">Info</a>
+        <a href="#virus">Virus</a>
+    </div>
+    <div class="content">
+        <a href="https://atamadon.github.io/jbrowse2" target="_blank">Go to JBrowse2 Instance</a>
+    </div>
 </body>
 </html>
