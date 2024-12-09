@@ -8,14 +8,14 @@ Rhinovirus Viewer is a web-based tool for visualizing rhinovirus genomic data us
 - Explore rhinovirus A, B, and C strains
 - Integrated with JBrowse2 for advanced genomic visualization
 
-## Usage Options
+## Installation Options
 
 ### Option 1: Use the GitHub Pages Website
 
 You can simply use the Rhinovirus Viewer hosted on GitHub Pages:
 
-- **Rhinovirus Viewer**: <a href="https://atamadon.github.io" target="_blank">atamadon.github.io</a>
-- **JBrowse2 Instance**: <a href="https://atamadon.github.io/jbrowse2" target="_blank">atamadon.github.io/jbrowse2</a>
+- **Rhinovirus Viewer**: [atamadon.github.io](https://atamadon.github.io)
+- **JBrowse2 Instance**: [atamadon.github.io/jbrowse2](https://atamadon.github.io/jbrowse2)
 
 ### Option 2: Install on Debian/Ubuntu Based Linux Distribution
 
@@ -75,3 +75,22 @@ The preferred option is to use a DevContainer in Visual Studio Code, which autom
 5. **Access the Viewer**
 
     Navigate to `http://localhost/jbrowse2` in your web browser.
+
+## Usage
+
+**Getting Started**
+Once you have succefully installed JBrowse and can access your instance in a web browser, you are ready to begin exploring different rhinovirus genomes!  
+1. Opening JBrowse for the first time will prompt you to `Start a new session`. 
+2. Select `Empty` to get started.
+
+**Select a view to launch**
+1. JBrowse supports a number of views to view genomic data in a convienent way. 
+
+**Add the `MsaView` Plugin to view the alignments**  
+ 
+1. Natigate and click on the `Tools ▼` dropdown  
+2. Click on the `Plugin Store`
+3. Find `MsaView` under the `Avalible plugins` and click ` + INSTALL `
+4. Once installed, nativate to the `Add ▼` dropdown and select `Multiple Sequence Alignment view`
+5. MsaView will prompt for a MSA File or URL. Select File, and choose the `all_assemblies.msa.fasta` file that was present in the clone git repository. `Open` to view.
+

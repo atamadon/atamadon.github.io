@@ -1,10 +1,10 @@
 {
   "assemblies": [
     {
-      "name": "GCF_002816835",
+      "name": "NC_038311.1",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "GCF_002816835-ReferenceSequenceTrack",
+        "trackId": "NC_038311.1-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
@@ -19,10 +19,10 @@
       }
     },
     {
-      "name": "GCF_002816855",
+      "name": "NC_038312.1",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "GCF_002816855-ReferenceSequenceTrack",
+        "trackId": "NC_038312.1-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
@@ -37,10 +37,10 @@
       }
     },
     {
-      "name": "GCF_000861265",
+      "name": "NC_001490.1",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "GCF_000861265-ReferenceSequenceTrack",
+        "trackId": "NC_001490.1-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
@@ -55,10 +55,10 @@
       }
     },
     {
-      "name": "GCF_000872325",
+      "name": "NC_009996.1",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "GCF_000872325-ReferenceSequenceTrack",
+        "trackId": "NC_009996.1-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
@@ -73,10 +73,10 @@
       }
     },
     {
-      "name": "GCF_002816885",
+      "name": "NC_038878.1",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "GCF_002816885-ReferenceSequenceTrack",
+        "trackId": "NC_038878.1-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
@@ -91,7 +91,11 @@
       }
     }
   ],
-  "configuration": {},
+  "configuration": {
+    "theme": {
+      "mode": "dark"
+    }
+  },
   "connections": [],
   "defaultSession": {
     "name": "New Session"
@@ -218,13 +222,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816855"
+          "NC_038311.1",
+          "NC_038312.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816855"
+        "NC_038311.1",
+        "NC_038312.1"
       ]
     },
     {
@@ -238,13 +242,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816855"
+          "NC_038311.1",
+          "NC_038312.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816855"
+        "NC_038311.1",
+        "NC_038312.1"
       ]
     },
     {
@@ -258,13 +262,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816855"
+          "NC_038311.1",
+          "NC_038312.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816855"
+        "NC_038311.1",
+        "NC_038312.1"
       ]
     },
     {
@@ -278,13 +282,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816855"
+          "NC_038311.1",
+          "NC_038312.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816855"
+        "NC_038311.1",
+        "NC_038312.1"
       ]
     },
     {
@@ -298,13 +302,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816855"
+          "NC_038311.1",
+          "NC_038312.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816855"
+        "NC_038311.1",
+        "NC_038312.1"
       ]
     },
     {
@@ -318,13 +322,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000861265"
+          "NC_038311.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000861265"
+        "NC_038311.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -338,13 +342,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000861265"
+          "NC_038311.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000861265"
+        "NC_038311.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -358,13 +362,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000861265"
+          "NC_038311.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000861265"
+        "NC_038311.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -378,13 +382,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000861265"
+          "NC_038311.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000861265"
+        "NC_038311.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -398,13 +402,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000861265"
+          "NC_038311.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000861265"
+        "NC_038311.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -418,13 +422,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000872325"
+          "NC_038311.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000872325"
+        "NC_038311.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -438,13 +442,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000872325"
+          "NC_038311.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000872325"
+        "NC_038311.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -458,13 +462,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000872325"
+          "NC_038311.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000872325"
+        "NC_038311.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -478,13 +482,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000872325"
+          "NC_038311.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000872325"
+        "NC_038311.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -498,13 +502,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_000872325"
+          "NC_038311.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_000872325"
+        "NC_038311.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -518,13 +522,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816885"
+          "NC_038311.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816885"
+        "NC_038311.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -538,13 +542,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816885"
+          "NC_038311.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816885"
+        "NC_038311.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -558,13 +562,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816885"
+          "NC_038311.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816885"
+        "NC_038311.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -578,13 +582,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816885"
+          "NC_038311.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816885"
+        "NC_038311.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -598,13 +602,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816835",
-          "GCF_002816885"
+          "NC_038311.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816835",
-        "GCF_002816885"
+        "NC_038311.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -618,13 +622,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000861265"
+          "NC_038312.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000861265"
+        "NC_038312.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -638,13 +642,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000861265"
+          "NC_038312.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000861265"
+        "NC_038312.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -658,13 +662,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000861265"
+          "NC_038312.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000861265"
+        "NC_038312.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -678,13 +682,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000861265"
+          "NC_038312.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000861265"
+        "NC_038312.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -698,13 +702,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000861265"
+          "NC_038312.1",
+          "NC_001490.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000861265"
+        "NC_038312.1",
+        "NC_001490.1"
       ]
     },
     {
@@ -718,13 +722,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000872325"
+          "NC_038312.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000872325"
+        "NC_038312.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -738,13 +742,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000872325"
+          "NC_038312.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000872325"
+        "NC_038312.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -758,13 +762,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000872325"
+          "NC_038312.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000872325"
+        "NC_038312.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -778,13 +782,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000872325"
+          "NC_038312.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000872325"
+        "NC_038312.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -798,13 +802,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_000872325"
+          "NC_038312.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_000872325"
+        "NC_038312.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -818,13 +822,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_002816885"
+          "NC_038312.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_002816885"
+        "NC_038312.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -838,13 +842,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_002816885"
+          "NC_038312.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_002816885"
+        "NC_038312.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -858,13 +862,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_002816885"
+          "NC_038312.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_002816885"
+        "NC_038312.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -878,13 +882,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_002816885"
+          "NC_038312.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_002816885"
+        "NC_038312.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -898,13 +902,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_002816855",
-          "GCF_002816885"
+          "NC_038312.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_002816855",
-        "GCF_002816885"
+        "NC_038312.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -918,13 +922,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_000872325"
+          "NC_001490.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_000872325"
+        "NC_001490.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -938,13 +942,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_000872325"
+          "NC_001490.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_000872325"
+        "NC_001490.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -958,13 +962,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_000872325"
+          "NC_001490.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_000872325"
+        "NC_001490.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -978,13 +982,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_000872325"
+          "NC_001490.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_000872325"
+        "NC_001490.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -998,13 +1002,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_000872325"
+          "NC_001490.1",
+          "NC_009996.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_000872325"
+        "NC_001490.1",
+        "NC_009996.1"
       ]
     },
     {
@@ -1018,13 +1022,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_002816885"
+          "NC_001490.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_002816885"
+        "NC_001490.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1038,13 +1042,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_002816885"
+          "NC_001490.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_002816885"
+        "NC_001490.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1058,13 +1062,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_002816885"
+          "NC_001490.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_002816885"
+        "NC_001490.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1078,13 +1082,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_002816885"
+          "NC_001490.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_002816885"
+        "NC_001490.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1098,13 +1102,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000861265",
-          "GCF_002816885"
+          "NC_001490.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000861265",
-        "GCF_002816885"
+        "NC_001490.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1118,13 +1122,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000872325",
-          "GCF_002816885"
+          "NC_009996.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000872325",
-        "GCF_002816885"
+        "NC_009996.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1138,13 +1142,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000872325",
-          "GCF_002816885"
+          "NC_009996.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000872325",
-        "GCF_002816885"
+        "NC_009996.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1158,13 +1162,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000872325",
-          "GCF_002816885"
+          "NC_009996.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000872325",
-        "GCF_002816885"
+        "NC_009996.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1178,13 +1182,13 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000872325",
-          "GCF_002816885"
+          "NC_009996.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000872325",
-        "GCF_002816885"
+        "NC_009996.1",
+        "NC_038878.1"
       ]
     },
     {
@@ -1198,111 +1202,15 @@
           "locationType": "UriLocation"
         },
         "assemblyNames": [
-          "GCF_000872325",
-          "GCF_002816885"
+          "NC_009996.1",
+          "NC_038878.1"
         ]
       },
       "assemblyNames": [
-        "GCF_000872325",
-        "GCF_002816885"
+        "NC_009996.1",
+        "NC_038878.1"
       ]
     }
   ],
-  "aggregateTextSearchAdapters": [
-    {
-      "type": "TrixTextSearchAdapter",
-      "textSearchAdapterId": "GCF_002816835-index",
-      "ixFilePath": {
-        "uri": "trix/GCF_002816835.ix",
-        "locationType": "UriLocation"
-      },
-      "ixxFilePath": {
-        "uri": "trix/GCF_002816835.ixx",
-        "locationType": "UriLocation"
-      },
-      "metaFilePath": {
-        "uri": "trix/GCF_002816835_meta.json",
-        "locationType": "UriLocation"
-      },
-      "assemblyNames": [
-        "GCF_002816835"
-      ]
-    },
-    {
-      "type": "TrixTextSearchAdapter",
-      "textSearchAdapterId": "GCF_002816855-index",
-      "ixFilePath": {
-        "uri": "trix/GCF_002816855.ix",
-        "locationType": "UriLocation"
-      },
-      "ixxFilePath": {
-        "uri": "trix/GCF_002816855.ixx",
-        "locationType": "UriLocation"
-      },
-      "metaFilePath": {
-        "uri": "trix/GCF_002816855_meta.json",
-        "locationType": "UriLocation"
-      },
-      "assemblyNames": [
-        "GCF_002816855"
-      ]
-    },
-    {
-      "type": "TrixTextSearchAdapter",
-      "textSearchAdapterId": "GCF_000861265-index",
-      "ixFilePath": {
-        "uri": "trix/GCF_000861265.ix",
-        "locationType": "UriLocation"
-      },
-      "ixxFilePath": {
-        "uri": "trix/GCF_000861265.ixx",
-        "locationType": "UriLocation"
-      },
-      "metaFilePath": {
-        "uri": "trix/GCF_000861265_meta.json",
-        "locationType": "UriLocation"
-      },
-      "assemblyNames": [
-        "GCF_000861265"
-      ]
-    },
-    {
-      "type": "TrixTextSearchAdapter",
-      "textSearchAdapterId": "GCF_000872325-index",
-      "ixFilePath": {
-        "uri": "trix/GCF_000872325.ix",
-        "locationType": "UriLocation"
-      },
-      "ixxFilePath": {
-        "uri": "trix/GCF_000872325.ixx",
-        "locationType": "UriLocation"
-      },
-      "metaFilePath": {
-        "uri": "trix/GCF_000872325_meta.json",
-        "locationType": "UriLocation"
-      },
-      "assemblyNames": [
-        "GCF_000872325"
-      ]
-    },
-    {
-      "type": "TrixTextSearchAdapter",
-      "textSearchAdapterId": "GCF_002816885-index",
-      "ixFilePath": {
-        "uri": "trix/GCF_002816885.ix",
-        "locationType": "UriLocation"
-      },
-      "ixxFilePath": {
-        "uri": "trix/GCF_002816885.ixx",
-        "locationType": "UriLocation"
-      },
-      "metaFilePath": {
-        "uri": "trix/GCF_002816885_meta.json",
-        "locationType": "UriLocation"
-      },
-      "assemblyNames": [
-        "GCF_002816885"
-      ]
-    }
-  ]
+  "aggregateTextSearchAdapters": []
 }
