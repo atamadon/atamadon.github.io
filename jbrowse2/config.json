@@ -108,6 +108,10 @@
           },
           "quaternary": {
             "main": "#d50000"
+          }
+        }
+      }
+    }
   },
   "connections": [],
   "defaultSession": {
