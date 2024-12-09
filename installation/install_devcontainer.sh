@@ -28,9 +28,6 @@ jbrowse create output_folder
 sudo mv output_folder $APACHE_ROOT/jbrowse2
 sudo chown -R $(whoami) $APACHE_ROOT/jbrowse2
 
-# Add MSAView plugin
-sudo jbrowse add-plugin MSAView --out $APACHE_ROOT/jbrowse2 --load copy
-
 # ADD LINKS TO ASSEMBLIES TO THIS ARRAY TO VIEW IN JBROWSE
 strains=(
     "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/816/835/GCF_002816835.1_ASM281683v1/GCF_002816835.1_ASM281683v1_genomic.fna.gz"
@@ -50,7 +47,6 @@ for strain in ${strains[@]}; do
     gunzip $strain_file
     unzipped_file=${strain_file%.gz}
     assembly_name=$(head -n 1 $unzipped_file | cut -d ' ' -f 1 | sed 's/>//')
-    echo "/n/nAssembly name: $assembly_name/n/n"
     assembly_names+=($assembly_name)
     samtools faidx $unzipped_file
     sudo jbrowse add-assembly $unzipped_file --out $APACHE_ROOT/jbrowse2 --load copy --name $assembly_name
