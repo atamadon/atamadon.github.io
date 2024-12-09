@@ -91,10 +91,23 @@
       }
     }
   ],
-  "configuration": {
-    "theme": {
-      "mode": "dark"
-    }
+"configuration": {
+    "extraThemes": {
+      "myTheme": {
+        "name": "My theme",
+        "mode": "dark",
+        "palette": {
+          "primary": {
+            "main": "#311b92"
+          },
+          "secondary": {
+            "main": "#0097a7"
+          },
+          "tertiary": {
+            "main": "#f57c00"
+          },
+          "quaternary": {
+            "main": "#d50000"
   },
   "connections": [],
   "defaultSession": {
