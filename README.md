@@ -14,8 +14,8 @@ Rhinovirus Viewer is a web-based tool for visualizing rhinovirus genomic data us
 
 You can simply use the Rhinovirus Viewer hosted on GitHub Pages:
 
-- **Rhinovirus Viewer**: [atamadon.github.io](https://atamadon.github.io)
-- **JBrowse2 Instance**: [atamadon.github.io/jbrowse2](https://atamadon.github.io/jbrowse2)
+- **Rhinovirus Viewer**: <a href="https://atamadon.github.io" target="_blank">atamadon.github.io</a>
+- **JBrowse2 Instance**: <a href="https://atamadon.github.io/jbrowse2" target="_blank">atamadon.github.io/jbrowse2</a>
 
 ### Option 2: Install on Debian/Ubuntu Based Linux Distribution
 
