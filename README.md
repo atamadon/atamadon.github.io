@@ -1,12 +1,13 @@
-# Rhinovirus Viewer
+# Rhinovirus Viewer 🦏🦠
 
-Rhinovirus Viewer is a web-based tool for visualizing rhinovirus genomic data using JBrowse2. This tool allows users to explore and analyze rhinovirus genomes and related data.
+Rhinovirus Viewer is a web-based tool for visualizing rhinovirus genomic data using JBrowse2. After installation, this tool allows users to explore and analyze rhinovirus genomes and related data.
 
 ## Features
 
 - Visualize rhinovirus genomic data
 - Explore rhinovirus A, B, and C strains
 - Integrated with JBrowse2 for advanced genomic visualization
+- Expandable installation script to allow for addition of genome assemblies. Modify scripts in `installation/` to do so
 
 ## Installation Options
 
@@ -28,7 +29,11 @@ Follow these steps to install and set up Rhinovirus Viewer on a Debian/Ubuntu ba
     cd atamadon.github.io
     ```
 
-2. **Run the Installation Script**
+2. **OPTIONAL: Adding Additional Genome Assemblies**
+
+    The installation script uses a bash arrays to store FTP links to the genome `FASTA` files and `GFF` track annotations. If you wish to add additional assemblies, simply aquire the FTP links to the corresponding `.fasta` and `.gff` files and add them to the `strains` and `tracks` bash arrays respectively in `installation/install_linux.sh`.
+
+3. **Run the Installation Script**
     ```sh
     chmod +x installation/install_linux.sh
     ```
@@ -37,7 +42,7 @@ Follow these steps to install and set up Rhinovirus Viewer on a Debian/Ubuntu ba
     ./installation/install_linux.sh
     ```
 
-3. **Access the Viewer**
+4. **Access the Viewer**
 
     Navigate to `http://your-server-ip/jbrowse2` in your web browser. Apache will output the IP address to the shell. Otherwise, run:
     ```sh
@@ -45,7 +50,7 @@ Follow these steps to install and set up Rhinovirus Viewer on a Debian/Ubuntu ba
     ```
     To locate the server's IP address. 
 
-4. **NOTE: Your milage may vary**
+5. **NOTE: Your milage may vary**
 
     Please be mindful of your system's installation environment. This method is prone to dependency errors, issues with networking, and general linux file permission headaches. Use the devcontainer option for a streamlined experience. 
 
@@ -66,15 +71,19 @@ The preferred option is to use a DevContainer in Visual Studio Code, which autom
 
 3. **Open in Visual Studio Code**
 
-    Open the project in Visual Studio Code. You should see a prompt to reopen the project in a DevContainer. If not, open the `Command Palatte` and select `Remote-Containers: Reopen in Container`.
+    Open the project in Visual Studio Code. You should see a VSCode prompt in the bottom right to reopen the project in a DevContainer. If not, open the `Command Palatte` and select `>Remote-Containers: Reopen in Container`.
 
 4. **Run the DevContainer Setup Script**
 
     The `install_devcontainer.sh` script will automatically run inside the DevContainer to install all dependencies and set up the JBrowse viewer.
 
-5. **Access the Viewer**
+5. **OPTIONAL: Adding Additional Genome Assemblies**
 
-    Navigate to `http://localhost/jbrowse2` in your web browser.
+    The installation script uses a bash arrays to store FTP links to the genome `FASTA` files and `GFF` track annotations. If you wish to add additional assemblies, simply aquire the FTP links to the corresponding `.fasta` and `.gff` files and add them to the `strains` and `tracks` bash arrays respectively in `installation/install_devcontainer.sh`. The JBrowse instance will be updated with the new assemblies automatically the next time the container is rebuilt, or by running `>Dev Containers: Rebuild`.
+
+6. **Access the Viewer**
+
+    Navigate to [http://localhost/jbrowse2](http://localhost/jbrowse2) in your web browser.
 
 ## Usage
 
@@ -85,6 +94,9 @@ Once you have succefully installed JBrowse and can access your instance in a web
 
 **Select a view to launch**
 1. JBrowse supports a number of views to view genomic data in a convienent way. 
+2. Linear Genome View allows for visualizing genome sequences along with their corresponding track annotations.
+3. Linear Syntheny and Dotplot Views allow for visualizing pairwise sequence alignments calculated with `minimap2` for each genome pair using 5 different command line arguments. 
+4. 
 
 **Add the `MsaView` Plugin to view the alignments**  
  
