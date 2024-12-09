@@ -17,8 +17,9 @@
             color: #e0e0e0;
         }
         h1 {
-            font-size: 3em;
+            font-size: 6em; /* Increased size to be at least 2x bigger */
             color: #ffffff;
+            margin-bottom: 20px; /* Add some space below the title */
         }
         .ribbon {
             display: flex;
@@ -26,6 +27,7 @@
             background-color: #1f1f1f;
             width: 100%;
             padding: 10px 0;
+            margin-bottom: 40px; /* Add more space below the ribbon */
         }
         .ribbon a {
             color: #bb86fc;
@@ -45,10 +47,16 @@
         .content a:hover {
             text-decoration: underline;
         }
+        .virus-image {
+            margin: 20px 0;
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <h1>Rhinovirus Viewer</h1>
+    <img src="assets/220px-Rhinovirus_isosurface.png" alt="Rhinovirus" class="virus-image">
     <div class="ribbon">
         <a href="#report">Report</a>
         <a href="https://jbrowse.org/jb2/docs/" target="_blank">JBrowse Documentation</a>
