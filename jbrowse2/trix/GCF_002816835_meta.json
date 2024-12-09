@@ -1,0 +1,33 @@
+{
+  "dateCreated": "2024-12-09T02:03:54.486Z",
+  "tracks": [
+    {
+      "trackId": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff",
+      "attributesIndexed": [
+        "Name",
+        "ID"
+      ],
+      "excludedTypes": [
+        "CDS",
+        "exon"
+      ],
+      "adapterConf": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      }
+    }
+  ],
+  "assemblyNames": [
+    "GCF_002816835"
+  ]
+}

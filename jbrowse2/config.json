@@ -1,0 +1,151 @@
+{
+  "assemblies": [
+    {
+      "name": "GCF_002816835",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_002816835-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "GCF_002816835.1_ASM281683v1_genomic.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "GCF_002816835.1_ASM281683v1_genomic.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "GCF_000861265",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "GCF_000861265-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "GCF_000861265.1_ViralProj15309_genomic.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "GCF_000861265.1_ViralProj15309_genomic.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "New Session"
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff",
+      "name": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "sorted_GCF_002816835.1_ASM281683v1_genomic.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "GCF_002816835"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "sorted_GCF_000861265.1_ViralProj15309_genomic.gff",
+      "name": "sorted_GCF_000861265.1_ViralProj15309_genomic.gff",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "sorted_GCF_000861265.1_ViralProj15309_genomic.gff.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "sorted_GCF_000861265.1_ViralProj15309_genomic.gff.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "GCF_000861265"
+      ]
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic",
+      "name": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic",
+      "adapter": {
+        "type": "PAFAdapter",
+        "pafLocation": {
+          "uri": "GCF_002816835.1_ASM281683v1_genomic_GCF_000861265.1_ViralProj15309_genomic.paf",
+          "locationType": "UriLocation"
+        },
+        "assemblyNames": [
+          "GCF_002816835",
+          "GCF_000861265"
+        ]
+      },
+      "assemblyNames": [
+        "GCF_002816835",
+        "GCF_000861265"
+      ]
+    }
+  ],
+  "aggregateTextSearchAdapters": [
+    {
+      "type": "TrixTextSearchAdapter",
+      "textSearchAdapterId": "GCF_002816835-index",
+      "ixFilePath": {
+        "uri": "trix/GCF_002816835.ix",
+        "locationType": "UriLocation"
+      },
+      "ixxFilePath": {
+        "uri": "trix/GCF_002816835.ixx",
+        "locationType": "UriLocation"
+      },
+      "metaFilePath": {
+        "uri": "trix/GCF_002816835_meta.json",
+        "locationType": "UriLocation"
+      },
+      "assemblyNames": [
+        "GCF_002816835"
+      ]
+    },
+    {
+      "type": "TrixTextSearchAdapter",
+      "textSearchAdapterId": "GCF_000861265-index",
+      "ixFilePath": {
+        "uri": "trix/GCF_000861265.ix",
+        "locationType": "UriLocation"
+      },
+      "ixxFilePath": {
+        "uri": "trix/GCF_000861265.ixx",
+        "locationType": "UriLocation"
+      },
+      "metaFilePath": {
+        "uri": "trix/GCF_000861265_meta.json",
+        "locationType": "UriLocation"
+      },
+      "assemblyNames": [
+        "GCF_000861265"
+      ]
+    }
+  ]
+}
