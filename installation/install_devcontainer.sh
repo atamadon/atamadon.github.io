@@ -13,7 +13,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo npm install -g @jbrowse/cli
 
 # Install additional dependencies
-sudo apt update && sudo apt install wget unzip minimap2 apache2 -y
+sudo apt update && sudo apt install wget unzip minimap2 muscle apache2 -y
 brew install samtools htslib
 
 # Start apache2
@@ -27,6 +27,9 @@ cd ~/tmp
 jbrowse create output_folder
 sudo mv output_folder $APACHE_ROOT/jbrowse2
 sudo chown -R $(whoami) $APACHE_ROOT/jbrowse2
+
+# Add MSAView plugin
+sudo jbrowse add-plugin MSAView --out $APACHE_ROOT/jbrowse2 --load copy
 
 # ADD LINKS TO ASSEMBLIES TO THIS ARRAY TO VIEW IN JBROWSE
 strains=(
@@ -42,13 +45,13 @@ assembly_files=()
 for strain in ${strains[@]}; do
     wget $strain
     strain_file=$(basename $strain)
-    assembly_name=${strain_file%%.*}
     assembly_file=${strain_file%.*.*}
-    assembly_names+=($assembly_name)
     assembly_files+=($assembly_file)
     gunzip $strain_file
     unzipped_file=${strain_file%.gz}
-    echo "Unzipped file: $unzipped_file"
+    assembly_name=$(head -n 1 $unzipped_file | cut -d ' ' -f 1 | sed 's/>//')
+    echo "/n/nAssembly name: $assembly_name/n/n"
+    assembly_names+=($assembly_name)
     samtools faidx $unzipped_file
     sudo jbrowse add-assembly $unzipped_file --out $APACHE_ROOT/jbrowse2 --load copy --name $assembly_name
 done
@@ -107,5 +110,11 @@ for ((i=0; i<${#assembly_files[@]}; i++)); do
         sudo jbrowse add-track ${assembly1}_${assembly2}_sensitive.paf --assemblyNames ${assembly_names[i]},${assembly_names[j]} --out $APACHE_ROOT/jbrowse2 --load copy
     done
 done
+
+# Create MSA
+for assembly in ${assembly_files[@]}; do
+    cat ${assembly}.fna >> all_assemblies.fasta
+done
+muscle -in all_assemblies.fasta -out /workspaces/atamadon.github.io/all_assemblies.msa.fasta
 
 sudo jbrowse text-index --out $APACHE_ROOT/jbrowse2

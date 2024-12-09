@@ -19,7 +19,7 @@ fnm use --install-if-missing 20
 sudo npm install -g @jbrowse/cli
 
 # Install additional dependencies
-sudo apt update && sudo apt install wget unzip minimap2 apache2 -y
+sudo apt update && sudo apt install wget unzip minimap2 muscle apache2 -y
 brew install samtools htslib
 
 # Start apache2
