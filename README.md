@@ -96,7 +96,7 @@ Once you have succefully installed JBrowse and can access your instance in a web
 1. JBrowse supports a number of views to view genomic data in a convienent way. 
 2. Linear Genome View allows for visualizing genome sequences along with their corresponding track annotations.
 3. Linear Syntheny and Dotplot Views allow for visualizing pairwise sequence alignments calculated with `minimap2` for each genome pair using 5 different command line arguments. 
-4. 
+4. Multiple Sequence Alignment View allows for visualizing multiple sequence alignmnets calculated with `muscle` for all genomes. See information below to use the plugin.
 
 **Add the `MsaView` Plugin to view the alignments**  
  
@@ -104,5 +104,6 @@ Once you have succefully installed JBrowse and can access your instance in a web
 2. Click on the `Plugin Store`
 3. Find `MsaView` under the `Avalible plugins` and click ` + INSTALL `
 4. Once installed, nativate to the `Add ▼` dropdown and select `Multiple Sequence Alignment view`
-5. MsaView will prompt for a MSA File or URL. Select File, and choose the `all_assemblies.msa.fasta` file that was present in the clone git repository. `Open` to view.
+5. MsaView will prompt for a MSA File or URL. Select File, and choose the `all_assemblies.msa.fasta` file that was downloaded with the cloned git repository. `Open` to view.
+6. MsaView will display both a visual MSA as well as a phylogenetic tree. Feel free to upload your own MSAs to view.
 

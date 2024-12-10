@@ -88,11 +88,11 @@ for ((i=0; i<${#assembly_files[@]}; i++)); do
         minimap2 -x sr ${assembly1}.fna ${assembly2}.fna > ${assembly1}_${assembly2}_sr.paf
         minimap2 -k 15 -w 5 ${assembly1}.fna ${assembly2}.fna > ${assembly1}_${assembly2}_sensitive.paf
 
-        sudo jbrowse add-track ${assembly1}_${assembly2}.paf --assemblyNames ${assembly_names[i]},${assembly_names[j]} --out $APACHE_ROOT/jbrowse2 --load copy
-        sudo jbrowse add-track ${assembly1}_${assembly2}_asm5.paf --assemblyNames ${assembly_names[i]},${assembly_names[j]} --out $APACHE_ROOT/jbrowse2 --load copy
-        sudo jbrowse add-track ${assembly1}_${assembly2}_map-ont.paf --assemblyNames ${assembly_names[i]},${assembly_names[j]} --out $APACHE_ROOT/jbrowse2 --load copy
-        sudo jbrowse add-track ${assembly1}_${assembly2}_sr.paf --assemblyNames ${assembly_names[i]},${assembly_names[j]} --out $APACHE_ROOT/jbrowse2 --load copy
-        sudo jbrowse add-track ${assembly1}_${assembly2}_sensitive.paf --assemblyNames ${assembly_names[i]},${assembly_names[j]} --out $APACHE_ROOT/jbrowse2 --load copy
+        sudo jbrowse add-track ${assembly1}_${assembly2}.paf --assemblyNames ${assembly_names[j]},${assembly_names[i]} --out $APACHE_ROOT/jbrowse2 --load copy
+        sudo jbrowse add-track ${assembly1}_${assembly2}_asm5.paf --assemblyNames ${assembly_names[j]},${assembly_names[i]} --out $APACHE_ROOT/jbrowse2 --load copy
+        sudo jbrowse add-track ${assembly1}_${assembly2}_map-ont.paf --assemblyNames ${assembly_names[j]},${assembly_names[i]} --out $APACHE_ROOT/jbrowse2 --load copy
+        sudo jbrowse add-track ${assembly1}_${assembly2}_sr.paf --assemblyNames ${assembly_names[j]},${assembly_names[i]} --out $APACHE_ROOT/jbrowse2 --load copy
+        sudo jbrowse add-track ${assembly1}_${assembly2}_sensitive.paf --assemblyNames ${assembly_names[j]},${assembly_names[i]} --out $APACHE_ROOT/jbrowse2 --load copy
     done
 done
 
