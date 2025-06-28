@@ -1,0 +1,167 @@
+/* === Light mode colors (default) === */
+:root {
+  --primary-blue: #003262;
+  --primary-gold: #FDB515;
+  --background: #ffffff;
+  --text-color: #000000;
+
+  --font-sans: 'Inter', Arial, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+}
+
+/* === Dark mode colors === */
+html[data-theme="dark"] {
+  --primary-blue: #003262;
+  --primary-gold: #FDB515;
+  --background: #1b1b1b;
+  --text-color: #e3d9c6;
+}
+
+/* === General styles === */
+
+body {
+  background-color: var(--background);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  margin: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #003262;
+  color: #ffffff;
+  padding: 1rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 0 0 1rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-links a:focus,
+.nav-links a:hover {
+  color: var(--primary-gold);
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  color: var(--primary-blue);
+}
+
+a {
+  color: var(--primary-blue);
+}
+
+a:hover,
+a:focus {
+  color: var(--primary-gold);
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+  z-index: 1000;
+}
+
+.team-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-card img {
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+.team-card h3 {
+  margin: 0.5rem 0 0;
+}
+
+
+#theme-toggle {
+  background: var(--primary-gold);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus {
+  opacity: 0.9;
+  outline: none;
+}
+
+#theme-icon {
+  color: var(--text-color);
+  font-size: 1.25rem;
+  line-height: 1;
+  user-select: none;
+}
+
+#ngl-container {
+  background-color: var(--background);
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+  }
+}

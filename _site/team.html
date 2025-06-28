@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team | Molecular Cell Biomechanics Laboratory</title>
+  <!-- Favicon -->
+  <link rel="icon" href="assets\logos\cropped-logo_cool-32x32.png" type="image/png" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- NGL Viewer -->
+  <script src="https://cdn.jsdelivr.net/npm/ngl@0.10.4/dist/ngl.js"></script>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="site-header">
+      <h1 class="site-title">Molecular Cell Biomechanics Laboratory</h1>
+
+      <nav aria-label="Main site navigation">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/team.html">Team</a></li>
+          <li><a href="/research.html">Research</a></li>
+          <li><a href="/publications.html">Publications</a></li>
+          <li><a href="/teaching.html">Teaching</a></li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" aria-label="Toggle light and dark mode" title="Toggle light/dark mode">
+        <span id="theme-icon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <h1 id="our-team">Our Team</h1>
+
+<h2 id="principal-investigator">Principal Investigator</h2>
+
+<ul class="team-list">
+  
+    
+  
+    
+  
+    
+    <li class="team-card">
+      <img src="/assets/images/alice.jpg" alt="Photo of Dr. Alice Smith" />
+      <h3>Dr. Alice Smith</h3>
+      <p>Professor</p>
+      <p>Email: <a href="mailto:alice@university.edu">alice@university.edu</a></p>
+      <p>Group: Molecular Dynamics</p>
+      <div><p>Alice studies the physical basis of protein folding.</p>
+</div>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+</ul>
+
+<h2 id="postdoctoral-researchers">Postdoctoral Researchers</h2>
+
+<ul class="team-list">
+  
+    
+  
+    
+  
+    
+  
+    
+    <li class="team-card">
+      <img src="/assets/images/jane.jpg" alt="Photo of Dr. Jane Doe" />
+      <h3>Dr. Jane Doe</h3>
+      <p>Postdoctoral Researcher</p>
+      <p>Email: <a href="mailto:jane@university.edu">jane@university.edu</a></p>
+      <p>Group: Microbiome</p>
+      <div><p>Jane investigates microbiome dynamics using agent-based models and large-scale simulations.</p>
+</div>
+    </li>
+    
+  
+    
+    <li class="team-card">
+      <img src="/assets/images/mark.jpg" alt="Photo of Dr. Mark Lee" />
+      <h3>Dr. Mark Lee</h3>
+      <p>Postdoctoral Fellow</p>
+      <p>Email: <a href="mailto:mark@university.edu">mark@university.edu</a></p>
+      <p>Group: Molecular Dynamics</p>
+      <div><p>Mark works on protein folding simulations and dynamics.</p>
+</div>
+    </li>
+    
+  
+    
+  
+</ul>
+
+<h2 id="graduate-students">Graduate Students</h2>
+
+<ul class="team-list">
+  
+    
+    <li class="team-card">
+      <img src="/assets/images/bob.jpg" alt="Photo of Bob Brown" />
+      <h3>Bob Brown</h3>
+      <p>Master’s Student</p>
+      <p>Email: <a href="mailto:bob@university.edu">bob@university.edu</a></p>
+      <p>Group: Artificial Intelligence</p>
+      <div><p>Bob develops AI models for predicting protein folding pathways.</p>
+</div>
+    </li>
+    
+  
+    
+    <li class="team-card">
+      <img src="/assets/images/john.jpg" alt="Photo of John Doe" />
+      <h3>John Doe</h3>
+      <p>PhD Student</p>
+      <p>Email: <a href="mailto:john@university.edu">john@university.edu</a></p>
+      <p>Group: Microbiome</p>
+      <div><p>John models gut microbiome dynamics with agent-based models.</p>
+</div>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</ul>
+
+<h2 id="undergraduate-students">Undergraduate Students</h2>
+
+<ul class="team-list">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <li class="team-card">
+      <img src="/assets/images/emily.jpg" alt="Photo of Emily Lee" />
+      <h3>Emily Lee</h3>
+      <p>Undergraduate Research Assistant</p>
+      <p>Email: <a href="mailto:emily@university.edu">emily@university.edu</a></p>
+      <p>Group: Microbiome</p>
+      <div><p>Emily assists with microbiome data processing and visualization.</p>
+</div>
+    </li>
+    
+  
+</ul>
+
+  </main>
+
+  <script>
+    const htmlEl = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+
+    function setTheme(theme) {
+      htmlEl.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+
+      // Icon shows current theme: moon for dark, sun for light
+      icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    // Initialize theme on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(prefersDark ? 'dark' : 'light');
+    }
+
+    toggle.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(nextTheme);
+      window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: nextTheme } }));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+title: "Molecular Cell Biomechanics Laboratory"
+description: "Computational Biology Research Group"
+theme: minima
+
+collections:
+  team:
+    output: false
