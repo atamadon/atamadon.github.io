@@ -1,20 +1,41 @@
-/* === Light mode colors (default) === */
+/* Default Colors from UC Berkeley Branding Style Guide */
 :root {
   --primary-blue: #003262;
   --primary-gold: #FDB515;
-  --background: #ffffff;
-  --text-color: #000000;
+  --secondary-blue: #010133;
+  --secondary-gold: #FC9313;
+  --primary-white: #ffffff;
+  --secondary-black: #252525;
 
   --font-sans: 'Inter', Arial, sans-serif;
   --font-serif: 'Source Serif 4', Georgia, serif;
 }
 
+/* Light mode colors (default) */
+html[data-theme="light"] {
+  --primary-color: var(--primary-blue);
+  --primary-accent: var(--primary-gold);
+  --secondary-color: var(--secondary-blue);
+  --secondary-accent: var(--secondary-gold);
+  --background: var(--primary-white);
+  --text-color: var(--secondary-black);
+
+  --icon-fill: 1;
+  --icon-stroke: var(--text-color);
+}
+
+
 /* === Dark mode colors === */
 html[data-theme="dark"] {
-  --primary-blue: #003262;
-  --primary-gold: #FDB515;
-  --background: #1b1b1b;
-  --text-color: #e3d9c6;
+  --primary-color: var(--primary-gold);
+  --primary-accent: var(--primary-blue);
+  --secondary-color: var(--secondary-gold);
+  --secondary-accent: var(--secondary-blue);
+  --background: var(--secondary-black);
+  --text-color: var(--primary-white);
+
+  --icon-fill: 0;
+  --icon-stroke: var(--text-color);
 }
 
 /* === General styles === */
@@ -28,8 +49,8 @@ body {
 }
 
 header {
-  background-color: #003262;
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: var(--background);
   padding: 1rem;
 }
 
@@ -44,9 +65,14 @@ header {
   margin: 0;
   font-family: var(--font-serif);
   font-size: 1.8rem;
-  color: #ffffff;
+  color: var(--background);
 }
 
+.lab-logo {
+  height: 2.5rem;
+  vertical-align: middle;
+  padding-left: 0.5rem;
+}
 .nav-links {
   list-style: none;
   padding: 0;
@@ -57,32 +83,84 @@ header {
 }
 
 .nav-links a {
-  color: #ffffff;
+  color: var(--background);
   text-decoration: none;
 }
 
 .nav-links a:focus,
 .nav-links a:hover {
-  color: var(--primary-gold);
+  color: var(--primary-accent);
   text-decoration: underline;
 }
+
+/* === Dropdown menu === */
+
+/* Remove default bullets & spacing */
+.nav-links,
+.nav-links ul,
+.nav-links li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Parent list is flex already: reuse that */
+.nav-links li {
+  position: relative;
+}
+
+/* Dropdown container */
+.nav-links li .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+}
+
+/* Dropdown links */
+.nav-links li .dropdown li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* Hover/focus styles for dropdown links */
+.nav-links li .dropdown li a:hover,
+.nav-links li .dropdown li a:focus {
+  background: var(--primary-accent);
+  color: var(--primary-white);
+}
+
+/* Show dropdown on hover or focus */
+.nav-links li:hover>.dropdown,
+.nav-links li:focus-within>.dropdown {
+  display: block;
+}
+
 
 main {
   padding: 2rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-serif);
-  color: var(--primary-blue);
+  color: var(--primary-color);
 }
 
 a {
-  color: var(--primary-blue);
+  color: var(--primary-color);
 }
 
 a:hover,
 a:focus {
-  color: var(--primary-gold);
+  color: var(--primary-accent);
   outline: none;
 }
 
@@ -101,8 +179,8 @@ a:focus {
   height: auto;
   margin: 1rem;
   padding: 0.5rem 1rem;
-  background: #000;
-  color: #fff;
+  background: var(--background);
+  color: var(--text-color);
   z-index: 1000;
 }
 
@@ -127,9 +205,43 @@ a:focus {
   margin: 0.5rem 0 0;
 }
 
+/* Publications table */
+.publications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+.publications-table th,
+.publications-table td {
+  border: 1px solid var(--secondary-color);
+  padding: 0.5rem;
+}
+.publications-table th {
+  background: var(--primary-accent);
+  color: var(--primary-white);
+}
+
+/* Book list */
+.book-list {
+  list-style: none;
+  padding: 0;
+}
+.book-entry {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.book-entry img {
+  max-width: 120px;
+  border: 1px solid var(--secondary-color);
+}
+.book-meta {
+  flex: 1;
+}
+
 
 #theme-toggle {
-  background: var(--primary-gold);
+  background: var(--primary-accent);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -139,7 +251,6 @@ a:focus {
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  color: var(--primary-blue);
   font-size: 1.2rem;
 }
 
@@ -149,12 +260,15 @@ a:focus {
   outline: none;
 }
 
-#theme-icon {
-  color: var(--text-color);
-  font-size: 1.25rem;
-  line-height: 1;
-  user-select: none;
-}
+/* #theme-icon {
+  filter:
+    grayscale(100%) brightness(0) invert(var(--icon-fill))
+    drop-shadow(-0.25px -0.25px 0 var(--icon-stroke))
+    drop-shadow( 0.25px -0.25px 0 var(--icon-stroke))
+    drop-shadow(-0.25px  0.25px 0 var(--icon-stroke))
+    drop-shadow( 0.25px  0.25px 0 var(--icon-stroke));
+} */
+
 
 #ngl-container {
   background-color: var(--background);

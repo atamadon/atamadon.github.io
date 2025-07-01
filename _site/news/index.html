@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Research | Molecular Cell Biomechanics Laboratory</title>
+  <title>News | Molecular Cell Biomechanics Laboratory</title>
   <!-- Favicon -->
-  <link rel="icon" href="assets\logos\cropped-logo_cool-32x32.png" type="image/png" />
+  <link rel="icon" href="/assets/logos/cropped-logo_cool-32x32.png" type="image/png" style="height 40px"/>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap"
+    rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/style.css" />
 
   <!-- NGL Viewer -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/ngl@0.10.4/dist/ngl.js"></script> -->
+
   <script src="https://cdn.jsdelivr.net/npm/ngl@0.10.4/dist/ngl.js"></script>
+  <script src="/assets/js/molecular-viewer.js" type="module"></script>
+
 </head>
 
 <body>
@@ -22,17 +29,35 @@
 
   <header>
     <div class="site-header">
-      <h1 class="site-title">Molecular Cell Biomechanics Laboratory</h1>
+      <h1 class="site-title">
+        <a href="/" style="color: inherit; text-decoration: none;">
+          Molecular Cell Biomechanics Laboratory
+          <img src="/assets/logos/cropped-logo_cool-180x180.png" alt="Logo" class="lab-logo" />
+        </a>
+      </h1>
 
       <nav aria-label="Main site navigation">
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/team.html">Team</a></li>
-          <li><a href="/research.html">Research</a></li>
-          <li><a href="/publications.html">Publications</a></li>
-          <li><a href="/teaching.html">Teaching</a></li>
-          <li><a href="/news.html">News</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/team/">Team</a></li>
+          <li>
+            <a href="/research/">Research</a>
+            <ul class="dropdown">
+              <li><a href="/research/nuclear-mechanotransduction/">Nuclear Mechanotransduction</a></li>
+              <li><a href="/research/microbiome/">Microbiome</a></li>
+              <li><a href="/research/ai/">Artificial Intelligence</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/publications/">Publications</a>
+            <ul class="dropdown">
+              <li><a href="/publications/journals/">Journal Articles</a></li>
+              <li><a href="/publications/books/">Books</a></li>
+            </ul>
+          </li>
+          <li><a href="/teaching/">Teaching</a></li>
+          <li><a href="/news/">News</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
 
@@ -43,41 +68,12 @@
   </header>
 
   <main id="main-content">
-    <h2>Molecular Structure Viewer (NGL)</h2>
+    <h1 id="news">News</h1>
 
-<div id="ngl-container" style="width: 600px; height: 600px; margin: 1rem auto;"></div>
-
-<script>
-  var stage = new NGL.Stage("ngl-container");
-
-  window.addEventListener("resize", () => stage.handleResize());
-
-  function updateNglBackground(theme) {
-    if (theme === "dark") {
-      stage.setParameters({ backgroundColor: 0x1b1b1b });
-    } else {
-      stage.setParameters({ backgroundColor: 0xffffff });
-    }
-  }
-
-  // Initial background color based on current theme
-  updateNglBackground(document.documentElement.getAttribute("data-theme"));
-
-  // Load structure with chain-specific coloring
-  stage.loadFile("assets/structures/4dxr.pdb").then(function(component) {
-    component.addRepresentation("cartoon", {
-      color: "chainname",
-      sele: "chain A or chain B"
-    });
-    component.autoView();
-  });
-
-  // Listen to theme change event and update background
-  window.addEventListener("themeChanged", (event) => {
-    updateNglBackground(event.detail.theme);
-  });
-</script>
-
+<ul>
+  <li>📅 June 2024: New paper published in <em>Nature</em>.</li>
+  <li>🎉 May 2024: Congratulations to Alice on defending her PhD!</li>
+</ul>
 
   </main>
 
@@ -111,4 +107,5 @@
     });
   </script>
 </body>
+
 </html>

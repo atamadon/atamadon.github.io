@@ -14,9 +14,9 @@ title: Team
       <img src="{{ member.image }}" alt="Photo of {{ member.name }}">
       <h3>{{ member.name }}</h3>
       <p>{{ member.status }}</p>
+      <p>{{ member.group }}</p>
       <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
+      {{ member.content | markdownify }}
     </li>
     {% endif %}
   {% endfor %}
@@ -31,9 +31,9 @@ title: Team
       <img src="{{ member.image }}" alt="Photo of {{ member.name }}">
       <h3>{{ member.name }}</h3>
       <p>{{ member.status }}</p>
+      <p>{{ member.group }}</p>
       <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
+      {{ member.content | markdownify }}
     </li>
     {% endif %}
   {% endfor %}
@@ -48,9 +48,9 @@ title: Team
       <img src="{{ member.image }}" alt="Photo of {{ member.name }}">
       <h3>{{ member.name }}</h3>
       <p>{{ member.status }}</p>
+      <p>{{ member.group }}</p>
       <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
+      {{ member.content | markdownify }}
     </li>
     {% endif %}
   {% endfor %}
@@ -65,9 +65,9 @@ title: Team
       <img src="{{ member.image }}" alt="Photo of {{ member.name }}">
       <h3>{{ member.name }}</h3>
       <p>{{ member.status }}</p>
+      <p>{{ member.group }}</p>
       <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
+      {{ member.content | markdownify }}
     </li>
     {% endif %}
   {% endfor %}
