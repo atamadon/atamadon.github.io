@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-# Welcome to My Lab
+# Welcome to our Lab
 
 We are a research group focused on computational biology and the modeling of biological systems.
 

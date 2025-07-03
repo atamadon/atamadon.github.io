@@ -1,178 +1,91 @@
-/* Default Colors from UC Berkeley Branding Style Guide */
+/* =======================================================
+   style.css — Organized & Commented
+   UC Berkeley Brand Colors, Theme Toggle, Layout, Components
+   ======================================================= */
+
+/*--------------------------------------------------------
+  1. CSS Variables (Brand & Typography)
+--------------------------------------------------------*/
 :root {
-  --primary-blue: #003262;
-  --primary-gold: #FDB515;
-  --secondary-blue: #010133;
-  --secondary-gold: #FC9313;
-  --primary-white: #ffffff;
+  /* Primary Palette */
+  --primary-blue:   #003262;
+  --primary-gold:   #FDB515;
+
+  /* Secondary Palette */
+  --secondary-blue:  #010133;
+  --secondary-gold:  #FC9313;
+
+  /* Neutrals */
+  --primary-white:  #ffffff;
   --secondary-black: #252525;
 
-  --font-sans: 'Inter', Arial, sans-serif;
+  /* Typography */
+  --font-sans:  'Inter', Arial, sans-serif;
   --font-serif: 'Source Serif 4', Georgia, serif;
 }
 
-/* Light mode colors (default) */
+/* Light/Dark Theme Variables */
 html[data-theme="light"] {
-  --primary-color: var(--primary-blue);
-  --primary-accent: var(--primary-gold);
-  --secondary-color: var(--secondary-blue);
-  --secondary-accent: var(--secondary-gold);
-  --background: var(--primary-white);
-  --text-color: var(--secondary-black);
-
-  --icon-fill: 1;
-  --icon-stroke: var(--text-color);
+  --primary-color:     var(--primary-blue);
+  --primary-accent:    var(--primary-gold);
+  --secondary-color:   var(--secondary-blue);
+  --secondary-accent:  var(--secondary-gold);
+  --background:        var(--primary-white);
+  --text-color:        var(--secondary-black);
 }
 
-
-/* === Dark mode colors === */
 html[data-theme="dark"] {
-  --primary-color: var(--primary-gold);
-  --primary-accent: var(--primary-blue);
-  --secondary-color: var(--secondary-gold);
-  --secondary-accent: var(--secondary-blue);
-  --background: var(--secondary-black);
-  --text-color: var(--primary-white);
-
-  --icon-fill: 0;
-  --icon-stroke: var(--text-color);
+  --primary-color:     var(--primary-gold);
+  --primary-accent:    var(--primary-blue);
+  --secondary-color:   var(--secondary-gold);
+  --secondary-accent:  var(--secondary-blue);
+  --background:        var(--secondary-black);
+  --text-color:        var(--primary-white);
 }
 
-/* === General styles === */
+/*--------------------------------------------------------
+  2. Global & Reset Styles
+--------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
 
 body {
+  margin: 0;
+  font-family: var(--font-sans);
   background-color: var(--background);
   color: var(--text-color);
-  font-family: var(--font-sans);
-  margin: 0;
   line-height: 1.6;
-}
-
-header {
-  background-color: var(--primary-color);
-  color: var(--background);
-  padding: 1rem;
-}
-
-.site-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.site-title {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  color: var(--background);
-}
-
-.lab-logo {
-  height: 2.5rem;
-  vertical-align: middle;
-  padding-left: 0.5rem;
-}
-.nav-links {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 0 0 0 1rem;
-}
-
-.nav-links a {
-  color: var(--background);
-  text-decoration: none;
-}
-
-.nav-links a:focus,
-.nav-links a:hover {
-  color: var(--primary-accent);
-  text-decoration: underline;
-}
-
-/* === Dropdown menu === */
-
-/* Remove default bullets & spacing */
-.nav-links,
-.nav-links ul,
-.nav-links li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Parent list is flex already: reuse that */
-.nav-links li {
-  position: relative;
-}
-
-/* Dropdown container */
-.nav-links li .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--background);
-  border: 1px solid var(--secondary-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 999;
-}
-
-/* Dropdown links */
-.nav-links li .dropdown li a {
-  display: block;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: var(--text-color);
-}
-
-/* Hover/focus styles for dropdown links */
-.nav-links li .dropdown li a:hover,
-.nav-links li .dropdown li a:focus {
-  background: var(--primary-accent);
-  color: var(--primary-white);
-}
-
-/* Show dropdown on hover or focus */
-.nav-links li:hover>.dropdown,
-.nav-links li:focus-within>.dropdown {
-  display: block;
-}
-
-
-main {
-  padding: 2rem;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-serif);
-  color: var(--primary-color);
 }
 
 a {
   color: var(--primary-color);
+  text-decoration: none;
 }
-
 a:hover,
 a:focus {
   color: var(--primary-accent);
   outline: none;
 }
 
+main {
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+/* Skip Link for Accessibility */
 .skip-link {
   position: absolute;
   left: -999px;
-  top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
 }
-
 .skip-link:focus {
   position: static;
   width: auto;
@@ -184,96 +97,255 @@ a:focus {
   z-index: 1000;
 }
 
-.team-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 0;
-}
-
-.team-card {
-  text-align: center;
-}
-
-.team-card img {
-  max-width: 150px;
-  border-radius: 50%;
-}
-
-.team-card h3 {
-  margin: 0.5rem 0 0;
-}
-
-/* Publications table */
-.publications-table {
+/*--------------------------------------------------------
+  3. Header & Navigation
+--------------------------------------------------------*/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--primary-color);
+  color: var(--background);
+  padding: 1rem;
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2rem;
 }
-.publications-table th,
-.publications-table td {
-  border: 1px solid var(--secondary-color);
-  padding: 0.5rem;
+.site-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-.publications-table th {
-  background: var(--primary-accent);
-  color: var(--primary-white);
+.site-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--background);
+}
+.lab-logo {
+  height: 2.5rem;
+  vertical-align: middle;
+  padding-left: 0.5rem;
 }
 
-/* Book list */
-.book-list {
+/* Main Navigation Links */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 0 0 1rem;
   list-style: none;
   padding: 0;
 }
-.book-entry {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.nav-links a {
+  color: var(--background);
 }
-.book-entry img {
-  max-width: 120px;
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--primary-accent);
+  text-decoration: underline;
+}
+
+/* Dropdown Menu */
+
+/* Remove default bullets and spacing for dropdown */
+.nav-links .dropdown,
+.nav-links .dropdown li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li {
+  position: relative;
+}
+.nav-links li .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: var(--background);
   border: 1px solid var(--secondary-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 999;
 }
-.book-meta {
-  flex: 1;
+.nav-links li:hover > .dropdown,
+.nav-links li:focus-within > .dropdown {
+  display: block;
+}
+.nav-links li .dropdown li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+}
+.nav-links li .dropdown li a:hover,
+.nav-links li .dropdown li a:focus {
+  background: var(--primary-accent);
+  color: var(--background);
 }
 
-
+/* Theme Toggle Button */
 #theme-toggle {
+  margin-left: auto;
   background: var(--primary-accent);
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
+  cursor: pointer;
   font-size: 1.2rem;
 }
-
 #theme-toggle:hover,
 #theme-toggle:focus {
   opacity: 0.9;
   outline: none;
 }
 
-/* #theme-icon {
-  filter:
-    grayscale(100%) brightness(0) invert(var(--icon-fill))
-    drop-shadow(-0.25px -0.25px 0 var(--icon-stroke))
-    drop-shadow( 0.25px -0.25px 0 var(--icon-stroke))
-    drop-shadow(-0.25px  0.25px 0 var(--icon-stroke))
-    drop-shadow( 0.25px  0.25px 0 var(--icon-stroke));
-} */
+/*--------------------------------------------------------
+  4. Team Section
+--------------------------------------------------------*/
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.team-card {
+  background: var(--background);
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.team-card img {
+  max-width: 150px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+.team-card h3 {
+  margin: 0.5rem 0;
+}
+.team-card .status {
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+.alumni-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.alumni-list li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--secondary-color);
+}
+.alumni-list li:last-child {
+  border-bottom: none;
+}
 
+/*--------------------------------------------------------
+  5. Publications Section
+--------------------------------------------------------*/
+/* Table of all publications */
+.publications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+.publications-table .year-heading {
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--secondary-color);
+}
+.publications-table td {
+  vertical-align: top;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+.pub-image-cell { width: 160px; }
+.pub-image-cell img { max-width: 100%; height: auto; }
+.pub-text-cell { /* flexible */ }
 
+/*--------------------------------------------------------
+  6. Books Grid
+--------------------------------------------------------*/
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.book-card {
+  text-align: center;
+  background: var(--background);
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  padding: 1rem;
+}
+.book-title {
+  font-size: 1.25rem;
+  margin-top: 0;
+}
+.book-cover {
+  display: block;
+  width: 150px;
+  max-height: 200px;
+  object-fit: contain;
+  margin: 0.5rem auto;
+}
+.book-citation,
+.book-authors {
+  margin: 0.25rem 0;
+}
+
+/*--------------------------------------------------------
+  7. Journal Articles List
+--------------------------------------------------------*/
+.journal-list {
+  list-style: disc outside;
+  padding-left: 1.5rem;
+  margin: 0 0 2rem 0;
+}
+.journal-list li {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  align-items: start;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 1rem 0;
+}
+.journal-list li:last-child { border-bottom: none; }
+.journal-list li img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+}
+.journal-list li > div { line-height: 1.5; }
+.journal-list li a {
+  color: var(--primary-color);
+}
+.journal-list li a:hover,
+.journal-list li a:focus {
+  color: var(--primary-accent);
+  text-decoration: underline;
+}
+
+/*--------------------------------------------------------
+  8. NGL Viewer Container
+--------------------------------------------------------*/
 #ngl-container {
   background-color: var(--background);
 }
 
+/*--------------------------------------------------------
+  9. Responsive Breakpoints
+--------------------------------------------------------*/
 @media (max-width: 600px) {
   .nav-links {
     flex-direction: column;

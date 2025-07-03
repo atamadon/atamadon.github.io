@@ -2,8 +2,6 @@ title: "Molecular Cell Biomechanics Laboratory"
 description: "Computational Biology Research Group"
 theme: minima
 
-url: "https://atamadon.github.io"
-baseurl: "/lab-website"
 permalink: pretty
 
 collections:
@@ -11,3 +9,10 @@ collections:
     output: false
   publications:
     output: false
+
+# defaults:
+#   - scope:
+#       path: "_publications"
+#     values:
+#       layout: default
+#       permalink: "/publications/:basename/"
