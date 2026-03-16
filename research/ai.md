@@ -3,7 +3,7 @@ layout: default
 title: Artificial Intelligence
 ---
 
-# Artificial Intelligence
+{% include section-heading.html eyebrow="Research area" title="Artificial Intelligence" %}
 
 We develop and apply machine learning and AI techniques to solve complex biological questions. This includes predictive models, data-driven discovery, and automation of computational pipelines.
 

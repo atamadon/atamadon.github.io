@@ -1,0 +1,15 @@
+sun-kash-4dxr:
+  id: sun-kash-4dxr
+  title: SUN-KASH complex
+  pdb_id: 4dxr
+  source: /assets/structures/4dxr.pdb
+  format: pdb
+  caption: Interactive Mol* view of the SUN-KASH complex used on the nuclear mechanotransduction page.
+  poster_image: /assets/images/structures/4dxr-poster.svg
+  height: 34rem
+  background: "transparent"
+  load_label: Load Mol* viewer
+  representations:
+    - type: cartoon
+      params:
+        color: chain-id

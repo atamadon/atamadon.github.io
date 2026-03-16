@@ -1,0 +1,63 @@
+{% assign theme = site.data.theme %}
+{% assign motion_scale = theme.motion.scale | default: 1 %}
+{% if theme.motion.enabled == false %}
+  {% assign motion_scale = 0 %}
+{% endif %}
+
+<style>
+  :root {
+    --theme-content-width: {{ theme.layout.content_width | default: '72rem' }};
+    --theme-radius-card: {{ theme.radius.card | default: '1rem' }};
+    --theme-radius-pill: {{ theme.radius.pill | default: '999px' }};
+    --theme-shadow-light-card: {{ theme.shadows.light_card | default: '0 18px 40px rgba(0, 38, 118, 0.08)' }};
+    --theme-shadow-light-card-hover: {{ theme.shadows.light_card_hover | default: '0 22px 48px rgba(0, 38, 118, 0.13)' }};
+    --theme-shadow-dark-card: {{ theme.shadows.dark_card | default: '0 18px 40px rgba(0, 0, 0, 0.34)' }};
+    --theme-shadow-dark-card-hover: {{ theme.shadows.dark_card_hover | default: '0 22px 48px rgba(0, 0, 0, 0.42)' }};
+    --theme-motion-scale: {{ motion_scale }};
+    --theme-motion-play-state: {% if theme.motion.enabled == false %}paused{% else %}running{% endif %};
+  }
+
+  html[data-theme="light"] {
+    --theme-light-berkeley-blue: {{ theme.colors.light.berkeley_blue | default: '#002676' }};
+    --theme-light-berkeley-gold: {{ theme.colors.light.berkeley_gold | default: '#fdb515' }};
+    --theme-light-accent-blue: {{ theme.colors.light.accent_blue | default: '#001a4d' }};
+    --theme-light-accent-gold: {{ theme.colors.light.accent_gold | default: '#fc9313' }};
+    --theme-light-ink-900: {{ theme.colors.light.ink_900 | default: '#1f1f1f' }};
+    --theme-light-ink-700: {{ theme.colors.light.ink_700 | default: '#4a4a4a' }};
+    --theme-light-line-300: {{ theme.colors.light.line_300 | default: 'rgba(0, 38, 118, 0.18)' }};
+    --theme-light-surface-0: {{ theme.colors.light.surface_0 | default: '#ffffff' }};
+    --theme-light-surface-50: {{ theme.colors.light.surface_50 | default: '#f7f9fc' }};
+    --theme-light-surface-100: {{ theme.colors.light.surface_100 | default: '#eef3f8' }};
+    --theme-light-surface-tint: {{ theme.colors.light.surface_tint | default: '#edf3fb' }};
+    --theme-light-header-bg: {{ theme.colors.light.header_bg | default: '#002676' }};
+    --theme-light-header-surface: {{ theme.colors.light.header_surface | default: 'rgba(0, 38, 118, 0.96)' }};
+    --theme-light-header-border: {{ theme.colors.light.header_border | default: 'rgba(255, 255, 255, 0.12)' }};
+    --theme-light-header-text: {{ theme.colors.light.header_text | default: '#ffffff' }};
+    --theme-light-header-muted: {{ theme.colors.light.header_muted | default: 'rgba(255, 255, 255, 0.78)' }};
+    --theme-light-theme-toggle-ring: {{ theme.colors.light.theme_toggle_ring | default: 'rgba(253, 181, 21, 0.42)' }};
+    --theme-light-body-gradient-top: {{ theme.colors.light.body_gradient_top | default: 'rgba(253, 181, 21, 0.08)' }};
+    --theme-light-body-gradient-mid: {{ theme.colors.light.body_gradient_mid | default: 'rgba(0, 38, 118, 0.04)' }};
+  }
+
+  html[data-theme="dark"] {
+    --theme-dark-berkeley-blue: {{ theme.colors.dark.berkeley_blue | default: '#8db7ff' }};
+    --theme-dark-berkeley-gold: {{ theme.colors.dark.berkeley_gold | default: '#ffd166' }};
+    --theme-dark-accent-blue: {{ theme.colors.dark.accent_blue | default: '#c8dcff' }};
+    --theme-dark-accent-gold: {{ theme.colors.dark.accent_gold | default: '#ffe2a9' }};
+    --theme-dark-ink-900: {{ theme.colors.dark.ink_900 | default: '#edf2f8' }};
+    --theme-dark-ink-700: {{ theme.colors.dark.ink_700 | default: '#c3d0e0' }};
+    --theme-dark-line-300: {{ theme.colors.dark.line_300 | default: 'rgba(141, 183, 255, 0.22)' }};
+    --theme-dark-surface-0: {{ theme.colors.dark.surface_0 | default: '#08121f' }};
+    --theme-dark-surface-50: {{ theme.colors.dark.surface_50 | default: '#0d1726' }};
+    --theme-dark-surface-100: {{ theme.colors.dark.surface_100 | default: '#122033' }};
+    --theme-dark-surface-tint: {{ theme.colors.dark.surface_tint | default: '#173252' }};
+    --theme-dark-header-bg: {{ theme.colors.dark.header_bg | default: '#07101b' }};
+    --theme-dark-header-surface: {{ theme.colors.dark.header_surface | default: 'rgba(7, 16, 27, 0.96)' }};
+    --theme-dark-header-border: {{ theme.colors.dark.header_border | default: 'rgba(141, 183, 255, 0.16)' }};
+    --theme-dark-header-text: {{ theme.colors.dark.header_text | default: '#f7fafc' }};
+    --theme-dark-header-muted: {{ theme.colors.dark.header_muted | default: 'rgba(247, 250, 252, 0.74)' }};
+    --theme-dark-theme-toggle-ring: {{ theme.colors.dark.theme_toggle_ring | default: 'rgba(255, 209, 102, 0.4)' }};
+    --theme-dark-body-gradient-top: {{ theme.colors.dark.body_gradient_top | default: 'rgba(253, 181, 21, 0.08)' }};
+    --theme-dark-body-gradient-mid: {{ theme.colors.dark.body_gradient_mid | default: 'rgba(141, 183, 255, 0.08)' }};
+  }
+</style>

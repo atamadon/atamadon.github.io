@@ -11,6 +11,15 @@ collections:
   publications:
     output: false
 
+exclude:
+  - lib
+  - scripts
+  - test
+  - vendor
+
+sass:
+  style: compressed
+
 # defaults:
 #   - scope:
 #       path: "_publications"

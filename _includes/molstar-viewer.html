@@ -1,0 +1,25 @@
+{% assign viewer_key = include.id | default: include.structure_id | default: include.embed.structure_id %}
+{% assign viewer = site.data.structures[viewer_key] %}
+{% if viewer %}
+{% assign viewer_title = include.title | default: viewer.title %}
+{% assign viewer_caption = include.caption | default: viewer.caption %}
+<figure class="molstar-block js-molstar-viewer">
+  <div
+    class="molstar-shell"
+    style="--molstar-height: {{ viewer.height | default: '32rem' }}; --molstar-stage-bg: {{ viewer.background | default: 'transparent' }};">
+    {% if viewer.poster_image %}
+      <img
+        class="molstar-poster"
+        src="{{ viewer.poster_image | relative_url }}"
+        alt="Poster preview for {{ viewer_title }}"
+        data-molstar-poster>
+    {% endif %}
+    <div class="molstar-root" data-molstar-root id="molstar-{{ viewer.id }}"></div>
+    <p class="molstar-status" data-molstar-status>Loading interactive structure...</p>
+  </div>
+  {% if viewer_caption %}
+    <figcaption class="molstar-caption">{{ viewer_caption }}</figcaption>
+  {% endif %}
+  <script type="application/json" class="molstar-config">{{ viewer | jsonify }}</script>
+</figure>
+{% endif %}

@@ -1,0 +1,58 @@
+layout:
+  content_width: 72rem
+
+radius:
+  card: 1rem
+  pill: 999px
+
+shadows:
+  light_card: "0 18px 40px rgba(0, 38, 118, 0.08)"
+  light_card_hover: "0 22px 48px rgba(0, 38, 118, 0.13)"
+  dark_card: "0 18px 40px rgba(0, 0, 0, 0.34)"
+  dark_card_hover: "0 22px 48px rgba(0, 0, 0, 0.42)"
+
+motion:
+  enabled: true
+  scale: 1
+
+colors:
+  light:
+    berkeley_blue: "#002676"
+    berkeley_gold: "#fdb515"
+    accent_blue: "#001a4d"
+    accent_gold: "#fc9313"
+    ink_900: "#1f1f1f"
+    ink_700: "#4a4a4a"
+    line_300: "rgba(0, 38, 118, 0.18)"
+    surface_0: "#ffffff"
+    surface_50: "#f7f9fc"
+    surface_100: "#eef3f8"
+    surface_tint: "#edf3fb"
+    header_bg: "#002676"
+    header_surface: "rgba(0, 38, 118, 0.96)"
+    header_border: "rgba(255, 255, 255, 0.12)"
+    header_text: "#ffffff"
+    header_muted: "rgba(255, 255, 255, 0.78)"
+    theme_toggle_ring: "rgba(253, 181, 21, 0.42)"
+    body_gradient_top: "rgba(253, 181, 21, 0.08)"
+    body_gradient_mid: "rgba(0, 38, 118, 0.04)"
+  dark:
+    berkeley_blue: "#8db7ff"
+    berkeley_gold: "#ffd166"
+    accent_blue: "#c8dcff"
+    accent_gold: "#ffe2a9"
+    ink_900: "#edf2f8"
+    ink_700: "#c3d0e0"
+    line_300: "rgba(141, 183, 255, 0.22)"
+    surface_0: "#08121f"
+    surface_50: "#0d1726"
+    surface_100: "#122033"
+    surface_tint: "#173252"
+    header_bg: "#07101b"
+    header_surface: "rgba(7, 16, 27, 0.96)"
+    header_border: "rgba(141, 183, 255, 0.16)"
+    header_text: "#f7fafc"
+    header_muted: "rgba(247, 250, 252, 0.74)"
+    theme_toggle_ring: "rgba(255, 209, 102, 0.4)"
+    body_gradient_top: "rgba(253, 181, 21, 0.08)"
+    body_gradient_mid: "rgba(141, 183, 255, 0.08)"

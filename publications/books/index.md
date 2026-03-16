@@ -3,35 +3,31 @@ layout: default
 title: Books
 ---
 
-# Books
+{% assign books = site.data.generated.publications | where: "type", "book" %}
 
-<div class="book-grid">
-  {% assign books = site.publications
-     | where: "type", "book"
-     | sort: "date" | reverse %}
-  {% for pub in books %}
-    {% assign href = pub.external_url | default: pub.url %}
-    <div class="book-card">
-      <h2 class="book-title">
-        <a href="{{ href }}" target="_blank" rel="noopener">
-          {{ pub.title }}
-        </a>
-      </h2>
-      {% if pub.cover %}
-        <a href="{{ href }}" target="_blank" rel="noopener">
-          <img src="{{ pub.cover | relative_url }}"
-               alt="Cover of {{ pub.title }}"
-               class="book-cover" />
-        </a>
-      {% endif %}
-      {% if pub.citation %}
-        <p class="book-citation"><em>{{ pub.citation }}</em></p>
-      {% endif %}
-      {% if pub.authors %}
-        <p class="book-authors">
-          <strong>Authors:</strong> {{ pub.authors | join: ", " }}
-        </p>
-      {% endif %}
+<section class="publication-landing page-section">
+  {% include section-heading.html eyebrow="Generated archive" title="Books" %}
+  <p class="publication-intro">
+    Books stay intentionally distinct from the journal archive. This page emphasizes covers and shelf browsing first, with citation details underneath each volume.
+  </p>
+  {% include publication-browse.html current="book" %}
+</section>
+
+<section class="books-library">
+  {% if books.size > 0 %}
+    <p class="books-library-intro">
+      A small shelf of books connected to the lab's biomechanics and mechanobiology work.
+      This page emphasizes covers and browsing first, then the full citation details.
+    </p>
+
+    <div class="bookshelf-grid">
+    {% for publication in books %}
+      {% include publication-card.html publication=publication variant="book" %}
+    {% endfor %}
     </div>
-  {% endfor %}
-</div>
+  {% else %}
+    <div class="publication-empty">
+      <p>No books are available yet.</p>
+    </div>
+  {% endif %}
+</section>

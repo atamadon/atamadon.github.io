@@ -1,0 +1,826 @@
+media:
+  - name: images
+    input: assets/images
+    output: /assets/images
+  - name: logos
+    input: assets/logos
+    output: /assets/logos
+  - name: files
+    input: assets/files
+    output: /assets/files
+    categories: [ document ]
+
+components:
+  embed_blocks:
+    label: Embedded content
+    type: block
+    list: true
+    blockKey: type
+    blocks:
+      - name: molstar
+        label: Mol* Viewer
+        component: embed_molstar
+      - name: video
+        label: Video
+        component: embed_video
+      - name: document
+        label: Document
+        component: embed_document
+      - name: map
+        label: Map
+        component: embed_map
+  embed_molstar:
+    label: Mol* Viewer
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: structure_id
+        label: Structure ID
+        type: string
+        required: true
+      - name: caption
+        label: Caption
+        type: text
+  embed_video:
+    label: Video
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: embed_url
+        label: Embed URL
+        type: string
+        required: true
+      - name: aspect_ratio
+        label: Aspect ratio
+        type: string
+      - name: caption
+        label: Caption
+        type: text
+  embed_document:
+    label: Document
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: summary
+        label: Summary
+        type: text
+      - name: file
+        label: Local file
+        type: file
+      - name: url
+        label: External URL
+        type: string
+      - name: preview_url
+        label: Preview URL
+        type: string
+      - name: aspect_ratio
+        label: Aspect ratio
+        type: string
+      - name: cta_label
+        label: Button label
+        type: string
+      - name: caption
+        label: Caption
+        type: text
+  embed_map:
+    label: Map
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: embed_url
+        label: Embed URL
+        type: string
+        required: true
+      - name: aspect_ratio
+        label: Aspect ratio
+        type: string
+      - name: caption
+        label: Caption
+        type: text
+
+content:
+  - name: home
+    label: Home
+    type: file
+    path: index.md
+    format: yaml-frontmatter
+    description: Maintainer-managed landing page with data-driven sections and hero layout.
+    fields:
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: body
+        label: Page content
+        type: code
+        options:
+          language: markdown
+      - name: embeds
+        label: Embedded content
+        component: embed_blocks
+
+  - name: research_landing
+    label: Research Landing Page
+    type: file
+    path: research/index.md
+    format: yaml-frontmatter
+    description: Maintainer-managed page. Keep this as code because it uses structured links and section composition.
+    fields:
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: body
+        label: Page content
+        type: code
+        options:
+          language: markdown
+      - name: embeds
+        label: Embedded content
+        component: embed_blocks
+
+  - name: contact
+    label: Contact Page
+    type: file
+    path: contact/index.md
+    format: yaml-frontmatter
+    description: Maintainer-managed page with structured contact cards and map embed.
+    fields:
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: body
+        label: Page content
+        type: code
+        options:
+          language: markdown
+      - name: embeds
+        label: Embedded content
+        component: embed_blocks
+
+  - name: teaching
+    label: Teaching Page
+    type: file
+    path: teaching/index.md
+    format: yaml-frontmatter
+    description: PI-editable teaching page. Use rich text for course descriptions.
+    fields:
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: body
+        label: Page content
+        type: rich-text
+      - name: embeds
+        label: Embedded content
+        component: embed_blocks
+
+  - name: news_landing
+    label: News Landing Page
+    type: file
+    path: news/index.md
+    format: yaml-frontmatter
+    description: Maintainer-managed archive page. News entries themselves should be edited in News Posts below.
+    fields:
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: body
+        label: Page content
+        type: code
+        options:
+          language: markdown
+      - name: embeds
+        label: Embedded content
+        component: embed_blocks
+
+  - name: research_topics
+    label: Research Topics
+    type: collection
+    path: research
+    subfolders: false
+    exclude:
+      - index.md
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    description: Research topic pages stay Markdown-based because they may contain structured links and data-backed embeds.
+    view:
+      fields: [title]
+      primary: title
+      sort: [title]
+    fields:
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        label: Topic title
+        type: string
+        required: true
+      - name: body
+        label: Topic content
+        type: code
+        options:
+          language: markdown
+      - name: embeds
+        label: Embedded content
+        component: embed_blocks
+
+  - name: team
+    label: Team
+    type: collection
+    path: _team
+    subfolders: true
+    filename: "{berkeley_username}.md"
+    format: yaml-frontmatter
+    description: PI/CMS-owned people records. Use structured fields and the profile body for public-safe text only.
+    view:
+      fields: [name, role, active]
+      primary: name
+      sort: [sort_order, name]
+    fields:
+      - name: berkeley_username
+        label: Berkeley username
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9-]+$"
+          message: Use lowercase letters, numbers, and hyphens only.
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: role
+        label: Role
+        type: select
+        required: true
+        options:
+          values:
+            - label: Principal Investigator
+              value: Principal Investigator
+            - label: Postdoc
+              value: Postdoc
+            - label: Graduate Student
+              value: Graduate Student
+            - label: Undergraduate Student
+              value: Undergraduate Student
+            - label: Alumni
+              value: Alumni
+      - name: status
+        label: Status
+        type: string
+        required: true
+      - name: group
+        label: Group
+        type: string
+        required: true
+      - name: email
+        label: Email
+        type: string
+        required: true
+        pattern:
+          regex: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+          message: Enter a valid email address.
+      - name: image
+        label: Profile image
+        type: image
+        required: true
+      - name: active
+        label: Show publicly
+        type: boolean
+        default: true
+      - name: sort_order
+        label: Sort order
+        type: number
+        required: true
+      - name: bio_short
+        label: Short bio
+        type: text
+      - name: bio_long
+        label: Long bio
+        type: text
+      - name: website
+        label: Website
+        type: string
+      - name: scholar
+        label: Google Scholar URL
+        type: string
+      - name: orcid
+        label: ORCID URL
+        type: string
+      - name: placeholder
+        label: Placeholder profile
+        type: boolean
+        default: false
+      - name: body
+        label: Profile body
+        type: rich-text
+
+  - name: posts
+    label: News Posts
+    type: collection
+    path: _posts
+    subfolders: false
+    exclude:
+      - .gitkeep
+    filename: "{year}-{month}-{day}-{primary}.md"
+    format: yaml-frontmatter
+    description: PI-editable news entries for the vertical feed. Keep posts concise and use embeds only when needed.
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+    fields:
+      - name: layout
+        label: Layout
+        type: string
+        hidden: true
+        default: post
+      - name: title
+        label: Post title
+        type: string
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+      - name: featured_image
+        label: Featured image
+        type: image
+      - name: featured_image_alt
+        label: Featured image alt text
+        type: string
+      - name: body
+        label: Post content
+        type: rich-text
+      - name: embeds
+        label: Embedded content
+        component: embed_blocks
+
+  - name: site_settings
+    label: Site Settings
+    type: file
+    path: _data/site.yml
+    format: yaml
+    description: Institutional metadata, contact details, governance links, and publication source settings.
+    fields:
+      - name: name
+        label: Site name
+        type: string
+        required: true
+      - name: short_name
+        label: Short name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: unit
+        label: Unit
+        type: object
+        fields:
+          - name: department
+            label: Department
+            type: string
+          - name: university
+            label: University
+            type: string
+      - name: header
+        label: Header
+        type: object
+        fields:
+          - name: title
+            label: Main title
+            type: object
+            fields:
+              - name: label
+                label: Title text
+                type: string
+                required: true
+              - name: url
+                label: Title URL
+                type: string
+                required: true
+          - name: subtitles
+            label: Subtitle links
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Subtitle text
+                type: string
+                required: true
+              - name: url
+                label: Subtitle URL
+                type: string
+                required: true
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: email
+            label: Email
+            type: string
+          - name: phone
+            label: Phone
+            type: string
+          - name: fax
+            label: Fax
+            type: string
+          - name: address_lines
+            label: Address lines
+            type: string
+            list: true
+          - name: map_embed_url
+            label: Map embed URL
+            type: string
+      - name: brand
+        label: Brand
+        type: object
+        fields:
+          - name: logo
+            label: Logo
+            type: image
+            description: Lab logo used in the header theme toggle.
+      - name: accessibility
+        label: Accessibility
+        type: object
+        fields:
+          - name: report_url
+            label: Report issue URL
+            type: string
+          - name: support_email
+            label: Support email
+            type: string
+          - name: statement
+            label: Accessibility statement
+            type: text
+      - name: governance
+        label: Governance
+        type: object
+        fields:
+          - name: privacy_url
+            label: Privacy URL
+            type: string
+          - name: nondiscrimination_url
+            label: Nondiscrimination URL
+            type: string
+      - name: principal_investigator
+        label: Principal investigator
+        type: object
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: display_name
+            label: Display name
+            type: string
+          - name: berkeley_username
+            label: Berkeley username
+            type: string
+          - name: affiliation
+            label: Affiliation
+            type: string
+      - name: publications
+        label: Publications
+        type: object
+        fields:
+          - name: provider
+            label: Provider
+            type: string
+          - name: query_name
+            label: Query name
+            type: string
+          - name: affiliation_contains
+            label: Affiliation filter
+            type: string
+          - name: author_id
+            label: Author ID
+            type: string
+          - name: output_path
+            label: Output path
+            type: string
+          - name: overrides_path
+            label: Overrides path
+            type: string
+      - name: news
+        label: News
+        type: object
+        fields:
+          - name: migration_status
+            label: Migration status
+            type: string
+
+  - name: theme_settings
+    label: Theme Settings
+    type: file
+    path: _data/theme.yml
+    format: yaml
+    description: Editor-safe design controls. Use this file for colors, shadows, corners, and motion intensity instead of editing Sass.
+    fields:
+      - name: layout
+        label: Layout
+        type: object
+        fields:
+          - name: content_width
+            label: Content width
+            type: string
+            description: Site-wide max content width, for example `72rem`.
+      - name: radius
+        label: Corner radius
+        type: object
+        fields:
+          - name: card
+            label: Card radius
+            type: string
+          - name: pill
+            label: Pill radius
+            type: string
+      - name: shadows
+        label: Shadows
+        type: object
+        fields:
+          - name: light_card
+            label: Light card shadow
+            type: string
+          - name: light_card_hover
+            label: Light hover shadow
+            type: string
+          - name: dark_card
+            label: Dark card shadow
+            type: string
+          - name: dark_card_hover
+            label: Dark hover shadow
+            type: string
+      - name: motion
+        label: Motion
+        type: object
+        fields:
+          - name: enabled
+            label: Enable motion
+            type: boolean
+            description: Turns decorative motion on or off site-wide without changing the theme toggle or navigation behavior.
+          - name: scale
+            label: Motion scale
+            type: number
+            description: Multiplier for transition and hero animation timing. `1` is the current default.
+      - name: colors
+        label: Colors
+        type: object
+        fields:
+          - name: light
+            label: Light theme colors
+            type: object
+            fields:
+              - name: berkeley_blue
+                label: Berkeley blue
+                type: string
+              - name: berkeley_gold
+                label: Berkeley gold
+                type: string
+              - name: accent_blue
+                label: Accent blue
+                type: string
+              - name: accent_gold
+                label: Accent gold
+                type: string
+              - name: ink_900
+                label: Body text
+                type: string
+              - name: ink_700
+                label: Muted text
+                type: string
+              - name: line_300
+                label: Border color
+                type: string
+              - name: surface_0
+                label: Base surface
+                type: string
+              - name: surface_50
+                label: Secondary surface
+                type: string
+              - name: surface_100
+                label: Tertiary surface
+                type: string
+              - name: surface_tint
+                label: Tinted surface
+                type: string
+              - name: header_bg
+                label: Header meta color
+                type: string
+              - name: header_surface
+                label: Header surface
+                type: string
+              - name: header_border
+                label: Header border
+                type: string
+              - name: header_text
+                label: Header text
+                type: string
+              - name: header_muted
+                label: Header muted text
+                type: string
+              - name: theme_toggle_ring
+                label: Toggle focus ring
+                type: string
+              - name: body_gradient_top
+                label: Top page gradient
+                type: string
+              - name: body_gradient_mid
+                label: Mid page gradient
+                type: string
+          - name: dark
+            label: Dark theme colors
+            type: object
+            fields:
+              - name: berkeley_blue
+                label: Berkeley blue
+                type: string
+              - name: berkeley_gold
+                label: Berkeley gold
+                type: string
+              - name: accent_blue
+                label: Accent blue
+                type: string
+              - name: accent_gold
+                label: Accent gold
+                type: string
+              - name: ink_900
+                label: Body text
+                type: string
+              - name: ink_700
+                label: Muted text
+                type: string
+              - name: line_300
+                label: Border color
+                type: string
+              - name: surface_0
+                label: Base surface
+                type: string
+              - name: surface_50
+                label: Secondary surface
+                type: string
+              - name: surface_100
+                label: Tertiary surface
+                type: string
+              - name: surface_tint
+                label: Tinted surface
+                type: string
+              - name: header_bg
+                label: Header meta color
+                type: string
+              - name: header_surface
+                label: Header surface
+                type: string
+              - name: header_border
+                label: Header border
+                type: string
+              - name: header_text
+                label: Header text
+                type: string
+              - name: header_muted
+                label: Header muted text
+                type: string
+              - name: theme_toggle_ring
+                label: Toggle focus ring
+                type: string
+              - name: body_gradient_top
+                label: Top page gradient
+                type: string
+              - name: body_gradient_mid
+                label: Mid page gradient
+                type: string
+
+  - name: navigation
+    label: Navigation
+    type: file
+    path: _data/navigation.yml
+    format: yaml
+    fields:
+      - name: primary
+        label: Primary navigation
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: url
+            label: URL
+            type: string
+            required: true
+          - name: children
+            label: Dropdown items
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: url
+                label: URL
+                type: string
+                required: true
+
+  - name: structures
+    label: Mol* Structures
+    type: file
+    path: _data/structures.yml
+    format: yaml
+    fields:
+      - name: sun-kash-4dxr
+        label: SUN-KASH structure
+        type: object
+        fields:
+          - name: id
+            label: ID
+            type: string
+            required: true
+          - name: title
+            label: Title
+            type: string
+          - name: pdb_id
+            label: PDB ID
+            type: string
+          - name: source
+            label: Local structure file
+            type: string
+            required: true
+          - name: format
+            label: Format
+            type: string
+            required: true
+          - name: caption
+            label: Caption
+            type: text
+          - name: poster_image
+            label: Poster image
+            type: image
+          - name: height
+            label: Height
+            type: string
+          - name: background
+            label: Background
+            type: string

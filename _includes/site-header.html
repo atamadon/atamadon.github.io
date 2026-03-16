@@ -1,0 +1,96 @@
+{% assign site_info = site.data.site %}
+{% assign navigation = site.data.navigation.primary %}
+{% assign header_info = site_info.header %}
+{% assign header_title = header_info.title.label | default: site.title %}
+{% assign header_title_url = header_info.title.url | default: '/' %}
+{% assign header_title_is_absolute = header_title_url contains '://' %}
+{% assign header_subtitles = header_info.subtitles | default: empty %}
+{% assign subtitle_count = header_subtitles | size %}
+{% assign top_subtitle_count = subtitle_count | plus: 1 | divided_by: 2 %}
+{% assign bottom_subtitle_count = subtitle_count | minus: top_subtitle_count %}
+<header class="site-header-shell">
+  <div class="site-header">
+    <div class="site-brand" aria-label="Lab and institutional links">
+      <div class="site-brand-stack">
+        <div class="site-brand-subtitles site-brand-subtitles-top">
+          {% for subtitle in header_subtitles limit: top_subtitle_count %}
+            {% assign subtitle_is_absolute = subtitle.url contains '://' %}
+            <a href="{% if subtitle_is_absolute %}{{ subtitle.url }}{% else %}{{ subtitle.url | relative_url }}{% endif %}" class="site-brand-subtitle-link">{{ subtitle.label }}</a>
+          {% endfor %}
+        </div>
+        <a href="{% if header_title_is_absolute %}{{ header_title_url }}{% else %}{{ header_title_url | relative_url }}{% endif %}" class="site-brand-title-link">
+          <span class="site-brand-title">{{ header_title }}</span>
+        </a>
+        <div class="site-brand-subtitles site-brand-subtitles-bottom">
+          {% if bottom_subtitle_count > 0 %}
+            {% assign bottom_subtitles = header_subtitles | slice: top_subtitle_count, bottom_subtitle_count %}
+            {% for subtitle in bottom_subtitles %}
+              {% assign subtitle_is_absolute = subtitle.url contains '://' %}
+              <a href="{% if subtitle_is_absolute %}{{ subtitle.url }}{% else %}{{ subtitle.url | relative_url }}{% endif %}" class="site-brand-subtitle-link">{{ subtitle.label }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <nav id="site-navigation" class="site-navigation" aria-label="Main site navigation" data-site-navigation>
+      <ul class="nav-links">
+        {% for item in navigation %}
+          {% assign submenu_id = 'nav-submenu-' | append: forloop.index %}
+          <li class="nav-item{% if item.children %} nav-item-has-children{% endif %}"{% if item.children %} data-nav-item{% endif %}>
+            <div class="nav-item-heading">
+              <a class="nav-item-link" href="{{ item.url | relative_url }}">
+                <span class="nav-link-label">{{ item.title }}</span>
+              </a>
+              {% if item.children %}
+                <button
+                  class="nav-item-toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="{{ submenu_id }}"
+                  data-nav-submenu-toggle>
+                  <span class="nav-link-caret" aria-hidden="true"></span>
+                  <span class="visually-hidden">Toggle {{ item.title }} submenu</span>
+                </button>
+              {% endif %}
+            </div>
+            {% if item.children %}
+              <ul id="{{ submenu_id }}" class="nav-submenu" data-nav-submenu>
+                {% for child in item.children %}
+                  <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-header-controls">
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-pressed="false"
+        aria-label="Switch to dark mode"
+        title="Switch to dark mode"
+        data-theme-toggle>
+        <img
+          class="theme-toggle-logo"
+          src="{{ site_info.brand.logo | default: '/assets/logos/cropped-logo_cool-180x180.png' | relative_url }}"
+          alt=""
+          aria-hidden="true">
+        <span class="visually-hidden" data-theme-toggle-label>Switch to dark mode</span>
+      </button>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+        aria-label="Toggle site menu"
+        data-nav-toggle>
+        Menu
+      </button>
+    </div>
+  </div>
+</header>

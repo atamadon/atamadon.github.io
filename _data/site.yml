@@ -1,0 +1,55 @@
+name: Molecular Cell Biomechanics Laboratory
+short_name: MCBL
+tagline: Molecular cell biomechanics and computational biology
+description: Computational models, mechanobiology, and structural biology across molecular and cellular scales.
+
+unit:
+  department: Department of Bioengineering
+  university: University of California, Berkeley
+
+header:
+  title:
+    label: Molecular Cell Biomechanics Laboratory
+    url: /
+  subtitles:
+    - label: University of California, Berkeley
+      url: https://www.berkeley.edu/
+
+contact:
+  email: mofrad@berkeley.edu
+  phone: "(510) 643-8165"
+  fax: "(510) 642-5835"
+  address_lines:
+    - 208A Stanley Hall #1762
+    - University of California
+    - Berkeley, CA 94720-1762
+  map_embed_url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.898062531328!2d-122.25735775452506!3d37.873647070907445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80857c249076fa5d%3A0xb202314bfe58c9f1!2sStanley%20Hall!5e1!3m2!1sen!2sus!4v1751323526493!5m2!1sen!2sus"
+
+brand:
+  logo: /assets/logos/cropped-logo_cool-180x180.png
+
+accessibility:
+  report_url: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
+  support_email: mofrad@berkeley.edu
+  statement: "If you encounter an accessibility barrier on this site, report it through Berkeley's accessibility support process or contact the lab directly."
+
+governance:
+  privacy_url: "https://www.berkeley.edu/privacy-policy/"
+  nondiscrimination_url: "https://ophd.berkeley.edu/policies-and-procedures/nondiscrimination-policy-statement"
+
+principal_investigator:
+  name: Mohammad R. K. Mofrad
+  display_name: Dr. Mohammad R.K. Mofrad
+  berkeley_username: mofrad
+  affiliation: University of California, Berkeley
+
+publications:
+  provider: openalex
+  query_name: Mohammad R. K. Mofrad
+  affiliation_contains: Berkeley
+  author_id: https://openalex.org/A5062246663
+  output_path: _data/generated/publications.json
+  overrides_path: _data/publication_overrides.yml
+
+news:
+  migration_status: pending_wordpress_backfill

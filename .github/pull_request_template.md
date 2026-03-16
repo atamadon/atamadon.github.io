@@ -9,6 +9,8 @@
 ## Validation
 
 - [ ] `bundle install`
+- [ ] `ruby scripts/validate_team.rb`
+- [ ] Ruby tests for generator/validator/config
 - [ ] `bundle exec jekyll build`
 - [ ] Visual check completed for affected pages
 

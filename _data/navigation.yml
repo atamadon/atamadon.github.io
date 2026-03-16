@@ -1,0 +1,29 @@
+primary:
+  - title: Home
+    url: /
+  - title: Research
+    url: /research/
+    children:
+      - title: Nuclear Mechanotransduction
+        url: /research/nuclear-mechanotransduction/
+      - title: Microbiome
+        url: /research/microbiome/
+      - title: Artificial Intelligence
+        url: /research/ai/
+  - title: Publications
+    url: /publications/
+    children:
+      - title: All Publications
+        url: /publications/
+      - title: Journal Articles
+        url: /publications/journals/
+      - title: Books
+        url: /publications/books/
+  - title: Team
+    url: /team/
+  - title: Teaching
+    url: /teaching/
+  - title: News
+    url: /news/
+  - title: Contact
+    url: /contact/

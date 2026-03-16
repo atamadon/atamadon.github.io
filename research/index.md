@@ -3,15 +3,15 @@ layout: default
 title: Research
 ---
 
-# Research Areas
+{% include section-heading.html eyebrow="Research" title="Research areas" %}
 
-Welcome to our lab’s research overview. We focus on:
+The lab studies biological systems through a mechanics-first computational lens, with work spanning molecular assemblies, cellular structures, and data-driven modeling.
 
-## [Nuclear Mechanotransduction](/research/nuclear-mechanotransduction.html)
-A brief summary of how we investigate mechanical forces in the nucleus and their impact on biological processes.
+## [Nuclear Mechanotransduction]({{ '/research/nuclear-mechanotransduction/' | relative_url }})
+We investigate how mechanical signals are transmitted to and across the nucleus, and how protein complexes at the nuclear envelope respond to force.
 
-## [Microbiome](/research/microbiome.html)
-A brief description of our computational modeling and experimental integration of microbiome research.
+## [Microbiome]({{ '/research/microbiome/' | relative_url }})
+We use computational models to study microbial community structure, gut biogeography, and host-microbe interactions across scales.
 
-## [Artificial Intelligence](/research/ai.html)
-An overview of how we develop and apply AI tools for biological systems.
+## [Artificial Intelligence]({{ '/research/ai/' | relative_url }})
+We develop AI and machine learning methods to support biological discovery, automate analysis, and connect mechanistic models with data.

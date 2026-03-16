@@ -3,39 +3,17 @@ layout: default
 title: Journal Articles
 ---
 
-# Journal Articles
+{% assign journals = site.data.generated.publications | where: "type", "journal" %}
 
-<ul class="journal-list">
-  {% assign journals = site.publications
-     | where: "type", "journal"
-     | sort: "date" | reverse %}
-  {% for pub in journals %}
-    <li>
-      {% if pub.figure %}
-        <img src="{{ pub.figure | relative_url }}"
-             alt="Figure from {{ pub.title }}">
-      {% endif %}
-      <div>
-        {% assign href = pub.external_url | default: pub.url %}
-        <strong>
-          <a href="{{ href }}" target="_blank" rel="noopener">
-            {{ pub.title }}
-          </a>
-        </strong><br/>
-        {% if pub.citation %}
-          <em>{{ pub.citation }}</em><br/>
-        {% endif %}
-        <strong>Date:</strong> {{ pub.date | date: "%B %-d, %Y" }}<br/>
-        {% if pub.authors %}
-          <strong>Authors:</strong> {{ pub.authors | join: ", " }}<br/>
-        {% endif %}
-        {% if pub.subgroups %}
-          <strong>Subgroups:</strong> {{ pub.subgroups | join: ", " }}<br/>
-        {% endif %}
-        {% if pub.keywords %}
-          <strong>Keywords:</strong> {{ pub.keywords | join: ", " }}<br/>
-        {% endif %}
-      </div>
-    </li>
-  {% endfor %}
-</ul>
+<section class="publication-landing page-section">
+  {% include section-heading.html eyebrow="Generated archive" title="Journal articles" %}
+  <p class="publication-intro">
+    Journal articles, perspectives, and related papers are listed here in the same generated archive system as the main publications page.
+  </p>
+  {% include publication-browse.html current="journal" %}
+</section>
+
+<section class="page-section" id="journal-archive">
+  {% include section-heading.html eyebrow="Type archive" title="Journal archive" %}
+  {% include publication-archive.html publications=journals empty_message="No journal articles are available yet." %}
+</section>

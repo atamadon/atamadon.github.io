@@ -3,83 +3,70 @@ layout: default
 title: Team
 ---
 
-# Our Team
+{% assign active_team = site.team | where: "active", true | sort: "sort_order" %}
+{% assign principal_investigators = active_team | where: "role", "Principal Investigator" %}
+{% assign postdocs = active_team | where: "role", "Postdoc" %}
+{% assign graduate_students = active_team | where: "role", "Graduate Student" %}
+{% assign undergraduate_students = active_team | where: "role", "Undergraduate Student" %}
+{% assign alumni = site.team | where: "role", "Alumni" | where: "active", false | sort: "sort_order" %}
+{% assign sample_profiles = site.team | where: "placeholder", true %}
+
+{% include section-heading.html eyebrow="People" title="Team" %}
+
+{% if sample_profiles.size > 0 %}
+<div class="news-placeholder">
+  <p>Sample team entries are currently displayed to populate the page structure. Replace them with real lab profiles when content is ready.</p>
+</div>
+{% endif %}
 
 ## Principal Investigator
 
 <div class="team-list">
-  {% for member in site.team %}
-    {% if member.role == "Principal Investigator" %}
-    <div class="team-card">
-      <img src="{{ member.image | relative_url }}" alt="Photo of {{ member.name }}">
-      <h3>{{ member.name }}</h3>
-      <p class="status">{{ member.status }}</p>
-      <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
-    </div>
-    {% endif %}
+  {% for member in principal_investigators %}
+    {% include team-card.html member=member %}
   {% endfor %}
 </div>
 
+{% if postdocs.size > 0 %}
 ## Postdoctoral Researchers
 
 <div class="team-list">
-  {% for member in site.team %}
-    {% if member.role == "Postdoc" %}
-    <!-- identical card markup -->
-    <div class="team-card">
-      <img src="{{ member.image | relative_url }}" alt="Photo of {{ member.name }}">
-      <h3>{{ member.name }}</h3>
-      <p class="status">{{ member.status }}</p>
-      <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
-    </div>
-    {% endif %}
+  {% for member in postdocs %}
+    {% include team-card.html member=member %}
   {% endfor %}
 </div>
+{% endif %}
 
+{% if graduate_students.size > 0 %}
 ## Graduate Students
 
 <div class="team-list">
-  {% for member in site.team %}
-    {% if member.role == "Graduate Student" %}
-    <div class="team-card">
-      <img src="{{ member.image | relative_url }}" alt="Photo of {{ member.name }}">
-      <h3>{{ member.name }}</h3>
-      <p class="status">{{ member.status }}</p>
-      <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
-    </div>
-    {% endif %}
+  {% for member in graduate_students %}
+    {% include team-card.html member=member %}
   {% endfor %}
 </div>
+{% endif %}
 
+{% if undergraduate_students.size > 0 %}
 ## Undergraduate Students
 
 <div class="team-list">
-  {% for member in site.team %}
-    {% if member.role == "Undergraduate Student" %}
-    <div class="team-card">
-      <img src="{{ member.image | relative_url }}" alt="Photo of {{ member.name }}">
-      <h3>{{ member.name }}</h3>
-      <p class="status">{{ member.status }}</p>
-      <p>Email: <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-      <p>Group: {{ member.group }}</p>
-      <div>{{ member.content | markdownify }}</div>
-    </div>
-    {% endif %}
+  {% for member in undergraduate_students %}
+    {% include team-card.html member=member %}
   {% endfor %}
 </div>
+{% endif %}
 
+{% if postdocs.size == 0 and graduate_students.size == 0 and undergraduate_students.size == 0 %}
+<p>The broader team roster is being updated. Public profiles will expand as active lab members are added with finalized Berkeley usernames, bios, and images.</p>
+{% endif %}
+
+{% if alumni.size > 0 %}
 ## Alumni
 
 <ul class="alumni-list">
-  {% for member in site.team %}
-    {% if member.role == "Alumni" %}
+  {% for member in alumni %}
     <li>{{ member.name }}</li>
-    {% endif %}
   {% endfor %}
 </ul>
+{% endif %}

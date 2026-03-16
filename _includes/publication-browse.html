@@ -1,0 +1,26 @@
+{% assign publications = site.data.generated.publications %}
+{% assign journals = publications | where: "type", "journal" %}
+{% assign books = publications | where: "type", "book" %}
+
+<nav class="publication-browse" aria-label="Browse publication types">
+  <ul class="publication-browse-list">
+    <li>
+      <a class="publication-browse-link{% if include.current == 'all' %} is-current{% endif %}" href="{{ '/publications/' | relative_url }}">
+        <span>All publications</span>
+        <span class="publication-browse-count">{{ publications | size }}</span>
+      </a>
+    </li>
+    <li>
+      <a class="publication-browse-link{% if include.current == 'journal' %} is-current{% endif %}" href="{{ '/publications/journals/' | relative_url }}">
+        <span>Journal articles</span>
+        <span class="publication-browse-count">{{ journals | size }}</span>
+      </a>
+    </li>
+    <li>
+      <a class="publication-browse-link{% if include.current == 'book' %} is-current{% endif %}" href="{{ '/publications/books/' | relative_url }}">
+        <span>Books</span>
+        <span class="publication-browse-count">{{ books | size }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

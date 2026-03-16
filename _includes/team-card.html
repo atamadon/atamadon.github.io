@@ -1,0 +1,36 @@
+{% assign member = include.member %}
+{% capture initials %}
+{% for part in member.name | split: " " %}
+{% assign letter = part | slice: 0, 1 %}
+{{ letter }}
+{% endfor %}
+{% endcapture %}
+<article class="team-card" data-berkeley-username="{{ member.berkeley_username }}">
+  <div class="team-photo">
+    <img
+      src="{{ member.image | relative_url }}"
+      alt="Photo of {{ member.name }}"
+      onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+    <div class="team-photo-fallback" aria-hidden="true" hidden>{{ initials | strip }}</div>
+  </div>
+  <h3>{{ member.name }}</h3>
+  <p class="status">{{ member.status }}</p>
+  <p><strong>Group:</strong> {{ member.group }}</p>
+  {% if member.bio_short %}
+    <p>{{ member.bio_short }}</p>
+  {% elsif member.content != blank %}
+    <div>{{ member.content | markdownify }}</div>
+  {% endif %}
+  <ul class="team-links">
+    <li><a href="mailto:{{ member.email }}">Email</a></li>
+    {% if member.website %}
+      <li><a href="{{ member.website }}" target="_blank" rel="noopener">Website</a></li>
+    {% endif %}
+    {% if member.scholar %}
+      <li><a href="{{ member.scholar }}" target="_blank" rel="noopener">Scholar</a></li>
+    {% endif %}
+    {% if member.orcid %}
+      <li><a href="{{ member.orcid }}" target="_blank" rel="noopener">ORCID</a></li>
+    {% endif %}
+  </ul>
+</article>

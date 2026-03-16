@@ -1,0 +1,38 @@
+{% assign site_info = site.data.site %}
+{% assign accessibility = site_info.accessibility %}
+{% assign governance = site_info.governance %}
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div>
+      <h2 class="footer-heading">{{ site.title }}</h2>
+      <p>{{ site_info.description }}</p>
+      <p>{{ site_info.unit.department }}<br>{{ site_info.unit.university }}</p>
+    </div>
+    <div>
+      <h2 class="footer-heading">Contact</h2>
+      <p><a href="mailto:{{ site_info.contact.email }}">{{ site_info.contact.email }}</a></p>
+      <p>{{ site_info.contact.phone }}</p>
+      <p>
+        {% for line in site_info.contact.address_lines %}
+          {{ line }}{% unless forloop.last %}<br>{% endunless %}
+        {% endfor %}
+      </p>
+    </div>
+    <div>
+      <h2 class="footer-heading">Site policies</h2>
+      <ul class="footer-link-list">
+        <li><a href="{{ accessibility.report_url }}">Accessibility</a></li>
+        <li><a href="{{ governance.nondiscrimination_url }}">Nondiscrimination</a></li>
+        <li><a href="{{ governance.privacy_url }}">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer-meta">
+    <p>
+      {{ accessibility.statement }}
+      <a href="{{ accessibility.report_url }}">Report an issue</a>
+      or email
+      <a href="mailto:{{ accessibility.support_email }}">{{ accessibility.support_email }}</a>.
+    </p>
+  </div>
+</footer>

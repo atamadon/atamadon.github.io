@@ -3,11 +3,9 @@ layout: default
 title: Microbiome
 ---
 
-# Microbiome
+{% include section-heading.html eyebrow="Research area" title="Microbiome" %}
 
 Our lab investigates the gut microbiome using advanced computational models and experimental validation. We focus on understanding community dynamics, host interactions, and the impact of environmental factors.
-
-You can add figures, interactive plots, or embedded PDFs here as needed.
 
 ## Current Projects
 
@@ -17,4 +15,4 @@ You can add figures, interactive plots, or embedded PDFs here as needed.
 
 ## Learn More
 
-For more information, contact our microbiome subgroup or check our [Publications](/publications.html).
+For more information, check the [publications archive]({{ '/publications/' | relative_url }}) or [contact the lab]({{ '/contact/' | relative_url }}).

@@ -1,0 +1,75 @@
+:root {
+  --radius-card: var(--theme-radius-card, 1rem);
+  --radius-pill: var(--theme-radius-pill, 999px);
+  --content-width: var(--theme-content-width, 72rem);
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --font-sans: "Inter", Arial, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --motion-fast: calc(160ms * var(--theme-motion-scale, 1));
+  --motion-base: calc(240ms * var(--theme-motion-scale, 1));
+  --motion-slow: calc(420ms * var(--theme-motion-scale, 1));
+  --motion-hero: calc(28s * var(--theme-motion-scale, 1));
+  --ease-standard: cubic-bezier(0.2, 0, 0.12, 1);
+  --ease-soft: cubic-bezier(0.22, 0.6, 0.2, 1);
+  --card-hover-lift: translateY(-0.2rem);
+  --card-hover-shadow-light: var(--theme-shadow-light-card-hover, 0 22px 48px rgba(0, 38, 118, 0.13));
+  --card-hover-shadow-dark: var(--theme-shadow-dark-card-hover, 0 22px 48px rgba(0, 0, 0, 0.42));
+}
+
+html[data-theme="light"] {
+  --berkeley-blue: var(--theme-light-berkeley-blue, #002676);
+  --berkeley-gold: var(--theme-light-berkeley-gold, #fdb515);
+  --accent-blue: var(--theme-light-accent-blue, #001a4d);
+  --accent-gold: var(--theme-light-accent-gold, #fc9313);
+  --ink-900: var(--theme-light-ink-900, #1f1f1f);
+  --ink-700: var(--theme-light-ink-700, #4a4a4a);
+  --line-300: var(--theme-light-line-300, rgba(0, 38, 118, 0.18));
+  --surface-0: var(--theme-light-surface-0, #ffffff);
+  --surface-50: var(--theme-light-surface-50, #f7f9fc);
+  --surface-100: var(--theme-light-surface-100, #eef3f8);
+  --surface-tint: var(--theme-light-surface-tint, #edf3fb);
+  --header-bg: var(--theme-light-header-bg, #002676);
+  --header-surface: var(--theme-light-header-surface, rgba(0, 38, 118, 0.96));
+  --header-border: var(--theme-light-header-border, rgba(255, 255, 255, 0.12));
+  --header-text: var(--theme-light-header-text, #ffffff);
+  --header-muted: var(--theme-light-header-muted, rgba(255, 255, 255, 0.78));
+  --theme-toggle-ring: var(--theme-light-theme-toggle-ring, rgba(253, 181, 21, 0.42));
+  --body-background:
+    linear-gradient(180deg, var(--theme-light-body-gradient-top, rgba(253, 181, 21, 0.08)), transparent 16rem),
+    linear-gradient(135deg, var(--theme-light-body-gradient-mid, rgba(0, 38, 118, 0.04)), transparent 40rem),
+    var(--surface-0);
+  --shadow-card: var(--theme-shadow-light-card, 0 18px 40px rgba(0, 38, 118, 0.08));
+  --shadow-card-hover: var(--card-hover-shadow-light);
+}
+
+html[data-theme="dark"] {
+  --berkeley-blue: var(--theme-dark-berkeley-blue, #8db7ff);
+  --berkeley-gold: var(--theme-dark-berkeley-gold, #ffd166);
+  --accent-blue: var(--theme-dark-accent-blue, #c8dcff);
+  --accent-gold: var(--theme-dark-accent-gold, #ffe2a9);
+  --ink-900: var(--theme-dark-ink-900, #edf2f8);
+  --ink-700: var(--theme-dark-ink-700, #c3d0e0);
+  --line-300: var(--theme-dark-line-300, rgba(141, 183, 255, 0.22));
+  --surface-0: var(--theme-dark-surface-0, #08121f);
+  --surface-50: var(--theme-dark-surface-50, #0d1726);
+  --surface-100: var(--theme-dark-surface-100, #122033);
+  --surface-tint: var(--theme-dark-surface-tint, #173252);
+  --header-bg: var(--theme-dark-header-bg, #07101b);
+  --header-surface: var(--theme-dark-header-surface, rgba(7, 16, 27, 0.96));
+  --header-border: var(--theme-dark-header-border, rgba(141, 183, 255, 0.16));
+  --header-text: var(--theme-dark-header-text, #f7fafc);
+  --header-muted: var(--theme-dark-header-muted, rgba(247, 250, 252, 0.74));
+  --theme-toggle-ring: var(--theme-dark-theme-toggle-ring, rgba(255, 209, 102, 0.4));
+  --body-background:
+    linear-gradient(180deg, var(--theme-dark-body-gradient-top, rgba(253, 181, 21, 0.08)), transparent 16rem),
+    linear-gradient(135deg, var(--theme-dark-body-gradient-mid, rgba(141, 183, 255, 0.08)), transparent 40rem),
+    var(--surface-0);
+  --shadow-card: var(--theme-shadow-dark-card, 0 18px 40px rgba(0, 0, 0, 0.34));
+  --shadow-card-hover: var(--card-hover-shadow-dark);
+}
