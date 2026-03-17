@@ -94,10 +94,10 @@
 
   .feature-grid,
   .card-grid,
-  .team-list,
   .bookshelf-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
+
 
   .publication-featured-grid {
     grid-template-columns: 1fr;
@@ -196,11 +196,20 @@
     word-break: break-word;
   }
 
-  .team-list,
   .feature-grid,
   .card-grid,
   .bookshelf-grid {
     grid-template-columns: 1fr;
+  }
+
+  .team-list {
+    grid-template-columns: 1fr;
+  }
+
+  .team-list > :last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: none;
+    margin-inline: 0;
   }
 
   .team-photo img,

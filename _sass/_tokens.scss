@@ -17,6 +17,8 @@
   --motion-hero: calc(28s * var(--theme-motion-scale, 1));
   --ease-standard: cubic-bezier(0.2, 0, 0.12, 1);
   --ease-soft: cubic-bezier(0.22, 0.6, 0.2, 1);
+  --link-underline-thickness: 1.5px;
+  --link-underline-offset: 2px;
   --card-hover-lift: translateY(-0.2rem);
   --card-hover-shadow-light: var(--theme-shadow-light-card-hover, 0 22px 48px rgba(0, 38, 118, 0.13));
   --card-hover-shadow-dark: var(--theme-shadow-dark-card-hover, 0 22px 48px rgba(0, 0, 0, 0.42));

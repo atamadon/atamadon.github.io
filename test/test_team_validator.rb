@@ -62,9 +62,10 @@ class TeamValidatorTest < Minitest::Test
       berkeley_username: #{username}
       name: Example User
       role: Graduate Student
-      status: Active
+      status: PhD Student
       email: example@berkeley.edu
-      group: Group
+      groups:
+        - molecular-dynamics
       image: /assets/images/team/profile-placeholder.svg
       active: #{active}
       sort_order: 10

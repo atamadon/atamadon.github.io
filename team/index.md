@@ -19,42 +19,46 @@ title: Team
 </div>
 {% endif %}
 
-## Principal Investigator
-
-<div class="team-list">
-  {% for member in principal_investigators %}
-    {% include team-card.html member=member %}
-  {% endfor %}
-</div>
+<section class="page-section">
+  {% include section-heading.html title="Principal Investigator" %}
+  <div class="team-list">
+    {% for member in principal_investigators %}
+      {% include team-card.html member=member %}
+    {% endfor %}
+  </div>
+</section>
 
 {% if postdocs.size > 0 %}
-## Postdoctoral Researchers
-
-<div class="team-list">
-  {% for member in postdocs %}
-    {% include team-card.html member=member %}
-  {% endfor %}
-</div>
+<section class="page-section">
+  {% include section-heading.html title="Postdoctoral Researchers" %}
+  <div class="team-list">
+    {% for member in postdocs %}
+      {% include team-card.html member=member %}
+    {% endfor %}
+  </div>
+</section>
 {% endif %}
 
 {% if graduate_students.size > 0 %}
-## Graduate Students
-
-<div class="team-list">
-  {% for member in graduate_students %}
-    {% include team-card.html member=member %}
-  {% endfor %}
-</div>
+<section class="page-section">
+  {% include section-heading.html title="Graduate Students" %}
+  <div class="team-list">
+    {% for member in graduate_students %}
+      {% include team-card.html member=member %}
+    {% endfor %}
+  </div>
+</section>
 {% endif %}
 
 {% if undergraduate_students.size > 0 %}
-## Undergraduate Students
-
-<div class="team-list">
-  {% for member in undergraduate_students %}
-    {% include team-card.html member=member %}
-  {% endfor %}
-</div>
+<section class="page-section">
+  {% include section-heading.html title="Undergraduate Students" %}
+  <div class="team-list">
+    {% for member in undergraduate_students %}
+      {% include team-card.html member=member %}
+    {% endfor %}
+  </div>
+</section>
 {% endif %}
 
 {% if postdocs.size == 0 and graduate_students.size == 0 and undergraduate_students.size == 0 %}
@@ -62,11 +66,15 @@ title: Team
 {% endif %}
 
 {% if alumni.size > 0 %}
-## Alumni
-
-<ul class="alumni-list">
-  {% for member in alumni %}
-    <li>{{ member.name }}</li>
-  {% endfor %}
-</ul>
+<section class="page-section">
+  {% include section-heading.html title="Alumni" %}
+  <ul class="alumni-list">
+    {% for member in alumni %}
+      <li>
+        {{ member.name }}
+        {% if member.current_position %}(presently {{ member.current_position }}){% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
 {% endif %}

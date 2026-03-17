@@ -93,14 +93,14 @@ main a:not(.button-link):not(.book-cover-link):not(.theme-toggle) {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;
   background-repeat: no-repeat;
-  background-size: 0 1px;
+  background-size: 0 var(--link-underline-thickness);
 }
 
 .section-link:hover,
 .section-link:focus,
 main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):hover,
 main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
-  background-size: 100% 1px;
+  background-size: 100% var(--link-underline-thickness);
 }
 
 .visually-hidden {

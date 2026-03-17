@@ -1,0 +1,14 @@
+- slug: molecular-dynamics
+  name: Molecular Dynamics
+  description: Computational mechanics and molecular simulation of biological systems.
+  research_url: /research/nuclear-mechanotransduction/
+
+- slug: ai
+  name: Artificial Intelligence
+  description: Machine learning and data-driven methods for biological discovery.
+  research_url: /research/ai/
+
+- slug: microbiome
+  name: Microbiome
+  description: Computational models of host-microbe systems and gut ecology.
+  research_url: /research/microbiome/
