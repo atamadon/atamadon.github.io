@@ -9,27 +9,30 @@
 {% assign top_subtitle_count = subtitle_count | plus: 1 | divided_by: 2 %}
 {% assign bottom_subtitle_count = subtitle_count | minus: top_subtitle_count %}
 <header class="site-header-shell">
-  <div class="site-header">
+  <div class="site-header{% if top_subtitle_count > 0 %} has-subtitle-top{% endif %}{% if bottom_subtitle_count > 0 %} has-subtitle-bottom{% endif %}">
+
     <div class="site-brand" aria-label="Lab and institutional links">
-      <div class="site-brand-stack">
-        <div class="site-brand-subtitles site-brand-subtitles-top">
-          {% for subtitle in header_subtitles limit: top_subtitle_count %}
-            {% assign subtitle_is_absolute = subtitle.url contains '://' %}
-            <a href="{% if subtitle_is_absolute %}{{ subtitle.url }}{% else %}{{ subtitle.url | relative_url }}{% endif %}" class="site-brand-subtitle-link">{{ subtitle.label }}</a>
-          {% endfor %}
-        </div>
+      <div class="site-brand-title-area">
+        {% if top_subtitle_count > 0 %}
+          <div class="site-brand-subtitles site-brand-subtitles-top">
+            {% for subtitle in header_subtitles limit: top_subtitle_count %}
+              {% assign subtitle_is_absolute = subtitle.url contains '://' %}
+              <a href="{% if subtitle_is_absolute %}{{ subtitle.url }}{% else %}{{ subtitle.url | relative_url }}{% endif %}" class="site-brand-subtitle-link">{{ subtitle.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
         <a href="{% if header_title_is_absolute %}{{ header_title_url }}{% else %}{{ header_title_url | relative_url }}{% endif %}" class="site-brand-title-link">
           <span class="site-brand-title">{{ header_title }}</span>
         </a>
-        <div class="site-brand-subtitles site-brand-subtitles-bottom">
-          {% if bottom_subtitle_count > 0 %}
-            {% assign bottom_subtitles = header_subtitles | slice: top_subtitle_count, bottom_subtitle_count %}
+        {% if bottom_subtitle_count > 0 %}
+          {% assign bottom_subtitles = header_subtitles | slice: top_subtitle_count, bottom_subtitle_count %}
+          <div class="site-brand-subtitles site-brand-subtitles-bottom">
             {% for subtitle in bottom_subtitles %}
               {% assign subtitle_is_absolute = subtitle.url contains '://' %}
               <a href="{% if subtitle_is_absolute %}{{ subtitle.url }}{% else %}{{ subtitle.url | relative_url }}{% endif %}" class="site-brand-subtitle-link">{{ subtitle.label }}</a>
             {% endfor %}
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
       </div>
     </div>
 
@@ -92,5 +95,6 @@
         Menu
       </button>
     </div>
+
   </div>
 </header>

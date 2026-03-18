@@ -14,6 +14,8 @@ header:
   subtitles:
     - label: University of California, Berkeley
       url: https://www.berkeley.edu/
+  #   - label: College of Engineering
+  #     url: https://engineering.berkeley.edu/
 
 contact:
   email: mofrad@berkeley.edu

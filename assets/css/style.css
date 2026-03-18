@@ -344,15 +344,21 @@ main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
   border-bottom: 1px solid var(--header-border);
 }
 
+/* Single-row grid: title | nav | controls — guarantees title/nav alignment.
+   Subtitles live absolutely inside .site-brand-title-area (width = title text).
+   Jekyll adds .has-subtitle-top / .has-subtitle-bottom classes so padding
+   expands to reveal the floating subtitle without moving any main-row items. */
 .site-header {
   width: 100%;
-  min-height: 5rem;
-  padding: 0.5rem clamp(1rem, 2.5vw, 2rem);
+  padding: 0.6rem clamp(1rem, 2.5vw, 2rem);
   display: grid;
   grid-template-columns: minmax(17rem, 1fr) minmax(26rem, 1.35fr) auto;
   align-items: center;
-  gap: var(--space-3);
+  column-gap: var(--space-3);
 }
+
+.site-header.has-subtitle-top    { padding-top: 1.2rem; }
+.site-header.has-subtitle-bottom { padding-bottom: 1.2rem; }
 
 .site-brand {
   min-width: 0;
@@ -360,12 +366,12 @@ main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
   align-items: center;
 }
 
-.site-brand-stack {
-  display: grid;
-  grid-template-rows: minmax(0.95rem, auto) auto minmax(0.95rem, auto);
+/* Positioning context sized to the title text width.
+   Subtitles anchor to its edges so they stay flush with the title. */
+.site-brand-title-area {
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  min-height: 4rem;
-  width: 100%;
 }
 
 .site-brand-title {
@@ -379,16 +385,27 @@ main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
 .site-brand-title-link {
   display: inline-flex;
   align-items: center;
-  justify-self: start;
-  min-height: 2.6rem;
 }
 
+/* Subtitles are absolutely positioned in the header's padding zone */
 .site-brand-subtitles {
+  position: absolute;
+  white-space: nowrap;
   display: flex;
   flex-wrap: wrap;
   gap: 0.1rem 0.6rem;
   align-items: center;
-  min-height: 0.95rem;
+}
+
+.site-brand-subtitles-top {
+  bottom: calc(100% + 0.15rem);
+  left: 0;
+}
+
+.site-brand-subtitles-bottom {
+  top: calc(100% + 0.15rem);
+  right: 0;
+  justify-content: flex-end;
 }
 
 .site-brand-subtitle-link {
@@ -403,7 +420,6 @@ main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  align-self: center;
 }
 
 .nav-toggle {
@@ -421,31 +437,28 @@ main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
   display: flex;
   justify-content: flex-end;
   min-width: 0;
-  align-self: stretch;
 }
 
 .nav-links {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-end;
   flex: 1 1 auto;
   gap: clamp(0.2rem, 1vw, 0.7rem);
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 .nav-item {
   position: relative;
   display: flex;
-  align-items: stretch;
+  align-items: center;
 }
 
 .nav-item-heading {
   display: flex;
-  align-items: stretch;
-  min-height: 100%;
+  align-items: center;
 }
 
 .nav-item-link,
@@ -453,7 +466,6 @@ main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
   padding: 0 0.35rem;
   color: var(--header-text);
   font-weight: 700;
@@ -1802,8 +1814,7 @@ a.team-group-tag:hover {
   }
 
   .site-brand-stack {
-    min-height: 0;
-    gap: 0.14rem;
+    gap: 0.1rem;
   }
 
   .site-brand-subtitle-link {
