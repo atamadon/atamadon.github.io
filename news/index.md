@@ -9,7 +9,7 @@ title: News
 
 {% if news_posts.size > 0 %}
 <div class="news-placeholder">
-  <p>These are temporary sample updates to populate the archive while the WordPress news backfill is pending.</p>
+  <p>Historical lab updates are still being restored from legacy site records. New and recovered posts will continue to appear here as migration progresses.</p>
 </div>
 
 <section class="news-feed" aria-label="Lab news feed">
@@ -35,7 +35,7 @@ title: News
 </section>
 {% else %}
 <div class="news-placeholder">
-  <p>The news archive will be backfilled from the previous WordPress website in a later migration pass.</p>
-  <p>Until then, the most complete public record on this site is the <a href="{{ '/publications/' | relative_url }}">publications archive</a>, along with the <a href="{{ '/teaching/' | relative_url }}">teaching</a> and <a href="{{ '/research/' | relative_url }}">research</a> sections.</p>
+  <p>The archive is being rebuilt from the lab's legacy website and recovered historical records.</p>
+  <p>In the meantime, the most complete public record on this site is the <a href="{{ '/publications/' | relative_url }}">publications archive</a>, along with the <a href="{{ '/teaching/' | relative_url }}">teaching</a> and <a href="{{ '/research/' | relative_url }}">research</a> sections.</p>
 </div>
 {% endif %}

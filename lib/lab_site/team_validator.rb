@@ -1,4 +1,5 @@
 require "pathname"
+require "find"
 
 require_relative "front_matter"
 
@@ -7,7 +8,9 @@ module LabSite
     REQUIRED_FIELDS = %w[berkeley_username name role status groups email image active sort_order].freeze
     EMAIL_PATTERN = /\A[^@\s]+@[^@\s]+\.[^@\s]+\z/
     USERNAME_PATTERN = /\A[a-z0-9][a-z0-9-]*\z/
+    URL_PATTERN = /\Ahttps?:\/\/[^\s]+\z/
     ALLOWED_GROUPS = %w[molecular-dynamics ai microbiome].freeze
+    URL_FIELDS = %w[website scholar orcid linkedin github].freeze
 
     def initialize(root:)
       @root = Pathname.new(root)
@@ -33,7 +36,14 @@ module LabSite
     private
 
     def team_files
-      Dir.glob(@root.join("_team", "**", "*.md")).sort
+      root = @root.join("_team")
+      return [] unless root.exist?
+
+      files = []
+      Find.find(root.to_s) do |path|
+        files << path if File.file?(path) && File.extname(path) == ".md"
+      end
+      files.sort
     end
 
     def validate_required_fields(path, front_matter)
@@ -51,6 +61,12 @@ module LabSite
       errors << "#{relative(path)} must use a lowercase kebab-case `berkeley_username`" unless front_matter["berkeley_username"].to_s.match?(USERNAME_PATTERN)
       errors << "#{relative(path)} must set `active` to true or false" unless [true, false].include?(front_matter["active"])
       errors << "#{relative(path)} must set numeric `sort_order`" unless front_matter["sort_order"].is_a?(Integer)
+      errors << "#{relative(path)} must set `show_email` to true or false when present" if front_matter.key?("show_email") && ![true, false].include?(front_matter["show_email"])
+      URL_FIELDS.each do |field|
+        next if front_matter[field].to_s.empty? || front_matter[field].to_s.match?(URL_PATTERN)
+
+        errors << "#{relative(path)} has invalid URL in `#{field}`"
+      end
       errors.concat(validate_groups(path, front_matter))
       errors
     end

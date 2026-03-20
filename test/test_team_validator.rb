@@ -48,6 +48,26 @@ class TeamValidatorTest < Minitest::Test
     end
   end
 
+  def test_show_email_must_be_boolean_when_present
+    Dir.mktmpdir do |dir|
+      write_team_entry(dir, "grad/jdoe.md", front_matter("jdoe", active: false, extras: "show_email: maybe\n"))
+
+      errors = LabSite::TeamValidator.new(root: dir).validate
+
+      assert(errors.any? { |error| error.include?("must set `show_email` to true or false") })
+    end
+  end
+
+  def test_optional_public_links_must_be_urls
+    Dir.mktmpdir do |dir|
+      write_team_entry(dir, "grad/jdoe.md", front_matter("jdoe", active: false, extras: "github: not-a-url\n"))
+
+      errors = LabSite::TeamValidator.new(root: dir).validate
+
+      assert(errors.any? { |error| error.include?("invalid URL in `github`") })
+    end
+  end
+
   private
 
   def write_team_entry(root, relative_path, yaml)
@@ -56,7 +76,7 @@ class TeamValidatorTest < Minitest::Test
     File.write(path, yaml)
   end
 
-  def front_matter(username, active:)
+  def front_matter(username, active:, extras: "")
     <<~MARKDOWN
       ---
       berkeley_username: #{username}
@@ -70,6 +90,7 @@ class TeamValidatorTest < Minitest::Test
       active: #{active}
       sort_order: 10
       bio_short: Example bio
+      #{extras}
       ---
     MARKDOWN
   end

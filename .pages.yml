@@ -208,7 +208,7 @@ content:
     type: file
     path: teaching/index.md
     format: yaml-frontmatter
-    description: PI-editable teaching page. Use rich text for course descriptions.
+    description: PI-editable teaching page. This is a good demo surface for routine public-content edits.
     fields:
       - name: layout
         label: Layout
@@ -291,7 +291,7 @@ content:
     subfolders: true
     filename: "{berkeley_username}.md"
     format: yaml-frontmatter
-    description: PI/CMS-owned people records. Use structured fields and the profile body for public-safe text only.
+    description: PI/CMS-owned public people records only. Do not put private IT onboarding or account-provisioning data here.
     view:
       fields: [name, role, active]
       primary: name
@@ -301,6 +301,7 @@ content:
         label: Berkeley username
         type: string
         required: true
+        description: Stable public profile key, usually derived from the Berkeley email local part.
         pattern:
           regex: "^[a-z0-9-]+$"
           message: Use lowercase letters, numbers, and hyphens only.
@@ -308,6 +309,7 @@ content:
         label: Name
         type: string
         required: true
+        description: Public display name for the profile card and team page.
       - name: role
         label: Role
         type: select
@@ -328,14 +330,26 @@ content:
         label: Status
         type: string
         required: true
-      - name: group
-        label: Group
-        type: string
+        description: Public title or training status shown on the team card.
+      - name: groups
+        label: Research groups
+        type: select
         required: true
+        list: true
+        description: Public research-area tags only. Do not use this field for IT or access grouping.
+        options:
+          values:
+            - label: Molecular Dynamics
+              value: molecular-dynamics
+            - label: Artificial Intelligence
+              value: ai
+            - label: Microbiome
+              value: microbiome
       - name: email
         label: Email
         type: string
         required: true
+        description: Public-safe contact email. The site only renders it when `Show public email link` is enabled.
         pattern:
           regex: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
           message: Enter a valid email address.
@@ -343,6 +357,7 @@ content:
         label: Profile image
         type: image
         required: true
+        description: Public headshot for the website team card.
       - name: active
         label: Show publicly
         type: boolean
@@ -351,28 +366,59 @@ content:
         label: Sort order
         type: number
         required: true
+        description: Lower numbers appear earlier within the role grouping.
       - name: bio_short
         label: Short bio
         type: text
+        description: One short public summary used on the team card.
       - name: bio_long
         label: Long bio
         type: text
+        description: Longer public biography text for the profile page.
+      - name: show_email
+        label: Show public email link
+        type: boolean
+        default: false
+        description: Controls whether the website renders a mailto link for this profile.
       - name: website
         label: Website
         type: string
+        pattern:
+          regex: "^https?://[^\\s]+$"
+          message: Use a full URL starting with http:// or https://.
       - name: scholar
         label: Google Scholar URL
         type: string
+        pattern:
+          regex: "^https?://[^\\s]+$"
+          message: Use a full URL starting with http:// or https://.
       - name: orcid
         label: ORCID URL
         type: string
+        pattern:
+          regex: "^https?://[^\\s]+$"
+          message: Use a full URL starting with http:// or https://.
+      - name: linkedin
+        label: LinkedIn URL
+        type: string
+        pattern:
+          regex: "^https?://[^\\s]+$"
+          message: Use a full URL starting with http:// or https://.
+      - name: github
+        label: GitHub URL
+        type: string
+        pattern:
+          regex: "^https?://[^\\s]+$"
+          message: Use a full URL starting with http:// or https://.
       - name: placeholder
         label: Placeholder profile
         type: boolean
         default: false
+        description: Maintainer-only temporary flag for incomplete public profiles.
       - name: body
         label: Profile body
         type: rich-text
+        description: Optional long-form profile content for the dedicated member page.
 
   - name: posts
     label: News Posts
@@ -383,7 +429,7 @@ content:
       - .gitkeep
     filename: "{year}-{month}-{day}-{primary}.md"
     format: yaml-frontmatter
-    description: PI-editable news entries for the vertical feed. Keep posts concise and use embeds only when needed.
+    description: PI-editable news entries for the public archive. This is one of the primary demo-ready CMS surfaces.
     view:
       fields: [title, date]
       primary: title
@@ -398,19 +444,24 @@ content:
         label: Post title
         type: string
         required: true
+        description: Public headline shown in the archive and feed.
       - name: date
         label: Publish date
         type: date
         required: true
+        description: Public publish date shown in the archive timeline.
       - name: featured_image
         label: Featured image
         type: image
+        description: Optional lead image for the archive card and post body.
       - name: featured_image_alt
         label: Featured image alt text
         type: string
+        description: Required whenever a featured image is present. Describe the image content, not the filename.
       - name: body
         label: Post content
         type: rich-text
+        description: Keep posts concise and public-facing. Use embeds only when they materially help.
       - name: embeds
         label: Embedded content
         component: embed_blocks
@@ -420,7 +471,7 @@ content:
     type: file
     path: _data/site.yml
     format: yaml
-    description: Institutional metadata, contact details, governance links, and publication source settings.
+    description: Site-wide public metadata, contact details, governance links, and publication source settings. This is part of the core PI demo scope.
     fields:
       - name: name
         label: Site name
@@ -569,14 +620,23 @@ content:
         fields:
           - name: migration_status
             label: Migration status
-            type: string
+            type: select
+            description: Maintainer-facing note about the legacy news import state.
+            options:
+              values:
+                - label: Pending WordPress backfill
+                  value: pending_wordpress_backfill
+                - label: Migration in progress
+                  value: migration_in_progress
+                - label: Migration complete
+                  value: migration_complete
 
   - name: theme_settings
     label: Theme Settings
     type: file
     path: _data/theme.yml
     format: yaml
-    description: Editor-safe design controls. Use this file for colors, shadows, corners, and motion intensity instead of editing Sass.
+    description: Editor-safe design controls for the current visual system. Use this file for tuning, not redesign-level template changes.
     fields:
       - name: layout
         label: Layout
@@ -756,6 +816,7 @@ content:
     type: file
     path: _data/navigation.yml
     format: yaml
+    description: PI-editable primary navigation. Keep labels public-facing and keep URLs aligned with the current site structure.
     fields:
       - name: primary
         label: Primary navigation
@@ -766,10 +827,12 @@ content:
             label: Title
             type: string
             required: true
+            description: Public navigation label shown in the site header.
           - name: url
             label: URL
             type: string
             required: true
+            description: Site-relative or external destination for this navigation item.
           - name: children
             label: Dropdown items
             type: object
@@ -779,10 +842,12 @@ content:
                 label: Title
                 type: string
                 required: true
+                description: Public label for the dropdown item.
               - name: url
                 label: URL
                 type: string
                 required: true
+                description: Site-relative or external destination for the dropdown item.
 
   - name: structures
     label: Mol* Structures

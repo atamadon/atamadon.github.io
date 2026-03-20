@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Publication Pipeline Test
+title: Website Archive Migration Underway
 ---
 
-The automated publications workflow is being exercised with sample content to confirm the archive, cards, and generated metadata all render correctly. This entry is intentionally synthetic.
+The lab website migration is now underway. Core public sections, including publications, research, teaching, and contact information, are live in the new site while older news and historical content are being restored from the previous archive.
 
-Once the live OpenAlex refresh path and local overrides are tuned, this placeholder post can be removed and replaced with a real lab update.
+Additional posts will be recovered from the legacy WordPress site and archived here as the migration proceeds.

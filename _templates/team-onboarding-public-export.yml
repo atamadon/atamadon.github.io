@@ -1,0 +1,29 @@
+# Private approved export example for the website pipeline.
+# Do not commit real onboarding records to this public repository.
+
+review:
+  source_submission_id: onboarding-2026-001
+  approved_by: lab-admin@example.org
+  approved_at: 2026-03-20
+
+public_profile:
+  berkeley_username: example-user
+  name: Example User
+  role: Graduate Student
+  status: PhD Student
+  groups:
+    - ai
+  email: example-user@berkeley.edu
+  image: /assets/images/team/example-user.jpg
+  active: true
+  sort_order: 300
+  bio_short: Short public bio shown on the team page.
+  body: |
+    Longer public biography for the team entry body.
+  show_email: false
+  website: https://example.org
+  scholar: https://scholar.google.com/citations?user=example
+  orcid: https://orcid.org/0000-0000-0000-0000
+  linkedin: https://www.linkedin.com/in/example-user
+  github: https://github.com/example-user
+  placeholder: false

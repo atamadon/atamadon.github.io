@@ -1,5 +1,6 @@
 require "pathname"
 require "yaml"
+require "find"
 
 require_relative "front_matter"
 
@@ -47,7 +48,18 @@ module LabSite
     private
 
     def content_files
-      CONTENT_GLOBS.flat_map { |pattern| Dir.glob(@root.join(pattern)) }.uniq.sort
+      files = []
+
+      Find.find(@root.to_s) do |path|
+        next unless File.file?(path) && File.extname(path) == ".md"
+
+        relative_path = relative(path).tr("\\", "/")
+        next unless CONTENT_GLOBS.any? { |pattern| File.fnmatch?(pattern, relative_path, File::FNM_PATHNAME) }
+
+        files << path
+      end
+
+      files.sort
     end
 
     def validate_embed(path, embed, index)

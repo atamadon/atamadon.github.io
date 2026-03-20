@@ -81,7 +81,7 @@ Required fields:
 - `name`
 - `role`
 - `status`
-- `group`
+- `groups`
 - `email`
 - `image`
 - `active`
@@ -89,9 +89,12 @@ Required fields:
 
 Optional fields:
 
+- `show_email`
 - `website`
 - `scholar`
 - `orcid`
+- `linkedin`
+- `github`
 - `bio_short`
 - long-form body content
 - placeholder marker
@@ -99,8 +102,27 @@ Optional fields:
 Rules:
 
 - `berkeley_username` is the public stable key
+- `groups` is a controlled public list, not freeform IT metadata
+- `show_email` controls whether the public site renders the email link
 - active members must render cleanly with valid public content
 - this schema is public-facing only and must not absorb private IT data
+
+### Team Onboarding Export
+
+Purpose:
+- receive approved public profile data from a private onboarding system
+- map that data into the public team-entry schema without retyping
+
+Must support:
+- approved public identity fields
+- approved public visibility preferences
+- approved public links
+- approved team placement fields needed by the public site
+
+Rules:
+- the canonical onboarding record lives outside this public repository
+- this repository may contain templates and import tooling, but not real private onboarding records
+- website exports must not include private IT-only fields such as internal notes, access approvals, or provisioning state
 
 ### News Post
 

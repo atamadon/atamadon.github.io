@@ -40,6 +40,17 @@
 - Keep animations subtle, CSS-first, and compatible with `prefers-reduced-motion`.
 - Preserve all homepage hero variants in `_sass/_components.scss`; switch the active one through the class on `index.md` instead of deleting alternates.
 - Keep editor-managed embeds in front matter under `embeds:` and rendered through the shared embed includes. Do not ask nontechnical editors to paste raw iframe or script code into page bodies.
+- Keep real onboarding records and IT checklists outside this public repo. Only approved public profile exports should be rendered into `_team/`.
+- Preserve the current private intake policy for v1: Berkeley-restricted Google Form, PI-owned, with response access limited to the PI and selected lab admins.
+- Use the team-entry path that matches the change:
+  - `Google Form` for new-member intake that needs private review before publication
+  - `GitHub/local repo` for maintainer backfills, bulk edits, and schema/source-level fixes
+  - `Pages CMS` for PI/editor updates to already-approved public team content only
+- Rehearse Pages CMS against the current demo-safe surfaces first: `team`, `news posts`, `teaching`, `site settings`, `navigation`, and `theme settings`.
+- Use `_templates/pages-cms-startup-checklist.md` when connecting the repo to Pages CMS or preparing the PI demo.
+- For legacy-site migration, prefer WordPress export and media copies as the primary source. Use the public site and Wayback only as the recovery layer for missing or hacked content.
+- Keep migration work reviewable with `_templates/legacy-content-migration-ledger.csv` instead of ad hoc notes.
+- Keep the current milestone focused on a credible PI demo: core Pages CMS editorial surfaces first, broader publish-ready cleanup second.
 
 ## Validation
 
@@ -53,6 +64,7 @@ ruby scripts/validate_embeds.rb
 ruby -Ilib test/test_publication_generator.rb
 ruby -Ilib test/test_theme_validator.rb
 ruby -Ilib test/test_team_validator.rb
+ruby -Ilib test/test_team_onboarding_export.rb
 ruby -Ilib test/test_embed_validator.rb
 ruby -Ilib test/test_structures_config.rb
 node --check assets/js/molstar-viewer.js

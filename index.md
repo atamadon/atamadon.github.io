@@ -45,7 +45,7 @@ hero-section-molecular, hero-section-editorial -->
   <div class="feature-grid">
     {% for pub in recent_pubs %}
       <article class="feature-card">
-        <p class="feature-meta">{{ pub.date | date: "%Y" }} · {{ pub.type | capitalize }}</p>
+        <p class="feature-meta">{{ pub.date | date: "%Y" }} &middot; {{ pub.type | capitalize }}</p>
         <h3><a href="{{ pub.source_url }}" target="_blank" rel="noopener">{{ pub.title }}</a></h3>
         {% if pub.citation %}
           <p>{{ pub.citation }}</p>
@@ -62,8 +62,8 @@ hero-section-molecular, hero-section-editorial -->
     <a href="{{ '/team/' | relative_url }}">Go to team page</a>
   </article>
   <article class="callout-card">
-    <h2>Teaching and Contact</h2>
-    <p>Browse course offerings and find department contact details for collaboration and student inquiries.</p>
-    <a href="{{ '/contact/' | relative_url }}">Contact the lab</a>
+    <h2>Teaching</h2>
+    <p>Browse course offerings across computational biology, molecular biomechanics, and mechanobiology.</p>
+    <a href="{{ '/teaching/' | relative_url }}">View teaching page</a>
   </article>
 </section>

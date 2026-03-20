@@ -19,7 +19,7 @@ This course develops and applies scaling laws and the methods of statistical and
 
 ## ME 211: The Cell as a Machine
 
-This course offers a modular and systems mechanobiology (or “machine”) perspective of the cell. Two vitally important components of the cell machinery will be studied in depth:
+This course offers a modular and systems mechanobiology (or "machine") perspective of the cell. Two vitally important components of the cell machinery will be studied in depth:
 1.  The integrin-mediated focal adhesions system that enables the cell to adhere to, and communicate mechano-chemical signals with, the extracellular environment  
 2.  The nuclear pore complex, a multi-protein gateway for traffic in and out of the nucleus that regulates gene expression and affects protein synthesis  
 

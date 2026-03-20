@@ -3,19 +3,19 @@ layout: default
 title: Team
 ---
 
-{% assign active_team = site.team | where: "active", true | sort: "sort_order" %}
+{% assign active_team = site.team | where: "active", true | where_exp: "member", "member.placeholder != true" | sort: "sort_order" %}
 {% assign principal_investigators = active_team | where: "role", "Principal Investigator" %}
 {% assign postdocs = active_team | where: "role", "Postdoc" %}
 {% assign graduate_students = active_team | where: "role", "Graduate Student" %}
 {% assign undergraduate_students = active_team | where: "role", "Undergraduate Student" %}
-{% assign alumni = site.team | where: "role", "Alumni" | where: "active", false | sort: "sort_order" %}
-{% assign sample_profiles = site.team | where: "placeholder", true %}
+{% assign alumni = site.team | where: "role", "Alumni" | where: "active", false | where_exp: "member", "member.placeholder != true" | sort: "sort_order" %}
+{% assign sample_profiles = site.team | where: "placeholder", true | where: "active", true %}
 
 {% include section-heading.html eyebrow="People" title="Team" %}
 
 {% if sample_profiles.size > 0 %}
 <div class="news-placeholder">
-  <p>Sample team entries are currently displayed to populate the page structure. Replace them with real lab profiles when content is ready.</p>
+  <p>Additional public profiles are being finalized as the roster is migrated and reviewed for publication.</p>
 </div>
 {% endif %}
 
@@ -62,7 +62,7 @@ title: Team
 {% endif %}
 
 {% if postdocs.size == 0 and graduate_students.size == 0 and undergraduate_students.size == 0 %}
-<p>The broader team roster is being updated. Public profiles will expand as active lab members are added with finalized Berkeley usernames, bios, and images.</p>
+<p>Additional public profiles will be added as active lab members are approved for publication with finalized bios and images.</p>
 {% endif %}
 
 {% if alumni.size > 0 %}

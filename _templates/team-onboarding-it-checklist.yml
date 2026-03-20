@@ -1,0 +1,32 @@
+# Private IT onboarding checklist example.
+# This contract is intentionally documented here, but real records should live
+# in a private system outside this public repository.
+
+member:
+  berkeley_username: example-user
+  name: Example User
+  supervisor: Example PI
+  start_date: 2026-08-15
+  approved_by: lab-admin@example.org
+
+website:
+  requested_public_listing: true
+  approved_public_listing: true
+  status: completed
+  notes: Public team profile exported to the website repo.
+
+accounts:
+  berkeley_identity_verified: completed
+  mailing_lists: requested
+  github_org_access: approved
+  slack_access: requested
+  shared_drive_access: approved
+  server_access: not_requested
+
+equipment:
+  workstation: requested
+  keycard_or_room_access: approved
+
+notes:
+  blockers: ""
+  internal_notes: Capture lab-admin notes here in the private system only.

@@ -26,6 +26,7 @@ This file explains how the current GitHub Pages/Jekyll site implements the websi
 - Spec source: `spec/content-model.md`
 - Jekyll adapter: `_team/`
 - Validation: `lib/lab_site/team_validator.rb`
+- Approved public-export renderer: `lib/lab_site/team_onboarding_export.rb` and `scripts/render_team_onboarding_export.rb`
 
 ### News
 
@@ -59,6 +60,14 @@ This file explains how the current GitHub Pages/Jekyll site implements the websi
   - `README.md`
   - `CONTRIBUTING.md`
   - `AGENTS.md`
+  - `_templates/team-onboarding-google-form-v1.md`
+  - `_templates/team-onboarding-google-sheet-columns.csv`
+  - `_templates/team-onboarding-public-export.yml`
+  - `_templates/team-onboarding-it-checklist.yml`
+  - `_templates/wordpress-migration-request.md`
+  - `_templates/legacy-content-migration-ledger.csv`
+  - `_templates/pi-demo-launch-checklist.md`
+  - `_templates/pages-cms-startup-checklist.md`
 
 ## What is implementation-specific
 

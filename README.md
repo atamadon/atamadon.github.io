@@ -35,6 +35,7 @@ Read these first when making product-level changes:
 bundle install
 ruby scripts/validate_theme.rb
 ruby scripts/validate_team.rb
+ruby -Ilib test/test_team_onboarding_export.rb
 bundle exec jekyll build
 ```
 
@@ -76,6 +77,80 @@ Generated publications in `_data/generated/publications.json` remain generator-o
 - `Generated`: `_data/generated/publications.json` and `.cache/publication_generator/`
 
 Not every page body is treated the same in Pages CMS. Pure content surfaces use structured forms or rich text. Pages that compose dynamic sections or Liquid-backed lists stay maintainer-owned on purpose.
+
+### Pages CMS Startup
+
+Use `_templates/pages-cms-startup-checklist.md` when first connecting the repo to Pages CMS or rehearsing the PI demo.
+
+Start with these editor-facing surfaces only:
+
+- `team`
+- `news posts`
+- `teaching`
+- `site settings`
+- `navigation`
+- `theme settings`
+
+Treat `home`, `research landing`, `contact`, and `news landing` as maintainer-owned unless their current editing contract is intentionally revised later.
+
+## Team Onboarding Pipeline
+
+Team onboarding is now modeled as a private intake and approval workflow that exports only approved public profile data into this repository.
+
+- The current v1 private intake implementation is a Berkeley-restricted Google Form owned by the PI account and administered by selected lab admins.
+- Use `_templates/team-onboarding-google-form-v1.md` as the operating policy for form settings, access, question structure, and required privacy language.
+- Use `_templates/team-onboarding-google-sheet-columns.csv` as the suggested private response Sheet header layout.
+- Use `_templates/team-onboarding-public-export.yml` as the public-export contract from the private onboarding system.
+- Use `_templates/team-onboarding-it-checklist.yml` as the private IT checklist shape.
+- Render an approved public export into a proposed `_team/` entry with:
+
+```bash
+ruby scripts/render_team_onboarding_export.rb path/to/approved-public-export.yml
+```
+
+Add `--write` to write the rendered Markdown into the proposed `_team/<role>/<berkeley_username>.md` path.
+The approved export file itself should remain outside this public repository.
+The Google Form, response Sheet, and uploaded files are also private operational records and must remain outside this repository.
+
+### Team Entry Paths
+
+All team-entry workflows converge on the same public source of truth: Markdown entries in `_team/`.
+
+- `Google Form`: default path for new members. Use it when the source data comes from the member and needs private intake, privacy choices, and admin review before publication.
+- `GitHub/local repo`: maintainer path. Use it for backfills, bulk edits, schema-level fixes, or any case where an admin needs full source control. Prefer rendering from a private approved export with `scripts/render_team_onboarding_export.rb`; direct `_team/` edits are the fallback for one-off fixes.
+- `Pages CMS`: PI/editor path. Use it for already-approved public website changes only, such as updating a bio, headshot, link, or active status. Do not use Pages CMS for private intake, approvals, or IT/access records.
+
+Decision rule:
+
+- New member with private intake data -> `Google Form`
+- Admin-maintained or bulk/source-level change -> `GitHub/local repo`
+- PI/editor updating approved public content only -> `Pages CMS`
+
+## Legacy Content Migration
+
+Legacy content migration should use a two-source workflow:
+
+- `WordPress export` as the primary source for posts, pages, metadata, and media references
+- `Public site + Wayback` as the recovery path for content that is missing, corrupted, or deleted from the legacy system
+
+Use `_templates/wordpress-migration-request.md` when requesting source data from the PI or legacy-site admin.
+Track all imports and recoveries in `_templates/legacy-content-migration-ledger.csv` so migration stays reviewable and does not turn into ad hoc copy-paste work.
+
+Migration priority is:
+
+1. News archive
+2. Alumni and team history
+3. Research summaries
+4. Remaining secondary pages
+
+## PI Demo and Launch Readiness
+
+The current milestone is a credible PI demo, not full historical completeness.
+
+- Keep the CMS demo focused on `team`, `news`, `teaching`, `site settings`, `navigation`, and `theme settings`
+- Prefer a smaller, dependable editorial surface over a broader but fragile one
+- Use `_templates/pi-demo-launch-checklist.md` to track demo readiness, migration readiness, and the later publish-ready hardening pass
+- Use `_templates/pages-cms-startup-checklist.md` to rehearse the actual Pages CMS demo flows before showing them to the PI
 
 ## Theme Settings
 
@@ -142,12 +217,12 @@ Use `page.embeds` for editor-managed embedded content. Keep raw layout includes 
 - `assets/`: compiled CSS, JavaScript, images, and structure files
 - `lib/`, `scripts/`, `test/`: generation, validation, and test code
 - `_templates/`: content templates
-- `TODO.md`: deferred site follow-ups and design/compliance backlog
+- `TODO.md`: authoritative backlog for unfinished website work
 - `_site/`: generated build output only
 
 ## Current Backlog
 
-- Add an official UC Berkeley unit lockup in the header or footer once the approved asset and placement are ready. The custom lab logo stays in use for now.
+See [TODO.md](/home/ali/GitHub/atamadon.github.io/TODO.md) for the authoritative backlog.
 
 ## Workflow
 

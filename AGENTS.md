@@ -11,7 +11,7 @@ It is also the reference implementation of the implementation-agnostic website s
 - `_data/`: site metadata, theme settings, navigation, structure configs, publication overrides, and generated publication data.
 - `_publications/`: legacy publication seed entries used to bootstrap the generator.
 - `.pages.yml`: Pages CMS configuration for editable site content and settings.
-- `TODO.md`: deferred site follow-ups and design/compliance backlog.
+- `TODO.md`: authoritative backlog for unfinished website work.
 - `_layouts/default.html`, `_includes/`, `_sass/`: shell, reusable UI, and design system styles.
 - `assets/js/site.js`: site navigation behavior.
 - `assets/js/molstar-viewer.js`: Mol* embed behavior.
@@ -35,6 +35,17 @@ It is also the reference implementation of the implementation-agnostic website s
 - Avoid hand-editing `_data/generated/publications.json` unless the task is explicitly fixing generated output.
 - Keep publications external-link-only. Curate the `/publications/`, `/publications/journals/`, and `/publications/books/` surfaces through `_data/publication_overrides.yml` instead of adding local publication detail pages.
 - Preserve the publication image precedence order: manual `image_override`, then best-effort Figure 1, then generic cover/preview, then placeholder.
+- Keep real team onboarding records and IT checklists outside this public repo. Only approved public profile exports should be rendered into `_team/`.
+- Preserve the current v1 intake policy: Berkeley-restricted Google Form, PI-owned, with response access limited to the PI and selected lab admins.
+- Choose the team-entry workflow by source and ownership:
+  - `Google Form` for new-member private intake that requires admin review
+  - `GitHub/local repo` for maintainer backfills, bulk edits, and source-level corrections
+  - `Pages CMS` for PI/editor updates to already-approved public team content only
+- Rehearse Pages CMS against the current demo-safe surfaces first: `team`, `news posts`, `teaching`, `site settings`, `navigation`, and `theme settings`.
+- Use `_templates/pages-cms-startup-checklist.md` when preparing or reviewing the PI demo workflow.
+- For legacy-site migration, prefer WordPress export and media copies as the primary source. Use the public site and Wayback only as the recovery path for missing or hacked content.
+- Keep migration work reviewable with `_templates/legacy-content-migration-ledger.csv` and `_templates/wordpress-migration-request.md`.
+- Keep the current milestone focused on a credible PI demo: core Pages CMS editorial surfaces first, broader publish-ready cleanup second.
 - Treat `.cache/publication_generator/` as disposable local cache output, not source.
 - Keep `.pages.yml` aligned with the actual file schema whenever CMS-managed content changes.
 - Keep `spec/` aligned with any change that alters the website contract rather than just the Jekyll implementation.
@@ -53,6 +64,7 @@ Run all commands from the repository root.
 - Validate embed blocks: `ruby scripts/validate_embeds.rb`
 - Regenerate publications from legacy seeds only: `ruby scripts/generate_publications.rb --use-legacy-only`
 - Run Ruby tests: `ruby -Ilib test/test_publication_generator.rb && ruby -Ilib test/test_theme_validator.rb && ruby -Ilib test/test_team_validator.rb && ruby -Ilib test/test_embed_validator.rb && ruby -Ilib test/test_structures_config.rb`
+- Run team onboarding export test: `ruby -Ilib test/test_team_onboarding_export.rb`
 - Check Mol* wrapper syntax: `node --check assets/js/molstar-viewer.js`
 - Local build check: `bundle exec jekyll build`
 - Local preview server: `bundle exec jekyll serve`
