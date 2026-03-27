@@ -19,10 +19,10 @@ title: Contact
         <p class="contact-label">Phone</p>
         <p>{{ contact.phone }}</p>
       </div>
-      <div class="contact-row">
+      <!-- <div class="contact-row">
         <p class="contact-label">Fax</p>
         <p>{{ contact.fax }}</p>
-      </div>
+      </div> -->
       <div class="contact-row">
         <p class="contact-label">Address</p>
         <p class="contact-address">
