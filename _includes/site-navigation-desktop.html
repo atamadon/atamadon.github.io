@@ -1,0 +1,26 @@
+{% assign navigation = include.navigation | default: empty %}
+<nav class="site-navigation site-navigation-desktop" aria-label="Main site navigation">
+  <ul class="nav-links">
+    {% for item in navigation %}
+      {% assign item_is_absolute = item.url contains '://' %}
+      <li class="nav-item{% if item.children %} nav-item-has-children{% endif %}">
+        <div class="nav-item-heading">
+          <a class="nav-item-link" href="{% if item_is_absolute %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">
+            <span class="nav-link-label">{{ item.title }}</span>
+          </a>
+          {% if item.children %}
+            <span class="nav-link-caret nav-link-caret-static" aria-hidden="true"></span>
+          {% endif %}
+        </div>
+        {% if item.children %}
+          <ul class="nav-submenu" aria-label="{{ item.title }} submenu">
+            {% for child in item.children %}
+              {% assign child_is_absolute = child.url contains '://' %}
+              <li><a href="{% if child_is_absolute %}{{ child.url }}{% else %}{{ child.url | relative_url }}{% endif %}">{{ child.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

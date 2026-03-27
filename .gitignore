@@ -1,0 +1,13 @@
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/bundle/
+.cache/
+.edge-*/
+edge-*.png
+motion-*.png
+__live_style.css
+artifacts/*
+!artifacts/.gitkeep

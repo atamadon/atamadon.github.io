@@ -1,0 +1,29 @@
+{% assign member = include.member %}
+{% assign has_links = false %}
+{% if member.website %}{% assign has_links = true %}{% endif %}
+{% if member.linkedin %}{% assign has_links = true %}{% endif %}
+{% if member.scholar %}{% assign has_links = true %}{% endif %}
+{% if member.orcid %}{% assign has_links = true %}{% endif %}
+{% if member.github %}{% assign has_links = true %}{% endif %}
+<article class="team-card alumni-card" data-berkeley-username="{{ member.berkeley_username }}">
+  <div class="alumni-card-body">
+    <div class="alumni-card-head">
+      <h3>{{ member.name }}</h3>
+      {% if member.status %}
+        <p class="team-status">{{ member.status }}</p>
+      {% endif %}
+    </div>
+    {% if member.current_position %}
+      <p class="alumni-current-position">{{ member.current_position }}</p>
+    {% endif %}
+    {% if has_links %}
+      <ul class="team-links alumni-links">
+        {% if member.website %}<li><a href="{{ member.website }}" target="_blank" rel="noopener">Website</a></li>{% endif %}
+        {% if member.linkedin %}<li><a href="{{ member.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+        {% if member.scholar %}<li><a href="{{ member.scholar }}" target="_blank" rel="noopener">Scholar</a></li>{% endif %}
+        {% if member.orcid %}<li><a href="{{ member.orcid }}" target="_blank" rel="noopener">ORCID</a></li>{% endif %}
+        {% if member.github %}<li><a href="{{ member.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+      </ul>
+    {% endif %}
+  </div>
+</article>

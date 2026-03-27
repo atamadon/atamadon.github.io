@@ -1,0 +1,377 @@
+   4. Layout Shell
+   ------------------------------------------------------------ */
+.site-footer {
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--line-300);
+  background: var(--surface-50);
+}
+
+.site-footer-grid {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.footer-heading {
+  margin-bottom: var(--space-1);
+  font-size: 1rem;
+}
+
+.footer-link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link-list li + li {
+  margin-top: 0.55rem;
+}
+
+.footer-link-list a {
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   5. Site Header & Navigation
+   ------------------------------------------------------------ */
+.site-header-shell {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: var(--header-surface);
+  border-bottom: 1px solid var(--header-border);
+}
+
+/* Single-row grid: title | nav | controls — guarantees title/nav alignment.
+   Subtitles live absolutely inside .site-brand-title-area (width = title text).
+   Jekyll adds .has-subtitle-top / .has-subtitle-bottom classes so padding
+   expands to reveal the floating subtitle without moving any main-row items. */
+.site-header {
+  --desktop-submenu-offset: 0rem;
+  width: 100%;
+  padding: 0.6rem clamp(1rem, 2.5vw, 2rem);
+  display: grid;
+  grid-template-columns: minmax(24rem, 1.15fr) minmax(22rem, 1fr) auto;
+  align-items: center;
+  column-gap: var(--space-3);
+}
+
+.site-header.has-subtitle-top    { padding-top: 1.2rem; --desktop-submenu-offset: 1.1rem; }
+.site-header.has-subtitle-bottom { padding-bottom: 1.2rem; }
+
+.site-brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Positioning context sized to the title text width.
+   Subtitles anchor to its edges so they stay flush with the title. */
+.site-brand-title-area {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-brand-title {
+  color: var(--header-text);
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.55vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.site-brand-title-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Subtitles are absolutely positioned in the header's padding zone */
+.site-brand-subtitles {
+  position: absolute;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.6rem;
+  align-items: center;
+}
+
+.site-brand-subtitles-top {
+  bottom: calc(100% + 0.15rem);
+  left: 0;
+}
+
+.site-brand-subtitles-bottom {
+  top: calc(100% + 0.15rem);
+  right: 0;
+  justify-content: flex-end;
+}
+
+.site-brand-subtitle-link {
+  color: var(--header-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.site-brand-subtitle-spacer {
+  display: inline-block;
+  visibility: hidden;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.site-header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-self: end;
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid var(--header-border);
+  background: transparent;
+  color: var(--header-text);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 0.7rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.nav-toggle-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.28rem;
+}
+
+.nav-toggle-icon span {
+  display: block;
+  width: 1.05rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.site-navigation-desktop {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.site-navigation-mobile-shell,
+.site-navigation-mobile {
+  display: none;
+}
+
+.site-navigation-mobile-shell > summary::-webkit-details-marker,
+.nav-mobile-submenu-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.site-navigation-mobile-shell > summary,
+.nav-mobile-submenu-toggle {
+  list-style: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  gap: clamp(0.2rem, 1vw, 0.7rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item-has-children::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: calc(100% + 1.5rem);
+  height: calc(var(--desktop-submenu-offset) + 0.1rem);
+  transform: translateX(-50%);
+}
+
+.nav-item-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-item-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.35rem;
+  color: var(--header-text);
+  font-weight: 700;
+  font-size: 1.08rem;
+  position: relative;
+  transition: color var(--motion-fast) var(--ease-standard);
+  padding-inline: 0.45rem 0.2rem;
+}
+
+.nav-link-label {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-link-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(-1 * var(--link-underline-offset));
+  height: var(--link-underline-thickness);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--motion-base) var(--ease-soft);
+}
+
+.nav-link-caret {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: -0.08rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.78;
+  transition:
+    transform var(--motion-fast) var(--ease-soft),
+    opacity var(--motion-fast) var(--ease-standard);
+}
+
+.nav-link-caret-static {
+  margin-left: 0.1rem;
+}
+
+.nav-submenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + var(--desktop-submenu-offset));
+  left: 50%;
+  min-width: max-content;
+  max-width: min(16rem, calc(100vw - 2rem));
+  padding: var(--space-2);
+  margin: 0;
+  list-style: none;
+  border: 1px solid var(--line-300);
+  border-radius: 1rem;
+  background: var(--surface-0);
+  box-shadow: var(--shadow-card);
+  transform: translateX(-50%);
+}
+
+.nav-submenu li + li {
+  margin-top: 0.35rem;
+}
+
+.nav-submenu a {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.7rem;
+  white-space: nowrap;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
+}
+
+.nav-submenu a:hover,
+.nav-submenu a:focus {
+  background: var(--surface-tint);
+}
+
+.nav-item-link:hover .nav-link-label::after,
+.nav-item-link:focus .nav-link-label::after,
+.nav-item-has-children:focus-within > .nav-item-heading .nav-item-link .nav-link-label::after,
+.nav-item-has-children:hover > .nav-item-heading .nav-item-link .nav-link-label::after {
+  transform: scaleX(1);
+}
+
+.nav-item-has-children:focus-within > .nav-item-heading .nav-link-caret,
+.nav-item-has-children:hover > .nav-item-heading .nav-link-caret {
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 1.5px solid currentColor;
+  border-top: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 1;
+}
+
+@media (min-width: 64.001rem) {
+  .nav-submenu::before {
+    content: "";
+    position: absolute;
+    top: calc(-1 * (var(--desktop-submenu-offset) + 0.1rem));
+    left: 0;
+    right: 0;
+    height: calc(var(--desktop-submenu-offset) + 0.1rem);
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .nav-item-has-children:hover > .nav-submenu,
+  .nav-item-has-children:focus-within > .nav-submenu {
+    display: block;
+  }
+
+  .nav-item-has-children::after {
+    pointer-events: auto;
+  }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  padding: 0;
+  border: 1px solid var(--header-border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 0 var(--theme-toggle-ring);
+  cursor: pointer;
+  transition:
+    box-shadow var(--motion-fast) var(--ease-standard),
+    background var(--motion-fast) var(--ease-standard);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  box-shadow: 0 0 0 0.18rem var(--theme-toggle-ring);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+body:has(#theme-mode-toggle:checked) .theme-toggle {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 0 0.16rem var(--theme-toggle-ring);
+}
+
+.theme-toggle-logo {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ------------------------------------------------------------

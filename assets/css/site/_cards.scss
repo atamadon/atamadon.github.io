@@ -1,0 +1,130 @@
+   7. Buttons
+   ------------------------------------------------------------ */
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 1rem 1.45rem;
+  border-radius: var(--radius-pill);
+  background: var(--berkeley-blue);
+  color: var(--surface-0);
+  font-weight: 700;
+  transform: scale(1);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  transition:
+    transform var(--motion-base) var(--ease-soft),
+    box-shadow var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
+}
+
+.button-link:hover,
+.button-link:focus {
+  transform: scale(var(--interactive-scale));
+  color: var(--surface-0);
+  background: var(--accent-blue);
+  box-shadow: 0 0.7rem 1.4rem rgba(0, 38, 118, 0.16);
+}
+
+.button-link-secondary {
+  border: 1px solid var(--line-300);
+  background: var(--surface-0);
+  color: var(--berkeley-blue);
+}
+
+.button-link-secondary:hover,
+.button-link-secondary:focus {
+  background: var(--surface-tint);
+  color: var(--berkeley-blue);
+}
+
+/* ------------------------------------------------------------
+   8. Cards & Grids
+   ------------------------------------------------------------ */
+.home-section {
+  padding: var(--space-4) 0;
+}
+
+.page-section {
+  padding: var(--space-4) 0 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.feature-grid,
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--card-cluster-gap);
+}
+
+.feature-card,
+.callout-card,
+.publication-card,
+.team-card,
+.contact-card,
+.embed-block {
+  background: var(--surface-0);
+  border: 1px solid var(--line-300);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transform: scale(1);
+  transition:
+    transform var(--motion-base) var(--ease-soft),
+    box-shadow var(--motion-base) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard);
+}
+
+.feature-card:hover,
+.feature-card:focus-within,
+.callout-card:hover,
+.callout-card:focus-within,
+.publication-card:hover,
+.publication-card:focus-within,
+.team-card:hover,
+.team-card:focus-within,
+.contact-card:hover,
+.contact-card:focus-within,
+.embed-block:hover,
+.embed-block:focus-within {
+  transform: scale(var(--interactive-scale));
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(253, 181, 21, 0.34);
+}
+
+.feature-card,
+.callout-card,
+.contact-card,
+.team-card,
+.publication-content,
+.book-card-details,
+.publication-empty,
+.news-body,
+.teaching-item,
+.books-library,
+.embed-block {
+  padding: var(--card-pad);
+}
+
+.feature-meta,
+.publication-meta {
+  margin: 0 0 var(--space-2);
+  color: var(--ink-700);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.home-callouts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--card-cluster-gap);
+}
+
+/* ------------------------------------------------------------

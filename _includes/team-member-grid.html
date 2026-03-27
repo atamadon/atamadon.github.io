@@ -1,0 +1,29 @@
+{% assign members = include.members | default: empty %}
+<div class="team-list">
+  {% if include.graduate_hierarchy %}
+    {% for member in members %}
+      {% if member.status == "PhD Candidate" %}
+        {% include team-card.html member=member %}
+      {% endif %}
+    {% endfor %}
+    {% for member in members %}
+      {% if member.status == "PhD Student" %}
+        {% include team-card.html member=member %}
+      {% endif %}
+    {% endfor %}
+    {% for member in members %}
+      {% if member.status == "M.Eng. Student" %}
+        {% include team-card.html member=member %}
+      {% endif %}
+    {% endfor %}
+    {% for member in members %}
+      {% unless member.status == "PhD Candidate" or member.status == "PhD Student" or member.status == "M.Eng. Student" %}
+        {% include team-card.html member=member %}
+      {% endunless %}
+    {% endfor %}
+  {% else %}
+    {% for member in members %}
+      {% include team-card.html member=member %}
+    {% endfor %}
+  {% endif %}
+</div>

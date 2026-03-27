@@ -1,0 +1,239 @@
+   9. Team
+   ------------------------------------------------------------ */
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--card-cluster-gap);
+}
+
+.team-photo-feature {
+  display: grid;
+  width: min(100%, 52rem);
+  margin-inline: auto;
+  justify-items: center;
+  gap: var(--card-gap-tight);
+  padding: var(--card-pad-media);
+  text-align: center;
+}
+
+.team-photo-feature-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: calc(var(--radius-card) - 0.1rem);
+  background: var(--surface-50);
+}
+
+.team-photo-feature-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.team-photo-feature-copy {
+  display: grid;
+  gap: var(--space-1);
+  justify-items: center;
+}
+
+.team-photo-feature-copy p {
+  margin: 0;
+}
+
+.team-photo-feature-caption {
+  color: var(--berkeley-blue);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.team-list > :only-child,
+.team-list > :last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-photo {
+  flex-shrink: 0;
+  width: min(100%, 10rem);
+  margin: 0 auto var(--space-3);
+}
+
+.team-photo img,
+.team-photo-fallback {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: calc(var(--radius-card) - 0.1rem);
+}
+
+.team-photo img {
+  display: block;
+  object-fit: cover;
+}
+
+.team-photo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--berkeley-blue), var(--accent-blue));
+  color: var(--surface-0);
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.team-photo-fallback[hidden] {
+  display: none !important;
+}
+
+.team-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--card-gap-tight);
+}
+
+.team-card h3 {
+  margin-bottom: 0;
+}
+
+.team-status {
+  margin: 0;
+  color: var(--ink-700);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.team-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+.team-group-tag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--surface-100);
+  color: var(--ink-700);
+  border: 1px solid var(--line-300);
+  text-decoration: none;
+  transform: scale(1);
+  transition:
+    transform var(--motion-base) var(--ease-soft),
+    background var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard);
+}
+
+a.team-group-tag:hover {
+  transform: scale(var(--interactive-scale));
+  background: var(--surface-tint);
+  border-color: var(--accent-gold);
+  color: var(--ink-900);
+}
+
+.team-bio {
+  flex: 1;
+  font-size: 0.92rem;
+  color: var(--ink-700);
+  margin: 0;
+}
+
+.team-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0;
+}
+
+.team-links a {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1.5px solid var(--line-300);
+  color: var(--ink-900);
+  text-decoration: none;
+  transform: scale(1);
+  transition:
+    transform var(--motion-base) var(--ease-soft),
+    background var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard);
+}
+
+.team-links a:hover {
+  transform: scale(var(--interactive-scale));
+  background: var(--surface-50);
+  border-color: var(--accent-gold);
+}
+
+.alumni-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-1);
+  width: min(100%, 48rem);
+  margin-inline: auto;
+}
+
+.alumni-card {
+  padding: var(--space-1) var(--space-3);
+  min-height: auto;
+}
+
+.alumni-card-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.alumni-card-head {
+  display: grid;
+  gap: 0.2rem;
+  flex: 0 0 clamp(11rem, 30%, 14rem);
+  min-width: 0;
+}
+
+.alumni-card .team-status {
+  margin-top: 0;
+  font-size: 0.82rem;
+}
+
+.alumni-current-position {
+  margin: 0;
+  flex: 1 1 12rem;
+  min-width: 0;
+  color: var(--ink-700);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.alumni-links {
+  margin: 0 0 0 auto;
+  align-self: center;
+  justify-content: flex-end;
+}
+
+.alumni-links a {
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.section-empty-note {
+  margin: 0;
+  color: var(--ink-600);
+  font-size: 0.95rem;
+}
+
+/* ------------------------------------------------------------

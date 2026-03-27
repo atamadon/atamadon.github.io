@@ -1,0 +1,55 @@
+   13. Contact
+   ------------------------------------------------------------ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) minmax(0, 2fr);
+  gap: var(--card-cluster-gap);
+  align-items: stretch;
+}
+
+.contact-details-card,
+.contact-map-card {
+  display: grid;
+  gap: var(--card-gap);
+  height: 100%;
+}
+
+.contact-details-card h2,
+.contact-map-card h2 {
+  margin: 0;
+}
+
+.contact-list {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.contact-row {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.contact-row p {
+  margin: 0;
+}
+
+.contact-label {
+  color: var(--ink-700);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-address {
+  color: var(--ink-800);
+}
+
+.contact-map-card iframe {
+  width: 100%;
+  min-height: 24rem;
+  border: 0;
+  border-radius: calc(var(--radius-card) - 0.1rem);
+}
+
+/* ------------------------------------------------------------

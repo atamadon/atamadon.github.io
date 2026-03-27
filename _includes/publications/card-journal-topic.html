@@ -1,0 +1,15 @@
+{% assign publication = include.publication %}
+{% assign href = publication.source_url | default: publication.external_url %}
+<article class="publication-card publication-card-journal-topic">
+  <div class="publication-content publication-content-journal-topic">
+    <p class="publication-meta">
+      {{ publication.date | date: "%Y" }}
+      {% if publication.venue %} &middot; {{ publication.venue }}{% endif %}
+    </p>
+    {% include publications/card-title.html title=publication.title href=href %}
+    {% if publication.authors %}
+      <p class="publication-authors">{{ publication.authors | join: ", " }}</p>
+    {% endif %}
+    {% include publications/card-summary.html publication=publication truncate=160 %}
+  </div>
+</article>

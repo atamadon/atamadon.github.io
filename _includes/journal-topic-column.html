@@ -1,0 +1,37 @@
+{% assign publications = include.publications | sort: "date" | reverse %}
+
+<section class="journal-topic-column">
+  <h2>{{ include.title }}</h2>
+  <div class="journal-topic-stack">
+    {% for publication in publications %}
+      {% assign topic_key = 'cell_nuclear' %}
+      {% assign research_area = publication.research_area | default: '' | downcase %}
+      {% assign keyword_text = '' %}
+      {% if publication.keywords %}
+        {% assign keyword_text = publication.keywords | join: ' ' %}
+      {% endif %}
+      {% capture topic_text %}
+        {{ publication.title | default: '' }} {{ publication.abstract | default: '' }} {{ publication.summary_override | default: '' }} {{ keyword_text }}
+      {% endcapture %}
+      {% assign topic_text = topic_text | downcase %}
+
+      {% if research_area contains 'microbiome' or research_area contains 'bacterial community' %}
+        {% assign topic_key = 'microbiome' %}
+      {% elsif research_area contains 'statistical learning' or research_area contains 'biological language' or research_area contains 'artificial intelligence' or research_area contains 'computational modeling' %}
+        {% assign topic_key = 'slblp' %}
+      {% elsif research_area contains 'cell' or research_area contains 'nuclear' or research_area contains 'mechanotransduction' %}
+        {% assign topic_key = 'cell_nuclear' %}
+      {% else %}
+        {% if topic_text contains 'microbiome' or topic_text contains 'gut ' or topic_text contains 'bacteria' or topic_text contains 'bacterial' or topic_text contains 'microbial' or topic_text contains 'microbiota' or topic_text contains 'biofilm' %}
+          {% assign topic_key = 'microbiome' %}
+        {% elsif topic_text contains 'learning' or topic_text contains 'language model' or topic_text contains 'language processing' or topic_text contains 'machine learning' or topic_text contains 'graph' or topic_text contains 'transformer' or topic_text contains 'embedding' or topic_text contains 'genome' or topic_text contains 'sequence' or topic_text contains 'protein language' or topic_text contains 'drug repurposing' %}
+          {% assign topic_key = 'slblp' %}
+        {% endif %}
+      {% endif %}
+
+      {% if topic_key == include.topic %}
+        {% include publication-card.html publication=publication variant="journal_topic" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

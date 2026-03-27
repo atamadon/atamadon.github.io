@@ -1,0 +1,10 @@
+{% assign publication = include.publication %}
+{% if include.variant == "book" %}
+  {% include publications/card-book.html publication=publication %}
+{% elsif include.variant == "featured" %}
+  {% include publications/card-featured.html publication=publication %}
+{% elsif include.variant == "journal_topic" %}
+  {% include publications/card-journal-topic.html publication=publication %}
+{% else %}
+  {% include publications/card-archive.html publication=publication compact=include.compact %}
+{% endif %}

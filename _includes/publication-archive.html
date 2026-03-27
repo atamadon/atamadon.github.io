@@ -1,0 +1,20 @@
+{% assign publications = include.publications %}
+
+{% if publications and publications.size > 0 %}
+  {% assign publications_by_year = publications | group_by_exp: "item", "item.date | slice: 0, 4" %}
+
+  {% for year in publications_by_year %}
+    <section class="publication-year-group">
+      <h3 class="publication-year-heading">{{ year.name }}</h3>
+      <div class="publication-stack">
+        {% for publication in year.items %}
+          {% include publication-card.html publication=publication %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+{% else %}
+  <div class="publication-empty">
+    <p>{{ include.empty_message | default: "No publications are available yet." }}</p>
+  </div>
+{% endif %}

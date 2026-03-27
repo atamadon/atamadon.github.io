@@ -1,0 +1,11 @@
+<div class="section-heading">
+  <div>
+    {% if include.eyebrow %}
+      <p class="eyebrow">{{ include.eyebrow }}</p>
+    {% endif %}
+    <h2>{{ include.title }}</h2>
+  </div>
+  {% if include.link_url and include.link_label %}
+    <a href="{{ include.link_url | relative_url }}" class="section-link">{{ include.link_label }}</a>
+  {% endif %}
+</div>

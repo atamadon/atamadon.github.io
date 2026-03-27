@@ -1,0 +1,8 @@
+{% assign embeds = include.items %}
+{% if embeds and embeds.size > 0 %}
+<section class="page-section embed-stack" aria-label="{{ include.label | default: 'Embedded content' }}">
+  {% for embed in embeds %}
+    {% include embed-block.html embed=embed %}
+  {% endfor %}
+</section>
+{% endif %}

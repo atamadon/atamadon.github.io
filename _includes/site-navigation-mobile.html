@@ -1,0 +1,45 @@
+{% assign navigation = include.navigation | default: empty %}
+<details class="site-navigation-mobile-shell">
+  <summary class="nav-toggle" aria-controls="site-navigation-mobile">
+    <span class="nav-toggle-icon" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <span class="visually-hidden">Toggle site menu</span>
+  </summary>
+</details>
+
+<nav id="site-navigation-mobile" class="site-navigation site-navigation-mobile" aria-label="Main site navigation">
+  <ul class="nav-links">
+    {% for item in navigation %}
+      {% assign item_is_absolute = item.url contains '://' %}
+      <li class="nav-item{% if item.children %} nav-item-has-children{% endif %}">
+        {% if item.children %}
+          <div class="nav-item-heading">
+            <a class="nav-item-link" href="{% if item_is_absolute %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">
+              <span class="nav-link-label">{{ item.title }}</span>
+            </a>
+            <details class="nav-mobile-submenu-shell">
+              <summary class="nav-mobile-submenu-toggle" aria-controls="site-navigation-mobile-{{ forloop.index }}">
+                <span class="nav-mobile-submenu-spacer" aria-hidden="true"></span>
+                <span class="nav-link-caret" aria-hidden="true"></span>
+                <span class="visually-hidden">Toggle {{ item.title }} submenu</span>
+              </summary>
+              <ul id="site-navigation-mobile-{{ forloop.index }}" class="nav-submenu" aria-label="{{ item.title }} submenu">
+                {% for child in item.children %}
+                  {% assign child_is_absolute = child.url contains '://' %}
+                  <li><a href="{% if child_is_absolute %}{{ child.url }}{% else %}{{ child.url | relative_url }}{% endif %}">{{ child.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </details>
+          </div>
+        {% else %}
+          <a class="nav-item-link" href="{% if item_is_absolute %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">
+            <span class="nav-link-label">{{ item.title }}</span>
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

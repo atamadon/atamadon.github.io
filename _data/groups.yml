@@ -1,0 +1,14 @@
+- slug: molecular-dynamics
+  name: Cell & Nuclear Biomechanics
+  description: Cell and nuclear mechanics, force transmission, and molecular simulation across the cell-nucleus interface.
+  research_url: /research/nuclear-mechanotransduction/
+
+- slug: ai
+  name: Statistical Learning & Biological Language Processing
+  description: Statistical learning and biological language-processing methods for data-driven scientific discovery.
+  research_url: /research/ai/
+
+- slug: microbiome
+  name: Microbiome & Bacterial Community Biomechanics
+  description: Multiscale modeling of host-microbe systems, bacterial communities, and gut biogeography.
+  research_url: /research/microbiome/

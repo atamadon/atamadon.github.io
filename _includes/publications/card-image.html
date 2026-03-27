@@ -1,0 +1,11 @@
+{% assign image_url = include.image_url %}
+{% assign image_alt = include.alt | default: '' %}
+{% assign image_loading = include.loading | default: 'lazy' %}
+{% assign image_class = include.class %}
+{% if image_url %}
+  {% if image_url contains '://' %}
+    <img{% if image_class %} class="{{ image_class }}"{% endif %} src="{{ image_url }}" alt="{{ image_alt }}"{% if image_loading %} loading="{{ image_loading }}"{% endif %} decoding="async"{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% endif %}>
+  {% else %}
+    <img{% if image_class %} class="{{ image_class }}"{% endif %} src="{{ image_url | relative_url }}" alt="{{ image_alt }}"{% if image_loading %} loading="{{ image_loading }}"{% endif %} decoding="async"{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% endif %}>
+  {% endif %}
+{% endif %}

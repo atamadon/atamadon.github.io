@@ -1,0 +1,44 @@
+   12. Teaching
+   ------------------------------------------------------------ */
+.teaching-page {
+  display: grid;
+  gap: var(--card-gap-roomy);
+}
+
+.teaching-intro {
+  max-width: 56rem;
+  margin-top: calc(var(--space-1) * -1);
+  color: var(--ink-700);
+}
+
+.teaching-list {
+  display: grid;
+  gap: var(--card-cluster-gap);
+  max-width: 60rem;
+}
+
+.teaching-item {
+  display: grid;
+  gap: var(--card-gap-tight);
+}
+
+.teaching-item h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+}
+
+.teaching-item p {
+  margin: 0;
+  max-width: 62ch;
+}
+
+.teaching-item > :last-child {
+  margin-bottom: 0;
+}
+
+.teaching-detail {
+  color: var(--ink-700);
+  font-size: 0.92rem;
+}
+
+/* ------------------------------------------------------------

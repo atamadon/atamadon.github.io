@@ -1,0 +1,80 @@
+{% assign embed = include.embed %}
+{% assign embed_type = embed.type | default: embed._block %}
+
+{% if embed and embed_type %}
+<section class="embed-block embed-block-{{ embed_type }}">
+  {% if embed.eyebrow or embed.title or embed.description %}
+    <header class="embed-header">
+      {% if embed.eyebrow %}
+        <p class="eyebrow">{{ embed.eyebrow }}</p>
+      {% endif %}
+      {% if embed.title %}
+        <h2 class="embed-title">{{ embed.title }}</h2>
+      {% endif %}
+      {% if embed.description %}
+        <p class="embed-description">{{ embed.description }}</p>
+      {% endif %}
+    </header>
+  {% endif %}
+
+  {% case embed_type %}
+    {% when 'molstar' %}
+      {% include molstar-viewer.html structure_id=embed.structure_id caption=embed.caption %}
+
+    {% when 'video' %}
+      <div class="embed-frame" style="--embed-aspect-ratio: {{ embed.aspect_ratio | default: '16 / 9' }};">
+        <iframe
+          src="{% if embed.embed_url contains '://' %}{{ embed.embed_url }}{% else %}{{ embed.embed_url | relative_url }}{% endif %}"
+          title="{{ embed.title | default: 'Embedded video' }}"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      {% if embed.caption %}
+        <p class="embed-caption">{{ embed.caption }}</p>
+      {% endif %}
+
+    {% when 'map' %}
+      <div class="embed-frame" style="--embed-aspect-ratio: {{ embed.aspect_ratio | default: '4 / 3' }};">
+        <iframe
+          src="{% if embed.embed_url contains '://' %}{{ embed.embed_url }}{% else %}{{ embed.embed_url | relative_url }}{% endif %}"
+          title="{{ embed.title | default: 'Embedded map' }}"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+      {% if embed.caption %}
+        <p class="embed-caption">{{ embed.caption }}</p>
+      {% endif %}
+
+    {% when 'document' %}
+      {% assign document_url = embed.file | default: embed.url %}
+      {% assign preview_url = embed.preview_url %}
+      {% if document_url != '' or preview_url != '' %}
+        <div class="embed-document-shell">
+          {% if preview_url != '' %}
+            <div class="embed-frame embed-frame-document" style="--embed-aspect-ratio: {{ embed.aspect_ratio | default: '4 / 3' }};">
+              <iframe
+                src="{% if preview_url contains '://' %}{{ preview_url }}{% else %}{{ preview_url | relative_url }}{% endif %}"
+                title="{{ embed.title | default: 'Embedded document preview' }}"
+                loading="lazy"></iframe>
+            </div>
+          {% endif %}
+          <div class="embed-document-meta">
+            {% if embed.summary %}
+              <p class="embed-description">{{ embed.summary }}</p>
+            {% endif %}
+            <p class="embed-actions">
+              <a class="button-link button-link-secondary" href="{% if document_url contains '://' %}{{ document_url }}{% else %}{{ document_url | relative_url }}{% endif %}" target="_blank" rel="noopener">
+                {{ embed.cta_label | default: 'Open document' }}
+              </a>
+            </p>
+          </div>
+        </div>
+      {% endif %}
+      {% if embed.caption %}
+        <p class="embed-caption">{{ embed.caption }}</p>
+      {% endif %}
+  {% endcase %}
+</section>
+{% endif %}

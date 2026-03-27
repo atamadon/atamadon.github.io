@@ -1,0 +1,54 @@
+{% assign member = include.member %}
+{% capture raw_initials %}{% for part in member.name | split: " " %}{{ part | slice: 0, 1 }}{% endfor %}{% endcapture %}
+<article class="team-card" data-berkeley-username="{{ member.berkeley_username }}">
+  <div class="team-photo">
+    {% if member.image and member.image != '' %}
+      {% assign member_image_is_absolute = member.image contains '://' %}
+      <img
+        src="{% if member_image_is_absolute %}{{ member.image }}{% else %}{{ member.image | relative_url }}{% endif %}"
+        alt="Photo of {{ member.name }}"
+        loading="lazy"
+        decoding="async">
+    {% else %}
+      <div class="team-photo-fallback" aria-hidden="true">{{ raw_initials | strip }}</div>
+    {% endif %}
+  </div>
+  <div class="team-card-body">
+    <h3>{{ member.name }}</h3>
+    <p class="team-status">{{ member.status }}</p>
+    <div class="team-groups">
+      {% for slug in member.groups %}
+        {% assign matched = site.data.groups | where: "slug", slug | first %}
+        {% if matched and matched.research_url %}
+          <a class="team-group-tag" href="{{ matched.research_url | relative_url }}">{{ matched.name }}</a>
+        {% elsif matched %}
+          <span class="team-group-tag">{{ matched.name }}</span>
+        {% else %}
+          <span class="team-group-tag">{{ slug }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if member.bio_short %}
+      <p class="team-bio">{{ member.bio_short }}</p>
+    {% elsif member.content != blank %}
+      <div class="team-bio">{{ member.content | markdownify }}</div>
+    {% endif %}
+    {% assign has_links = false %}
+    {% if member.show_email %}{% assign has_links = true %}{% endif %}
+    {% if member.website %}{% assign has_links = true %}{% endif %}
+    {% if member.linkedin %}{% assign has_links = true %}{% endif %}
+    {% if member.scholar %}{% assign has_links = true %}{% endif %}
+    {% if member.orcid %}{% assign has_links = true %}{% endif %}
+    {% if member.github %}{% assign has_links = true %}{% endif %}
+    {% if has_links %}
+      <ul class="team-links">
+        {% if member.show_email %}<li><a href="mailto:{{ member.email }}">Email</a></li>{% endif %}
+        {% if member.website %}<li><a href="{{ member.website }}" target="_blank" rel="noopener">Website</a></li>{% endif %}
+        {% if member.linkedin %}<li><a href="{{ member.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+        {% if member.scholar %}<li><a href="{{ member.scholar }}" target="_blank" rel="noopener">Scholar</a></li>{% endif %}
+        {% if member.orcid %}<li><a href="{{ member.orcid }}" target="_blank" rel="noopener">ORCID</a></li>{% endif %}
+        {% if member.github %}<li><a href="{{ member.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+      </ul>
+    {% endif %}
+  </div>
+</article>
