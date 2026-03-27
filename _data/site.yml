@@ -54,4 +54,4 @@ publications:
   overrides_path: _data/publication_overrides.yml
 
 news:
-  migration_status: pending_wordpress_backfill
+  migration_status: migration_complete

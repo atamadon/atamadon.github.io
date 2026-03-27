@@ -1,26 +1,52 @@
-{% assign publications = site.data.generated.publications %}
-{% assign journals = publications | where: "type", "journal" %}
-{% assign books = publications | where: "type", "book" %}
+{% assign browse_publications = site.data.generated.publications %}
+{% assign journal_articles = browse_publications | where: "subtype", "journal_article" %}
+{% assign books = browse_publications | where: "subtype", "book" %}
+{% assign conference_papers = browse_publications | where: "subtype", "conference" %}
+{% assign book_chapters = browse_publications | where: "subtype", "book_chapter" %}
+{% assign reference_entries = browse_publications | where: "subtype", "reference_entry" %}
+{% assign repository_records = browse_publications | where: "subtype", "repository" %}
+{% assign more_href = '/publications/#other-publication-types' | relative_url %}
+{% assign more_is_current = false %}
+{% if include.show_secondary %}
+  {% assign more_href = '#other-publication-types' %}
+{% endif %}
+{% if include.current == 'conference' or include.current == 'book_chapter' or include.current == 'reference_entry' or include.current == 'repository' %}
+  {% assign more_is_current = true %}
+{% endif %}
 
 <nav class="publication-browse" aria-label="Browse publication types">
+  <div class="publication-browse-primary">
   <ul class="publication-browse-list">
     <li>
       <a class="publication-browse-link{% if include.current == 'all' %} is-current{% endif %}" href="{{ '/publications/' | relative_url }}">
         <span>All publications</span>
-        <span class="publication-browse-count">{{ publications | size }}</span>
       </a>
     </li>
     <li>
-      <a class="publication-browse-link{% if include.current == 'journal' %} is-current{% endif %}" href="{{ '/publications/journals/' | relative_url }}">
+      <a class="publication-browse-link{% if include.current == 'journal_article' %} is-current{% endif %}" href="{{ '/publications/journal-articles/' | relative_url }}">
         <span>Journal articles</span>
-        <span class="publication-browse-count">{{ journals | size }}</span>
       </a>
     </li>
     <li>
       <a class="publication-browse-link{% if include.current == 'book' %} is-current{% endif %}" href="{{ '/publications/books/' | relative_url }}">
         <span>Books</span>
-        <span class="publication-browse-count">{{ books | size }}</span>
+      </a>
+    </li>
+    <li>
+      <a class="publication-browse-link{% if more_is_current %} is-current{% endif %}" href="{{ more_href }}">
+        <span>More</span>
       </a>
     </li>
   </ul>
+  </div>
+
+  {% if include.show_secondary %}
+    <div class="publication-browse-secondary" id="other-publication-types">
+      <span class="publication-browse-secondary-label">Other publication types</span>
+      <a class="publication-browse-secondary-link" href="{{ '/publications/conference-papers/' | relative_url }}">Conference papers <span class="publication-browse-secondary-count">{{ conference_papers | size }}</span></a>
+      <a class="publication-browse-secondary-link" href="{{ '/publications/book-chapters/' | relative_url }}">Book chapters <span class="publication-browse-secondary-count">{{ book_chapters | size }}</span></a>
+      <a class="publication-browse-secondary-link" href="{{ '/publications/reference-entries/' | relative_url }}">Reference entries <span class="publication-browse-secondary-count">{{ reference_entries | size }}</span></a>
+      <a class="publication-browse-secondary-link" href="{{ '/publications/repository-records/' | relative_url }}">Repository records <span class="publication-browse-secondary-count">{{ repository_records | size }}</span></a>
+    </div>
+  {% endif %}
 </nav>

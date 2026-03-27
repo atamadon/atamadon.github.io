@@ -1,0 +1,19 @@
+{% assign publication = include.publication %}
+{% assign href = publication.source_url | default: publication.external_url %}
+{% assign image_alt = 'Visual for ' | append: publication.title %}
+<article class="publication-card publication-card-featured">
+  <div class="publication-media publication-media-featured">
+    {% include publications/card-image.html image_url=publication.image_url alt=image_alt loading='eager' fetchpriority='high' %}
+  </div>
+  <div class="publication-content publication-content-featured">
+    <p class="publication-meta">
+      {{ publication.date | date: "%Y" }} &middot; {{ publication.display_type | default: publication.type | capitalize }}
+      {% if publication.venue %} &middot; {{ publication.venue }}{% endif %}
+    </p>
+    {% include publications/card-title.html title=publication.title href=href %}
+    {% if publication.authors %}
+      <p class="publication-authors">{{ publication.authors | join: ", " }}</p>
+    {% endif %}
+    {% include publications/card-summary.html publication=publication truncate=220 %}
+  </div>
+</article>

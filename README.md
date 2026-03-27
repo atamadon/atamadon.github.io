@@ -24,6 +24,24 @@ Read these first when making product-level changes:
 - [acceptance criteria](/home/ali/GitHub/atamadon.github.io/spec/acceptance-criteria.md)
 - [Jekyll mapping](/home/ali/GitHub/atamadon.github.io/spec/jekyll-mapping.md)
 
+## Reduced Component Model
+
+The site should be understood as a small static-first system built from four core primitives:
+
+- `Shell`
+- `Section`
+- `Content Block`
+- `Archive/List`
+
+The intended implementation bias is:
+
+- content starts as Markdown
+- shared structure comes from HTML emitted by layouts and includes
+- styling comes from shared CSS tokens and classes
+- JavaScript is a narrow exception layer, not a primary component category
+
+In practice, Jekyll and Liquid are build-time glue for a Markdown + HTML + CSS site. New work should prefer adapting existing section, card, and archive patterns over inventing new top-level component families.
+
 ### Prerequisites
 
 - Ruby `3.3.4`
@@ -52,7 +70,7 @@ The generator script now prints its mode, phase-level progress, elapsed runtime,
 The OpenAlex author is pinned in `_data/site.yml` for deterministic refreshes, and the generator now applies a curation pass before writing: low-value records like contributor pages or author responses are dropped, duplicate manifestations are collapsed when a stronger published version exists, and non-book book-derived records are labeled more accurately.
 Publication image selection now follows a fixed precedence order: `image_override` from `_data/publication_overrides.yml`, then a best-effort Figure 1 scrape from the source page, then a generic cover/social preview image, then the type-specific placeholder. The generator also records `image_source` on each record and reports image-source counts in its CLI summary.
 Image resolution results are cached locally at `.cache/publication_generator/image_cache.json` so repeated live refreshes do not need to re-scrape every publication page and image.
-The public publication surface is split into `/publications/`, `/publications/journals/`, and `/publications/books/`. Curate featured items, research-area tags, summaries, and image overrides through `_data/publication_overrides.yml`; do not add local publication detail pages.
+The public publication surface centers on `/publications/` as a featured-plus-filter archive, with separate subtype pages still available where they add value. Curate the featured carousel order through `_data/featured_publications.yml`, and keep research-area tags, summaries, and image overrides in `_data/publication_overrides.yml`; do not add local publication detail pages.
 
 ### Preview Locally
 
@@ -65,14 +83,13 @@ The preview server will rebuild the site from source. Do not edit `_site/` direc
 ## Pages CMS
 
 This repository includes a root `.pages.yml` configuration for Pages CMS.
-Use it for human-authored pages, team entries, site settings, navigation, theme settings, and Mol* structure metadata.
+Use it for human-authored pages, team entries, featured-publication ordering, site settings, navigation, theme settings, and Mol* structure metadata.
 
-Generated publications in `_data/generated/publications.json` remain generator-owned. Manage publication presentation through `_data/publication_overrides.yml` or the generator scripts instead of editing generated records directly.
+Generated publications in `_data/generated/publications.json` remain generator-owned. Manage featured-carousel ordering through `_data/featured_publications.yml`, and keep broader publication presentation changes in `_data/publication_overrides.yml` or the generator scripts instead of editing generated records directly.
 
 ### Editing Ownership
 
-- `PI/CMS-owned`: team entries, news posts, teaching copy, navigation, contact/site metadata, and `_data/theme.yml`
-- `PI/CMS-owned`: team entries, news posts, teaching copy, header/site metadata, navigation, and `_data/theme.yml`
+- `PI/CMS-owned`: team entries, news posts, teaching copy, header/site metadata, navigation, `_data/theme.yml`, and the featured-publication ordering list
 - `Maintainer-owned`: layouts, includes, Sass architecture, JavaScript, generators, workflows, and data-driven landing pages with Liquid-heavy bodies
 - `Generated`: `_data/generated/publications.json` and `.cache/publication_generator/`
 
@@ -87,11 +104,20 @@ Start with these editor-facing surfaces only:
 - `team`
 - `news posts`
 - `teaching`
+- `featured publications`
 - `site settings`
 - `navigation`
 - `theme settings`
 
 Treat `home`, `research landing`, `contact`, and `news landing` as maintainer-owned unless their current editing contract is intentionally revised later.
+Broader publication curation in `_data/publication_overrides.yml` remains maintainer-owned for now. The small featured-carousel ordering surface in `_data/featured_publications.yml` is editor-safe and may be exposed separately in Pages CMS.
+
+For `news posts`, the intended editor contract is:
+
+- new posts should be easy to create from `title`, `date`, and `body`
+- `featured_image` is optional and may be added later in Pages CMS
+- recovered legacy entries may remain text-only until an editor supplies an approved image
+- the first paragraph of the post body becomes the archive summary card text
 
 ## Team Onboarding Pipeline
 
@@ -136,6 +162,34 @@ Legacy content migration should use a two-source workflow:
 Use `_templates/wordpress-migration-request.md` when requesting source data from the PI or legacy-site admin.
 Track all imports and recoveries in `_templates/legacy-content-migration-ledger.csv` so migration stays reviewable and does not turn into ad hoc copy-paste work.
 
+To inventory a WordPress export and optionally draft migration-ledger rows from its posts and pages, run:
+
+```bash
+ruby scripts/inventory_wordpress_export.rb path/to/export.xml
+ruby scripts/inventory_wordpress_export.rb path/to/export.xml --ledger-out path/to/ledger.csv
+```
+
+To preview or import published WordPress news posts into `_posts/`, run:
+
+```bash
+ruby scripts/import_wordpress_news.rb path/to/export.xml
+ruby scripts/import_wordpress_news.rb path/to/export.xml --write
+```
+
+To download legacy WordPress media used by imported news posts and rewrite those posts to local asset paths, run:
+
+```bash
+ruby scripts/localize_wordpress_news_media.rb
+ruby scripts/localize_wordpress_news_media.rb --write
+```
+
+To recover older lab-news entries from an archived Wayback category page that is no longer present in the WordPress export, run:
+
+```bash
+ruby scripts/import_wayback_lab_news.rb path/to/wayback-lab-news.html
+ruby scripts/import_wayback_lab_news.rb path/to/wayback-lab-news.html --write
+```
+
 Migration priority is:
 
 1. News archive
@@ -149,6 +203,7 @@ The current milestone is a credible PI demo, not full historical completeness.
 
 - Keep the CMS demo focused on `team`, `news`, `teaching`, `site settings`, `navigation`, and `theme settings`
 - Prefer a smaller, dependable editorial surface over a broader but fragile one
+- Use `_templates/next-five-work-sessions.md` as the working execution order for the current milestone
 - Use `_templates/pi-demo-launch-checklist.md` to track demo readiness, migration readiness, and the later publish-ready hardening pass
 - Use `_templates/pages-cms-startup-checklist.md` to rehearse the actual Pages CMS demo flows before showing them to the PI
 
@@ -161,10 +216,10 @@ Use that file or the matching Pages CMS form to tune:
 - site-wide content width
 - card and pill corner radius
 - light and dark card shadows
-- motion enablement and timing scale
+- motion enablement
 - light and dark semantic color tokens
 
-Do not edit `_sass/_tokens.scss` for routine design changes. Sass remains the implementation layer; `_data/theme.yml` is the high-level interface.
+Do not edit `assets/css/site/_tokens.scss` for routine design changes. The modular stylesheet remains the implementation layer; `_data/theme.yml` is the high-level interface.
 The canonical product-level token definition is [spec/design-tokens.yml](/home/ali/GitHub/atamadon.github.io/spec/design-tokens.yml); `_data/theme.yml` is the Jekyll adapter that powers this implementation.
 
 ## Mol* Viewer Assets
@@ -181,16 +236,16 @@ Only repeat the Mol* update workflow when you intentionally upgrade Mol* or repl
 
 The current pinned Mol* browser build is `v5.7.0`.
 
-## Homepage Hero Variants
+## Homepage Top Banner Variants
 
-The homepage hero supports four CSS-only motion variants. Keep all four variants in `_sass/_components.scss` so they remain available for comparison and future tuning.
+The homepage top banner supports four CSS-only visual variants. Keep all four variants in `assets/css/style.css` so they remain available for comparison and future tuning.
 
 - `hero-section-structural`: network/scaffold feel, balanced biomechanics default
 - `hero-section-mechanical`: track/tension/band feel, more engineering-forward
 - `hero-section-molecular`: softer node/field feel, more structural-biology-forward
 - `hero-section-editorial`: minimal accent treatment, most conservative/institutional
 
-Switch variants by changing the second class on the hero section in `index.md`. When previewing with `bundle exec jekyll serve`, saving `index.md` is usually enough; do a hard refresh in the browser to compare the updated class if the CSS appears cached.
+Switch variants by changing the second class on the top banner section in `index.md`. When previewing with `bundle exec jekyll serve`, saving `index.md` is usually enough; do a hard refresh in the browser to compare the updated class if the CSS appears cached.
 
 ## Embedded Content
 
@@ -212,7 +267,7 @@ Use `page.embeds` for editor-managed embedded content. Keep raw layout includes 
 - `_team/`: public team collection keyed by Berkeley username
 - `_data/`: navigation, site metadata, Mol* structures, publication overrides, and generated publication data
 - `_publications/`: legacy publication seed entries for generator bootstrapping
-- `_layouts/`, `_includes/`, `_sass/`: shared shell, UI components, and design system styles
+- `_layouts/`, `_includes/`, `assets/css/style.css`, `assets/css/site/`: shared shell, UI components, built stylesheet entrypoint, and modular design-system styles
 - `assets/vendor/molstar/`: pinned Mol* browser assets served directly by the site
 - `assets/`: compiled CSS, JavaScript, images, and structure files
 - `lib/`, `scripts/`, `test/`: generation, validation, and test code
@@ -231,9 +286,10 @@ See [TODO.md](/home/ali/GitHub/atamadon.github.io/TODO.md) for the authoritative
 3. Run `ruby scripts/validate_theme.rb`.
 4. Run `ruby scripts/validate_team.rb`.
 5. Run `ruby scripts/validate_embeds.rb`.
-6. Run `bundle exec jekyll build`.
-7. For visual changes, preview locally and capture screenshots.
-8. Keep work local until you are ready to push.
+6. If you changed files under `assets/css/site/`, run `ruby scripts/build_stylesheet.rb`.
+7. Run `bundle exec jekyll build`.
+8. For visual changes, preview locally and capture screenshots.
+9. Keep work local until you are ready to push.
 
 ## Humans and Agents
 

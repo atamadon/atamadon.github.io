@@ -3,17 +3,16 @@ layout: default
 title: Journal Articles
 ---
 
-{% assign journals = site.data.generated.publications | where: "type", "journal" %}
+{% assign journals = site.data.generated.publications | where: "subtype", "journal_article" %}
 
 <section class="publication-landing page-section">
-  {% include section-heading.html eyebrow="Generated archive" title="Journal articles" %}
-  <p class="publication-intro">
-    Journal articles, perspectives, and related papers are listed here in the same generated archive system as the main publications page.
-  </p>
-  {% include publication-browse.html current="journal" %}
+  {% include section-heading.html title="Journal articles" %}
 </section>
 
 <section class="page-section" id="journal-archive">
-  {% include section-heading.html eyebrow="Type archive" title="Journal archive" %}
-  {% include publication-archive.html publications=journals empty_message="No journal articles are available yet." %}
+  <div class="journal-topic-grid">
+    {% include journal-topic-column.html publications=journals topic="cell_nuclear" title="Cell & Nuclear Biomechanics" %}
+    {% include journal-topic-column.html publications=journals topic="microbiome" title="Microbiome & Bacterial Community Biomechanics" %}
+    {% include journal-topic-column.html publications=journals topic="slblp" title="Statistical Learning & Biological Language Processing" %}
+  </div>
 </section>

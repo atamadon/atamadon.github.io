@@ -1,15 +1,15 @@
 doi-10-1080-19491034-2024-2399247:
   featured: true
-  research_area: Nuclear Mechanotransduction
+  research_area: Cell & Nuclear Biomechanics
   image_override: /assets/images/publications/kncl_a_2399247_f0001_oc.jpg
   summary_override: Perspective article connecting polymer physics and intrinsically disordered FG-Nups in the nuclear pore complex.
 
 cellular-mechanotransduction-diverse-perspectives-from-molecules-to-tissues:
   featured: true
-  research_area: Nuclear Mechanotransduction
+  research_area: Cell & Nuclear Biomechanics
 
 computational-modeling-in-biomechanics:
-  research_area: Computational Modeling
+  research_area: Statistical Learning & Biological Language Processing
 
 cytoskeletal-mechanics-models-and-measurements-in-cell-mechanics:
-  research_area: Cell Mechanics
+  research_area: Cell & Nuclear Biomechanics

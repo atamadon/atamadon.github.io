@@ -3,13 +3,11 @@ berkeley_username: tzhu
 name: Dr. Ting Zhu
 role: Alumni
 status: Former Postdoctoral Researcher
-email: tzhu@alumni.berkeley.edu
-groups:
-  - microbiome
-image: /assets/images/team/profile-placeholder.svg
 active: false
-sort_order: 530
-current_position: Professor of Life Sciences at Tsinghua University, China
+leave_date: 2000-02-16
+sort_order: 1460
+current_position: "Professor of Life Sciences at Tsinghua University, China"
 alumni_since: 2017-05-01
-placeholder: true
+website: http://bioinfo.au.tsinghua.edu.cn/CSSB/web/english/people/zhuting.html
+placeholder: false
 ---

@@ -1,0 +1,230 @@
+   1. Reset & Base Elements
+   ------------------------------------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: var(--theme-scroll-behavior, smooth);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink-900);
+  background: var(--body-background);
+  color-scheme: light;
+  line-height: 1.65;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+body:has(#theme-mode-toggle:checked) {
+  --berkeley-blue: var(--theme-dark-berkeley-blue, #8db7ff);
+  --berkeley-gold: var(--theme-dark-berkeley-gold, #ffd166);
+  --accent-blue: var(--theme-dark-accent-blue, #c8dcff);
+  --accent-gold: var(--theme-dark-accent-gold, #ffe2a9);
+  --ink-900: var(--theme-dark-ink-900, #edf2f8);
+  --ink-700: var(--theme-dark-ink-700, #c3d0e0);
+  --line-300: var(--theme-dark-line-300, rgba(141, 183, 255, 0.22));
+  --surface-0: var(--theme-dark-surface-0, #08121f);
+  --surface-50: var(--theme-dark-surface-50, #0d1726);
+  --surface-100: var(--theme-dark-surface-100, #122033);
+  --surface-tint: var(--theme-dark-surface-tint, #173252);
+  --header-bg: var(--theme-dark-header-bg, #07101b);
+  --header-surface: var(--theme-dark-header-surface, rgba(7, 16, 27, 0.96));
+  --header-border: var(--theme-dark-header-border, rgba(141, 183, 255, 0.16));
+  --header-text: var(--theme-dark-header-text, #f7fafc);
+  --header-muted: var(--theme-dark-header-muted, rgba(247, 250, 252, 0.74));
+  --theme-toggle-ring: var(--theme-dark-theme-toggle-ring, rgba(255, 209, 102, 0.4));
+  --body-background:
+    linear-gradient(180deg, var(--theme-dark-body-gradient-top, rgba(253, 181, 21, 0.08)), transparent 16rem),
+    linear-gradient(135deg, var(--theme-dark-body-gradient-mid, rgba(141, 183, 255, 0.08)), transparent 40rem),
+    var(--surface-0);
+  --shadow-card: var(--theme-shadow-dark-card, 0 18px 40px rgba(0, 0, 0, 0.34));
+  --shadow-card-hover: var(--card-hover-shadow-dark);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:has(#theme-mode-toggle:checked) {
+    --berkeley-blue: var(--theme-light-berkeley-blue, #002676);
+    --berkeley-gold: var(--theme-light-berkeley-gold, #fdb515);
+    --accent-blue: var(--theme-light-accent-blue, #001a4d);
+    --accent-gold: var(--theme-light-accent-gold, #fc9313);
+    --ink-900: var(--theme-light-ink-900, #1f1f1f);
+    --ink-700: var(--theme-light-ink-700, #4a4a4a);
+    --line-300: var(--theme-light-line-300, rgba(0, 38, 118, 0.18));
+    --surface-0: var(--theme-light-surface-0, #ffffff);
+    --surface-50: var(--theme-light-surface-50, #f7f9fc);
+    --surface-100: var(--theme-light-surface-100, #eef3f8);
+    --surface-tint: var(--theme-light-surface-tint, #edf3fb);
+    --header-bg: var(--theme-light-header-bg, #002676);
+    --header-surface: var(--theme-light-header-surface, rgba(0, 38, 118, 0.96));
+    --header-border: var(--theme-light-header-border, rgba(255, 255, 255, 0.12));
+    --header-text: var(--theme-light-header-text, #ffffff);
+    --header-muted: var(--theme-light-header-muted, rgba(255, 255, 255, 0.78));
+    --theme-toggle-ring: var(--theme-light-theme-toggle-ring, rgba(253, 181, 21, 0.42));
+    --body-background:
+      linear-gradient(180deg, var(--theme-light-body-gradient-top, rgba(253, 181, 21, 0.08)), transparent 16rem),
+      linear-gradient(135deg, var(--theme-light-body-gradient-mid, rgba(0, 38, 118, 0.04)), transparent 40rem),
+      var(--surface-0);
+    --shadow-card: var(--theme-shadow-light-card, 0 18px 40px rgba(0, 38, 118, 0.08));
+    --shadow-card-hover: var(--card-hover-shadow-light);
+    color-scheme: light;
+  }
+}
+
+a {
+  color: var(--berkeley-blue);
+  text-decoration: none;
+  transition:
+    color var(--motion-fast) var(--ease-standard),
+    background-size var(--motion-base) var(--ease-soft),
+    background-position var(--motion-base) var(--ease-soft);
+}
+
+a:hover,
+a:focus {
+  color: var(--accent-gold);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ------------------------------------------------------------
+   2. Typography
+   ------------------------------------------------------------ */
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  font-family: var(--font-serif);
+  color: var(--berkeley-blue);
+  line-height: 1.15;
+}
+
+p,
+li {
+  color: var(--ink-900);
+}
+
+main {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-7);
+}
+
+iframe {
+  border: 0;
+  max-width: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: var(--space-3);
+  top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-0);
+  color: var(--berkeley-blue);
+  border-radius: 0.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   3. Links & Underline Animation
+   ------------------------------------------------------------ */
+.section-link {
+  font-weight: 700;
+}
+
+.section-link,
+main a:not(.button-link):not(.book-cover-link):not(.theme-toggle) {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 calc(100% - var(--link-underline-offset));
+  background-repeat: no-repeat;
+  background-size: 0 var(--link-underline-thickness);
+}
+
+.section-link:hover,
+.section-link:focus,
+main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):hover,
+main a:not(.button-link):not(.book-cover-link):not(.theme-toggle):focus {
+  background-size: 100% var(--link-underline-thickness);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-section::before,
+  .hero-section::after {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .feature-card,
+  .callout-card,
+  .publication-card,
+  .publication-browse-link,
+  .publication-filter-chip,
+  .team-card,
+  .team-group-tag,
+  .team-links a,
+  .contact-card,
+  .book-cover-frame,
+  .theme-toggle,
+  .nav-toggle,
+  .button-link {
+    transform: none !important;
+  }
+}
+
+/* ------------------------------------------------------------

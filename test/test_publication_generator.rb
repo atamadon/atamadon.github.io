@@ -274,7 +274,7 @@ class PublicationGeneratorTest < Minitest::Test
     result = @generator.apply_overrides(records)
 
     assert_equal true, result.first["featured"]
-    assert_equal "Nuclear Mechanotransduction", result.first["research_area"]
+    assert_equal "Cell & Nuclear Biomechanics", result.first["research_area"]
   end
 
   def test_write_emits_json_array

@@ -4,19 +4,17 @@ primary:
   - title: Research
     url: /research/
     children:
-      - title: Nuclear Mechanotransduction
+      - title: Cell & Nuclear Biomechanics
         url: /research/nuclear-mechanotransduction/
-      - title: Microbiome
+      - title: Microbiome & Bacterial Community Biomechanics
         url: /research/microbiome/
-      - title: Artificial Intelligence
+      - title: Statistical Learning & Biological Language Processing
         url: /research/ai/
   - title: Publications
     url: /publications/
     children:
-      - title: All Publications
-        url: /publications/
       - title: Journal Articles
-        url: /publications/journals/
+        url: /publications/journal-articles/
       - title: Books
         url: /publications/books/
   - title: Team

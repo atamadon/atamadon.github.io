@@ -85,6 +85,7 @@ async function initializeMolstar(block) {
   if (!configNode || !root || !status) return Promise.resolve();
 
   if (!window.molstar?.Viewer?.create) {
+    if (poster) poster.hidden = false;
     status.hidden = false;
     status.textContent = 'Mol* failed to load, so the poster preview is being shown instead.';
     return Promise.resolve();
@@ -125,6 +126,7 @@ async function initializeMolstar(block) {
       if (poster) poster.hidden = true;
     } catch (error) {
       console.error('Mol* initialization failed:', error);
+      if (poster) poster.hidden = false;
       status.hidden = false;
       status.textContent = 'Mol* could not be initialized, so the poster preview is being shown instead.';
     }

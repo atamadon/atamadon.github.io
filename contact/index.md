@@ -4,32 +4,37 @@ title: Contact
 ---
 
 {% assign contact = site.data.site.contact %}
-{% assign accessibility = site.data.site.accessibility %}
 
-{% include section-heading.html eyebrow="Connect" title="Contact the lab" %}
+{% include section-heading.html title="Contact" %}
 
 <section class="page-section contact-grid">
-  <div class="contact-sidebar">
-    <article class="contact-card">
-      <h2>Department contact</h2>
-      <p><strong>Email:</strong> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
-      <p><strong>Phone:</strong> {{ contact.phone }}</p>
-      <p><strong>Fax:</strong> {{ contact.fax }}</p>
-      <p>
-        <strong>Address:</strong><br>
+  <article class="contact-card contact-details-card">
+    <h2>Department contact</h2>
+    <div class="contact-list">
+      <div class="contact-row">
+        <p class="contact-label">Email</p>
+        <p><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+      </div>
+      <div class="contact-row">
+        <p class="contact-label">Phone</p>
+        <p>{{ contact.phone }}</p>
+      </div>
+      <div class="contact-row">
+        <p class="contact-label">Fax</p>
+        <p>{{ contact.fax }}</p>
+      </div>
+      <div class="contact-row">
+        <p class="contact-label">Address</p>
+        <p class="contact-address">
         {% for line in contact.address_lines %}
           {{ line }}{% unless forloop.last %}<br>{% endunless %}
         {% endfor %}
-      </p>
-    </article>
-    <article class="contact-card">
-      <h2>Accessibility</h2>
-      <p>{{ accessibility.statement }}</p>
-      <p><a href="{{ accessibility.report_url }}">Report a web accessibility issue</a></p>
-      <p><strong>Site contact:</strong> <a href="mailto:{{ accessibility.support_email }}">{{ accessibility.support_email }}</a></p>
-    </article>
-  </div>
-  <div class="contact-map">
+        </p>
+      </div>
+    </div>
+  </article>
+  <article class="contact-card contact-map-card">
+    <h2>Visit Stanley Hall</h2>
     <iframe src="{{ contact.map_embed_url }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Stanley Hall"></iframe>
-  </div>
+  </article>
 </section>

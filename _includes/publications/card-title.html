@@ -1,0 +1,8 @@
+{% assign href = include.href %}
+<h3 class="{{ include.class | default: 'publication-title' }}">
+  {% if href %}
+    <a href="{{ href }}" target="_blank" rel="noopener">{{ include.title }}</a>
+  {% else %}
+    {{ include.title }}
+  {% endif %}
+</h3>

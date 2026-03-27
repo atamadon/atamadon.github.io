@@ -69,6 +69,10 @@ Do not use Pages CMS for:
 
 Use Pages CMS for already-approved public website content and editor-safe settings only.
 
+Current intentional CMS gap:
+
+- publication curation in `_data/publication_overrides.yml` remains maintainer-owned and is not part of the PI demo surface yet
+
 ## 5. Validation After Rehearsal
 
 Run:

@@ -141,7 +141,7 @@ nav_exclude: true
 </div>
 
 <p class="sg-intro">
-  This page is not linked from site navigation and is intended for development use only. View it at <code>/style-guide/</code>. The light/dark theme toggle in the header applies to all swatches and components below.
+  This page is not linked from site navigation and is intended for development use only. View it at <code>/style-guide/</code>. The site follows the active system light/dark theme across all swatches and components below.
 </p>
 
 ---
@@ -192,7 +192,7 @@ nav_exclude: true
   </div>
 
   <div style="margin-bottom: var(--space-4);">
-    <p class="sg-type-label" style="font-weight:700; color: var(--ink-900); margin-bottom: var(--space-2);">Surfaces — theme-aware CSS vars (toggle header to see dark values)</p>
+    <p class="sg-type-label" style="font-weight:700; color: var(--ink-900); margin-bottom: var(--space-2);">Surfaces — theme-aware CSS vars (follow the active system theme)</p>
     <div class="sg-row">
       <div class="sg-col">
         <div class="sg-swatch" style="background: var(--surface-0);"></div>
@@ -389,8 +389,38 @@ nav_exclude: true
       </tr>
       <tr>
         <td><code>--link-underline-offset</code></td>
-        <td><code>2px</code></td>
+        <td><code>1px</code></td>
         <td>Gap below text baseline</td>
+      </tr>
+      <tr>
+        <td><code>--card-pad</code></td>
+        <td><code>1.5rem</code></td>
+        <td>Default desktop bubble-card padding</td>
+      </tr>
+      <tr>
+        <td><code>--card-pad-tablet</code></td>
+        <td><code>1rem</code></td>
+        <td>Tablet bubble-card padding</td>
+      </tr>
+      <tr>
+        <td><code>--card-pad-mobile</code></td>
+        <td><code>0.75rem</code></td>
+        <td>Small-screen bubble-card padding</td>
+      </tr>
+      <tr>
+        <td><code>--card-gap-tight</code></td>
+        <td><code>0.75rem</code></td>
+        <td>Tight spacing inside cards and compact media frames</td>
+      </tr>
+      <tr>
+        <td><code>--card-gap</code></td>
+        <td><code>1rem</code></td>
+        <td>Default internal card content gap</td>
+      </tr>
+      <tr>
+        <td><code>--card-gap-roomy</code></td>
+        <td><code>1.5rem</code></td>
+        <td>Split-card layout gap and page-level card grid gap</td>
       </tr>
     </tbody>
   </table>
@@ -458,7 +488,7 @@ nav_exclude: true
     </div>
   </div>
 
-  <p class="sg-note">All three card types share the same base styles: <code>--surface-0</code> background, <code>1px solid var(--line-300)</code> border, <code>var(--shadow-card)</code> shadow, and a hover state that lifts with <code>var(--card-hover-lift)</code> and shifts the border to gold.</p>
+  <p class="sg-note">All three card types share the same base styles: <code>--surface-0</code> background, <code>1px solid var(--line-300)</code> border, <code>var(--shadow-card)</code> shadow, and a hover state that lifts with <code>var(--card-hover-lift)</code> and shifts the border to gold. Bubble-card padding is standardized through <code>--card-pad</code>, with tighter tablet and small-screen variants.</p>
 </section>
 
 <section class="sg-section">

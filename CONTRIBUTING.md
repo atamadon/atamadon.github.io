@@ -82,6 +82,12 @@ When comparing homepage hero variants, save `index.md`, wait for `jekyll serve` 
 
 Pages with Liquid-heavy or data-driven bodies remain maintainer-owned even if they appear in Pages CMS. Keep those surfaces aligned with the documented editing contract instead of broadening the CMS surface casually.
 
+For `news posts`, keep the editor path lightweight:
+
+- `title`, `date`, and `body` should be enough to create a valid post
+- `featured_image` stays optional so recovered legacy posts can remain text-only
+- editors may add a `featured_image` and alt text later through Pages CMS when an approved image is available
+
 ## Specification Layer
 
 Use the files in `spec/` to reason about:

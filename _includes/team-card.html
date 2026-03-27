@@ -2,11 +2,16 @@
 {% capture raw_initials %}{% for part in member.name | split: " " %}{{ part | slice: 0, 1 }}{% endfor %}{% endcapture %}
 <article class="team-card" data-berkeley-username="{{ member.berkeley_username }}">
   <div class="team-photo">
-    <img
-      src="{{ member.image | relative_url }}"
-      alt="Photo of {{ member.name }}"
-      onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
-    <div class="team-photo-fallback" aria-hidden="true" hidden>{{ raw_initials | strip }}</div>
+    {% if member.image and member.image != '' %}
+      {% assign member_image_is_absolute = member.image contains '://' %}
+      <img
+        src="{% if member_image_is_absolute %}{{ member.image }}{% else %}{{ member.image | relative_url }}{% endif %}"
+        alt="Photo of {{ member.name }}"
+        loading="lazy"
+        decoding="async">
+    {% else %}
+      <div class="team-photo-fallback" aria-hidden="true">{{ raw_initials | strip }}</div>
+    {% endif %}
   </div>
   <div class="team-card-body">
     <h3>{{ member.name }}</h3>

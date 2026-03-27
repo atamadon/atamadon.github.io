@@ -12,8 +12,7 @@ It is also the reference implementation of the implementation-agnostic website s
 - `_publications/`: legacy publication seed entries used to bootstrap the generator.
 - `.pages.yml`: Pages CMS configuration for editable site content and settings.
 - `TODO.md`: authoritative backlog for unfinished website work.
-- `_layouts/default.html`, `_includes/`, `_sass/`: shell, reusable UI, and design system styles.
-- `assets/js/site.js`: site navigation behavior.
+- `_layouts/default.html`, `_includes/`, `assets/css/style.css`, `assets/css/site/`: shell, reusable UI, built stylesheet entrypoint, and modular design-system styles.
 - `assets/js/molstar-viewer.js`: Mol* embed behavior.
 - `assets/vendor/molstar/`: pinned Mol* browser assets. Treat this directory as versioned static vendor content.
 - `lib/`, `scripts/`, `test/`: generation, validation, and test code.
@@ -22,18 +21,20 @@ It is also the reference implementation of the implementation-agnostic website s
 ## Source-Only Rules
 
 - Check `spec/` before making product-level changes to content models, design tokens, component behavior, or editing ownership.
+- Treat the site as a small static-first system built from `Shell`, `Section`, `Content Block`, and `Archive/List`. Do not introduce a new top-level component concept when an existing pattern is sufficient.
 - Keep header title/subtitle settings in `_data/site.yml` aligned with the header component contract in `spec/`.
 - Edit source files only. Treat `_site/`, `.jekyll-cache/`, and other build artifacts as disposable output.
 - Preserve valid YAML front matter on Markdown content files.
 - Keep links and asset references consistent with the existing Jekyll site structure.
-- When changing layouts or styles, prefer patterns already used in `_layouts/default.html`, `_includes/`, and `_sass/`.
+- When changing layouts or styles, prefer patterns already used in `_layouts/default.html`, `_includes/`, `assets/css/style.css`, and `assets/css/site/`.
+- Prefer Markdown content, HTML emitted by layouts/includes, and shared CSS classes over new JS-driven presentation patterns.
 - Keep site motion CSS-first and restrained. Avoid animation-specific JavaScript unless the task explicitly requires behavior that CSS cannot provide.
 - Preserve `prefers-reduced-motion` support when adding or changing animated effects.
-- Preserve the four homepage hero variants in `_sass/_components.scss` (`structural`, `mechanical`, `molecular`, `editorial`). Change the active variant by updating the class on `index.md` instead of deleting unused options.
+- Preserve the four homepage hero variants in `assets/css/site/_hero.scss` (`structural`, `mechanical`, `molecular`, `editorial`). Change the active variant by updating the class on `index.md` instead of deleting unused options.
 - Keep editor-managed embeds in front matter under `embeds:` and route them through the shared embed includes. Prefer schema-backed blocks over raw iframe or script snippets.
 - Do not change dependency or Pages runtime files unless the task requires it.
 - Avoid hand-editing `_data/generated/publications.json` unless the task is explicitly fixing generated output.
-- Keep publications external-link-only. Curate the `/publications/`, `/publications/journals/`, and `/publications/books/` surfaces through `_data/publication_overrides.yml` instead of adding local publication detail pages.
+- Keep publications external-link-only. Curate the `/publications/` archive and its subtype browse surfaces through `_data/publication_overrides.yml` instead of adding local publication detail pages.
 - Preserve the publication image precedence order: manual `image_override`, then best-effort Figure 1, then generic cover/preview, then placeholder.
 - Keep real team onboarding records and IT checklists outside this public repo. Only approved public profile exports should be rendered into `_team/`.
 - Preserve the current v1 intake policy: Berkeley-restricted Google Form, PI-owned, with response access limited to the PI and selected lab admins.
@@ -62,6 +63,7 @@ Run all commands from the repository root.
 - Validate theme and site settings: `ruby scripts/validate_theme.rb`
 - Validate team data: `ruby scripts/validate_team.rb`
 - Validate embed blocks: `ruby scripts/validate_embeds.rb`
+- Rebuild the modular stylesheet entrypoint after CSS-partial changes: `ruby scripts/build_stylesheet.rb`
 - Regenerate publications from legacy seeds only: `ruby scripts/generate_publications.rb --use-legacy-only`
 - Run Ruby tests: `ruby -Ilib test/test_publication_generator.rb && ruby -Ilib test/test_theme_validator.rb && ruby -Ilib test/test_team_validator.rb && ruby -Ilib test/test_embed_validator.rb && ruby -Ilib test/test_structures_config.rb`
 - Run team onboarding export test: `ruby -Ilib test/test_team_onboarding_export.rb`
@@ -69,7 +71,7 @@ Run all commands from the repository root.
 - Local build check: `bundle exec jekyll build`
 - Local preview server: `bundle exec jekyll serve`
 
-Run `bundle exec jekyll build` after every source change. For layout or style changes, also do a browser check on the affected pages and capture screenshots if the change will be reviewed by others.
+Run `bundle exec jekyll build` after every source change. If you edit files under `assets/css/site/`, run `ruby scripts/build_stylesheet.rb` before the build. For layout or style changes, also do a browser check on the affected pages and capture screenshots if the change will be reviewed by others.
 
 ## Done Criteria
 

@@ -12,10 +12,13 @@
         class="molstar-poster"
         src="{{ viewer.poster_image | relative_url }}"
         alt="Poster preview for {{ viewer_title }}"
+        loading="lazy"
+        decoding="async"
+        hidden
         data-molstar-poster>
     {% endif %}
     <div class="molstar-root" data-molstar-root id="molstar-{{ viewer.id }}"></div>
-    <p class="molstar-status" data-molstar-status>Loading interactive structure...</p>
+    <p class="molstar-status" data-molstar-status hidden>Loading interactive structure...</p>
   </div>
   {% if viewer_caption %}
     <figcaption class="molstar-caption">{{ viewer_caption }}</figcaption>

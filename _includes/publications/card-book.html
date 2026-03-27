@@ -1,0 +1,42 @@
+{% assign publication = include.publication %}
+{% assign href = publication.source_url | default: publication.external_url %}
+{% assign cover_alt = 'Cover of ' | append: publication.title %}
+<article class="publication-card publication-card-book">
+  <div class="book-cover-stage">
+    <div class="book-shelf-shadow" aria-hidden="true"></div>
+    {% if href %}
+      <a class="book-cover-link" href="{{ href }}" target="_blank" rel="noopener">
+    {% endif %}
+    <div class="book-cover-frame">
+      {% if publication.image_url %}
+        {% include publications/card-image.html image_url=publication.image_url alt=cover_alt %}
+      {% else %}
+        <div class="book-cover-fallback">
+          <span>{{ publication.title }}</span>
+        </div>
+      {% endif %}
+    </div>
+    {% if href %}
+      </a>
+    {% endif %}
+  </div>
+  <div class="book-card-details">
+    <p class="publication-meta">
+      {{ publication.date | date: "%Y" }}
+      {% if publication.venue %} &middot; {{ publication.venue }}{% endif %}
+    </p>
+    {% include publications/card-title.html title=publication.title href=href %}
+    {% if publication.research_area %}
+      <p class="publication-tags">
+        <span class="publication-tag">{{ publication.research_area }}</span>
+      </p>
+    {% endif %}
+    {% if publication.authors %}
+      <p><strong>Authors:</strong> {{ publication.authors | join: ", " }}</p>
+    {% endif %}
+    {% if publication.citation %}
+      <p class="publication-citation"><em>{{ publication.citation }}</em></p>
+    {% endif %}
+    {% include publications/card-summary.html publication=publication truncate=180 %}
+  </div>
+</article>

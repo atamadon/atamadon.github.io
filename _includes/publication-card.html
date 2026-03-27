@@ -1,102 +1,10 @@
 {% assign publication = include.publication %}
-{% assign href = publication.source_url | default: publication.external_url %}
-{% assign image_url = publication.image_url %}
 {% if include.variant == "book" %}
-<article class="publication-card publication-card-book">
-  <div class="book-cover-stage">
-    <div class="book-shelf-shadow" aria-hidden="true"></div>
-    {% if href %}
-      <a class="book-cover-link" href="{{ href }}" target="_blank" rel="noopener">
-    {% endif %}
-    <div class="book-cover-frame">
-      {% if image_url %}
-        {% if image_url contains '://' %}
-          <img src="{{ image_url }}" alt="Cover of {{ publication.title }}">
-        {% else %}
-          <img src="{{ image_url | relative_url }}" alt="Cover of {{ publication.title }}">
-        {% endif %}
-      {% else %}
-        <div class="book-cover-fallback">
-          <span>{{ publication.title }}</span>
-        </div>
-      {% endif %}
-    </div>
-    {% if href %}
-      </a>
-    {% endif %}
-  </div>
-  <div class="book-card-details">
-    <p class="publication-meta">
-      {{ publication.date | date: "%Y" }}
-      {% if publication.venue %} · {{ publication.venue }}{% endif %}
-    </p>
-    <h3 class="publication-title">
-      {% if href %}
-        <a href="{{ href }}" target="_blank" rel="noopener">{{ publication.title }}</a>
-      {% else %}
-        {{ publication.title }}
-      {% endif %}
-    </h3>
-    {% if publication.research_area %}
-      <p class="publication-tags">
-        <span class="publication-tag">{{ publication.research_area }}</span>
-      </p>
-    {% endif %}
-    {% if publication.authors %}
-      <p><strong>Authors:</strong> {{ publication.authors | join: ", " }}</p>
-    {% endif %}
-    {% if publication.citation %}
-      <p class="publication-citation"><em>{{ publication.citation }}</em></p>
-    {% endif %}
-    {% if publication.summary_override %}
-      <p>{{ publication.summary_override }}</p>
-    {% elsif publication.abstract %}
-      <p>{{ publication.abstract | strip_html | truncate: 180 }}</p>
-    {% endif %}
-  </div>
-</article>
+  {% include publications/card-book.html publication=publication %}
+{% elsif include.variant == "featured" %}
+  {% include publications/card-featured.html publication=publication %}
+{% elsif include.variant == "journal_topic" %}
+  {% include publications/card-journal-topic.html publication=publication %}
 {% else %}
-<article class="publication-card{% if include.compact %} publication-card-compact{% endif %}">
-  <div class="publication-media">
-    {% if image_url %}
-      {% if image_url contains '://' %}
-        <img src="{{ image_url }}" alt="Visual for {{ publication.title }}">
-      {% else %}
-        <img src="{{ image_url | relative_url }}" alt="Visual for {{ publication.title }}">
-      {% endif %}
-    {% endif %}
-  </div>
-  <div class="publication-content">
-    <p class="publication-meta">
-      {{ publication.date | date: "%Y" }} · {{ publication.display_type | default: publication.type | capitalize }}
-      {% if publication.venue %} · {{ publication.venue }}{% endif %}
-    </p>
-    <h3 class="publication-title">
-      {% if href %}
-        <a href="{{ href }}" target="_blank" rel="noopener">{{ publication.title }}</a>
-      {% else %}
-        {{ publication.title }}
-      {% endif %}
-    </h3>
-    {% if publication.research_area %}
-      <p class="publication-tags">
-        <span class="publication-tag">{{ publication.research_area }}</span>
-      </p>
-    {% endif %}
-    {% if publication.citation %}
-      <p class="publication-citation"><em>{{ publication.citation }}</em></p>
-    {% endif %}
-    {% if publication.authors %}
-      <p><strong>Authors:</strong> {{ publication.authors | join: ", " }}</p>
-    {% endif %}
-    {% if publication.summary_override %}
-      <p>{{ publication.summary_override }}</p>
-    {% elsif publication.abstract %}
-      <p>{{ publication.abstract | strip_html | truncate: 240 }}</p>
-    {% endif %}
-    {% if publication.keywords %}
-      <p class="publication-keywords"><strong>Keywords:</strong> {{ publication.keywords | join: ", " }}</p>
-    {% endif %}
-  </div>
-</article>
+  {% include publications/card-archive.html publication=publication compact=include.compact %}
 {% endif %}

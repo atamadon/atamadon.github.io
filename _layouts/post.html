@@ -10,7 +10,7 @@ layout: default
   </header>
   {% if page.featured_image %}
     <figure class="post-featured-image">
-      <img src="{{ page.featured_image | relative_url }}" alt="{{ page.featured_image_alt | default: page.title }}">
+      <img src="{{ page.featured_image | relative_url }}" alt="{{ page.featured_image_alt | default: page.title | escape_once }}">
     </figure>
   {% endif %}
   <div class="post-content">

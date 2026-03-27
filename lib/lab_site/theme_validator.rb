@@ -22,8 +22,7 @@ module LabSite
       %w[shadows light_card_hover],
       %w[shadows dark_card],
       %w[shadows dark_card_hover],
-      %w[motion enabled],
-      %w[motion scale]
+      %w[motion enabled]
     ].freeze
     REQUIRED_COLOR_KEYS = %w[
       berkeley_blue
@@ -134,11 +133,6 @@ module LabSite
 
       motion_enabled = dig(@theme, %w[motion enabled])
       errors << "_data/theme.yml motion.enabled must be true or false" unless [true, false].include?(motion_enabled)
-
-      motion_scale = dig(@theme, %w[motion scale])
-      unless motion_scale.is_a?(Numeric) && motion_scale >= 0 && motion_scale <= 2
-        errors << "_data/theme.yml motion.scale must be a number between 0 and 2"
-      end
 
       %w[light dark].each do |mode|
         REQUIRED_COLOR_KEYS.each do |key|

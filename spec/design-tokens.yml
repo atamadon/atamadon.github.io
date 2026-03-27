@@ -32,13 +32,8 @@ motion:
   enabled:
     type: boolean
     default: true
-  scale:
-    type: number
-    default: 1
-    min: 0
-    max: 2
   policy:
-    description: Decorative motion must be subtle, CSS-first, and compatible with reduced-motion preferences.
+    description: Motion must remain subtle, CSS-first, and compatible with reduced-motion preferences. Decorative homepage-banner graphics should remain static.
 
 shadows:
   light_card:

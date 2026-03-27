@@ -5,10 +5,11 @@ require_relative "front_matter"
 
 module LabSite
   class TeamValidator
-    REQUIRED_FIELDS = %w[berkeley_username name role status groups email image active sort_order].freeze
+    REQUIRED_FIELDS = %w[berkeley_username name role status active].freeze
     EMAIL_PATTERN = /\A[^@\s]+@[^@\s]+\.[^@\s]+\z/
     USERNAME_PATTERN = /\A[a-z0-9][a-z0-9-]*\z/
     URL_PATTERN = /\Ahttps?:\/\/[^\s]+\z/
+    DATE_PATTERN = /\A\d{4}-\d{2}-\d{2}\z/
     ALLOWED_GROUPS = %w[molecular-dynamics ai microbiome].freeze
     URL_FIELDS = %w[website scholar orcid linkedin github].freeze
 
@@ -27,7 +28,6 @@ module LabSite
         errors.concat(validate_filename(path, front_matter))
         errors.concat(validate_identity(path, front_matter, seen_usernames))
         errors.concat(validate_active_image(path, front_matter))
-        errors.concat(validate_bio(path, front_matter, content))
       end
 
       errors
@@ -47,20 +47,49 @@ module LabSite
     end
 
     def validate_required_fields(path, front_matter)
-      REQUIRED_FIELDS.filter_map do |field|
+      errors = REQUIRED_FIELDS.filter_map do |field|
         value = front_matter[field]
         next unless value.nil? || value == ""
 
         "#{relative(path)} is missing required field `#{field}`"
       end
+
+      if front_matter["active"]
+        %w[groups email image join_date].each do |field|
+          value = front_matter[field]
+          next unless value.nil? || value == ""
+
+          errors << "#{relative(path)} is missing required field `#{field}`"
+        end
+      else
+        value = front_matter["leave_date"]
+        errors << "#{relative(path)} is missing required field `leave_date`" if value.nil? || value == ""
+      end
+
+      if front_matter["show_email"]
+        value = front_matter["email"]
+        errors << "#{relative(path)} is missing required field `email`" if value.nil? || value == ""
+      end
+
+      errors
     end
 
     def validate_types(path, front_matter)
       errors = []
-      errors << "#{relative(path)} has invalid email `#{front_matter['email']}`" unless front_matter["email"].to_s.match?(EMAIL_PATTERN)
+      if !front_matter["email"].to_s.empty? && !front_matter["email"].to_s.match?(EMAIL_PATTERN)
+        errors << "#{relative(path)} has invalid email `#{front_matter['email']}`"
+      end
       errors << "#{relative(path)} must use a lowercase kebab-case `berkeley_username`" unless front_matter["berkeley_username"].to_s.match?(USERNAME_PATTERN)
       errors << "#{relative(path)} must set `active` to true or false" unless [true, false].include?(front_matter["active"])
-      errors << "#{relative(path)} must set numeric `sort_order`" unless front_matter["sort_order"].is_a?(Integer)
+      if front_matter.key?("sort_order") && !front_matter["sort_order"].is_a?(Integer)
+        errors << "#{relative(path)} must set numeric `sort_order` when present"
+      end
+      %w[join_date leave_date].each do |field|
+        next if front_matter[field].nil? || front_matter[field] == ""
+        next if valid_date?(front_matter[field])
+
+        errors << "#{relative(path)} has invalid `#{field}`; use YYYY-MM-DD"
+      end
       errors << "#{relative(path)} must set `show_email` to true or false when present" if front_matter.key?("show_email") && ![true, false].include?(front_matter["show_email"])
       URL_FIELDS.each do |field|
         next if front_matter[field].to_s.empty? || front_matter[field].to_s.match?(URL_PATTERN)
@@ -73,6 +102,7 @@ module LabSite
 
     def validate_groups(path, front_matter)
       groups = front_matter["groups"]
+      return [] if (groups.nil? || groups == "") && !front_matter["active"]
       return ["#{relative(path)} `groups` must be a list"] unless groups.is_a?(Array)
       return ["#{relative(path)} `groups` must not be empty"] if groups.empty?
 
@@ -114,11 +144,14 @@ module LabSite
       ["#{relative(path)} references missing image #{image}"]
     end
 
-    def validate_bio(path, front_matter, content)
-      return [] unless front_matter["active"]
-      return [] unless front_matter["bio_short"].to_s.strip.empty? && content.to_s.strip.empty?
+    def valid_date?(value)
+      return true if value.is_a?(Date) || value.is_a?(Time)
+      return false unless value.to_s.match?(DATE_PATTERN)
 
-      ["#{relative(path)} should include either `bio_short` or body content for active members"]
+      Date.iso8601(value.to_s)
+      true
+    rescue Date::Error
+      false
     end
 
     def relative(path)

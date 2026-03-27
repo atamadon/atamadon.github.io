@@ -3,78 +3,64 @@ layout: default
 title: Team
 ---
 
-{% assign active_team = site.team | where: "active", true | where_exp: "member", "member.placeholder != true" | sort: "sort_order" %}
+{% assign active_team = site.team | where: "active", true | where_exp: "member", "member.placeholder != true" | sort: "join_date" %}
 {% assign principal_investigators = active_team | where: "role", "Principal Investigator" %}
 {% assign postdocs = active_team | where: "role", "Postdoc" %}
 {% assign graduate_students = active_team | where: "role", "Graduate Student" %}
 {% assign undergraduate_students = active_team | where: "role", "Undergraduate Student" %}
-{% assign alumni = site.team | where: "role", "Alumni" | where: "active", false | where_exp: "member", "member.placeholder != true" | sort: "sort_order" %}
-{% assign sample_profiles = site.team | where: "placeholder", true | where: "active", true %}
+{% assign alumni = site.team | where: "role", "Alumni" | where: "active", false | sort: "leave_date" %}
+{% assign lab_photo = site.posts | where: "title", "Fall 2023 Lab Picture!" | first %}
 
-{% include section-heading.html eyebrow="People" title="Team" %}
-
-{% if sample_profiles.size > 0 %}
-<div class="news-placeholder">
-  <p>Additional public profiles are being finalized as the roster is migrated and reviewed for publication.</p>
-</div>
-{% endif %}
+{% include section-heading.html title="Team" %}
 
 <section class="page-section">
-  {% include section-heading.html title="Principal Investigator" %}
-  <div class="team-list">
-    {% for member in principal_investigators %}
-      {% include team-card.html member=member %}
-    {% endfor %}
-  </div>
+  <article class="feature-card team-photo-feature">
+    <div class="team-photo-feature-image">
+      <img
+        src="{{ lab_photo.featured_image | relative_url }}"
+        alt="{{ lab_photo.featured_image_alt | default: 'Lab group photo' | escape_once }}">
+    </div>
+    <div class="team-photo-feature-copy">
+      <p class="team-photo-feature-caption">Lab Group Photo Fall 2023</p>
+    </div>
+  </article>
 </section>
+
+{% if principal_investigators.size > 0 %}
+<section class="page-section">
+  {% include section-heading.html title="Principal Investigator" %}
+  {% include team-member-grid.html members=principal_investigators %}
+</section>
+{% endif %}
 
 {% if postdocs.size > 0 %}
 <section class="page-section">
-  {% include section-heading.html title="Postdoctoral Researchers" %}
-  <div class="team-list">
-    {% for member in postdocs %}
-      {% include team-card.html member=member %}
-    {% endfor %}
-  </div>
+  {% include section-heading.html title="Postdocs" %}
+  {% include team-member-grid.html members=postdocs %}
 </section>
 {% endif %}
 
 {% if graduate_students.size > 0 %}
 <section class="page-section">
   {% include section-heading.html title="Graduate Students" %}
-  <div class="team-list">
-    {% for member in graduate_students %}
-      {% include team-card.html member=member %}
-    {% endfor %}
-  </div>
+  {% include team-member-grid.html members=graduate_students graduate_hierarchy=true %}
 </section>
 {% endif %}
 
 {% if undergraduate_students.size > 0 %}
 <section class="page-section">
   {% include section-heading.html title="Undergraduate Students" %}
-  <div class="team-list">
-    {% for member in undergraduate_students %}
-      {% include team-card.html member=member %}
-    {% endfor %}
-  </div>
+  {% include team-member-grid.html members=undergraduate_students %}
 </section>
-{% endif %}
-
-{% if postdocs.size == 0 and graduate_students.size == 0 and undergraduate_students.size == 0 %}
-<p>Additional public profiles will be added as active lab members are approved for publication with finalized bios and images.</p>
 {% endif %}
 
 {% if alumni.size > 0 %}
 <section class="page-section">
   {% include section-heading.html title="Alumni" %}
-  <ul class="alumni-list">
+  <div class="alumni-list">
     {% for member in alumni %}
-      <li>
-        {{ member.name }}
-        {% if member.current_position %}(presently {{ member.current_position }}){% endif %}
-      </li>
+      {% include alumni-card.html member=member %}
     {% endfor %}
-  </ul>
+  </div>
 </section>
 {% endif %}

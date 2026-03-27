@@ -22,11 +22,11 @@ class ThemeValidatorTest < Minitest::Test
     Dir.mktmpdir do |dir|
       FileUtils.mkdir_p(File.join(dir, "_data"))
       File.write(File.join(dir, "_data", "site.yml"), site_yaml(logo: "/assets/logos/missing-logo.png"))
-      File.write(File.join(dir, "_data", "theme.yml"), theme_yaml(scale: 3))
+      File.write(File.join(dir, "_data", "theme.yml"), theme_yaml(enabled: "sometimes"))
 
       errors = LabSite::ThemeValidator.new(root: dir).validate
 
-      assert(errors.any? { |error| error.include?("motion.scale must be a number between 0 and 2") })
+      assert(errors.any? { |error| error.include?("motion.enabled must be true or false") })
       assert(errors.any? { |error| error.include?("brand.logo references missing file") })
     end
   end
@@ -35,7 +35,7 @@ class ThemeValidatorTest < Minitest::Test
     Dir.mktmpdir do |dir|
       FileUtils.mkdir_p(File.join(dir, "_data"))
       File.write(File.join(dir, "_data", "site.yml"), site_yaml(logo: "https://example.edu/logo.png", subtitle_url: "not-a-url"))
-      File.write(File.join(dir, "_data", "theme.yml"), theme_yaml(scale: 1))
+      File.write(File.join(dir, "_data", "theme.yml"), theme_yaml(enabled: true))
 
       errors = LabSite::ThemeValidator.new(root: dir).validate
 
@@ -73,7 +73,7 @@ class ThemeValidatorTest < Minitest::Test
     }.to_yaml
   end
 
-  def theme_yaml(scale:)
+  def theme_yaml(enabled:)
     {
       "layout" => { "content_width" => "72rem" },
       "radius" => { "card" => "1rem", "pill" => "999px" },
@@ -83,7 +83,7 @@ class ThemeValidatorTest < Minitest::Test
         "dark_card" => "0 18px 40px rgba(0, 0, 0, 0.34)",
         "dark_card_hover" => "0 22px 48px rgba(0, 0, 0, 0.42)"
       },
-      "motion" => { "enabled" => true, "scale" => scale },
+      "motion" => { "enabled" => enabled },
       "colors" => {
         "light" => color_group("#002676", "#ffffff"),
         "dark" => color_group("#8db7ff", "#08121f")

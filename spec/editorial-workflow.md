@@ -19,6 +19,7 @@ Expected editor tasks:
 - update header title and subtitle links
 - change navigation labels or links
 - tune approved theme settings
+- reorder featured publications
 - manage safe structured embeds
 
 Recommended first rehearsal for a new Pages CMS setup:
@@ -26,6 +27,13 @@ Recommended first rehearsal for a new Pages CMS setup:
 - edit one team profile
 - create or revise one news post
 - verify teaching, site settings, navigation, and theme settings with one small change each
+
+News-post editing contract:
+
+- editors should be able to create a valid public news post with `title`, `date`, and `body`
+- `featured_image` should remain optional so recovered legacy entries can stay text-only
+- editors should be able to add or replace `featured_image` and alt text later in Pages CMS without touching source code
+- the first paragraph of the body should serve as the archive summary unless a future structured summary field is introduced
 
 Editors should not need to:
 
@@ -60,7 +68,8 @@ Maintainers also handle:
 Publications:
 
 - refreshed manually by a maintainer or a maintainer-triggered workflow
-- curated through overrides, not direct JSON editing
+- featured-carousel order may be curated through a small ordered ID list
+- broader presentation curation stays in overrides, not direct JSON editing
 
 Team onboarding:
 

@@ -13,7 +13,6 @@ shadows:
 
 motion:
   enabled: true
-  scale: 1
 
 colors:
   light:

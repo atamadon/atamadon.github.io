@@ -1,0 +1,579 @@
+   16. Responsive — Tablet (≤64rem)
+   ------------------------------------------------------------ */
+@media (max-width: 64rem) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    min-height: 0;
+    gap: var(--space-2);
+  }
+
+  .site-header-controls {
+    grid-column: 3;
+    margin-left: 0;
+  }
+
+  .site-navigation-desktop {
+    display: none;
+  }
+
+  .site-navigation-mobile-shell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  .site-navigation-mobile-shell > .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-navigation-mobile {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: none;
+    justify-content: flex-start;
+    align-self: stretch;
+    margin-left: 0;
+    order: 3;
+    border-top: 1px solid var(--header-border);
+    padding-top: var(--space-2);
+  }
+
+  .site-navigation-mobile-shell[open] + .site-navigation-mobile {
+    display: block;
+  }
+
+  .site-navigation-mobile .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: var(--space-2);
+    height: auto;
+    padding-top: var(--space-2);
+  }
+
+  .site-navigation-mobile .nav-item {
+    display: block;
+  }
+
+  .site-navigation-mobile .nav-item-heading {
+    min-height: 0;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .site-navigation-mobile .nav-item-link,
+  .nav-mobile-submenu-toggle {
+    min-height: 0;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .site-navigation-mobile .nav-item-link {
+    flex: 0 1 auto;
+    justify-content: flex-start;
+    padding-right: 0;
+  }
+
+  .nav-mobile-submenu-shell {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .nav-mobile-submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    color: var(--header-text);
+    padding-left: 0.35rem;
+  }
+
+  .nav-mobile-submenu-spacer {
+    flex: 1 1 auto;
+    min-width: var(--space-4);
+  }
+
+  .site-navigation-mobile .nav-submenu {
+    display: none;
+    position: static;
+    min-width: 0;
+    width: calc(100% - 0.5rem);
+    max-width: none;
+    padding: 0.55rem 0;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+    margin-right: 0;
+    border: 1px solid var(--line-300);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-card);
+    background: var(--surface-0);
+    transform: none;
+  }
+
+  .site-navigation-mobile .nav-submenu li + li {
+    margin-top: 0;
+    border-top: 1px solid var(--line-200);
+  }
+
+  .nav-mobile-submenu-shell[open] > .nav-submenu {
+    display: block;
+  }
+
+  .site-navigation-mobile .nav-submenu a {
+    padding: 0.92rem var(--space-3);
+    color: var(--ink-900);
+    opacity: 1;
+    white-space: normal;
+  }
+
+  .site-navigation-mobile .nav-submenu a:hover,
+  .site-navigation-mobile .nav-submenu a:focus {
+    color: var(--ink-900);
+    background: var(--surface-tint);
+  }
+
+  .nav-mobile-submenu-shell[open] > .nav-mobile-submenu-toggle .nav-link-caret {
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 1.5px solid currentColor;
+    border-top: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 1;
+  }
+
+  .home-callouts,
+  .contact-grid,
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h1 {
+    max-width: 18ch;
+  }
+
+  .feature-grid,
+  .card-grid,
+  .bookshelf-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .team-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .team-list > :only-child,
+  .team-list > :last-child:nth-child(3n + 1) {
+    grid-column: auto;
+  }
+
+  .team-list > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 24rem);
+    margin-inline: auto;
+  }
+
+  .alumni-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alumni-card-body {
+    gap: var(--space-1) var(--space-2);
+  }
+
+  .alumni-links {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+
+  .publication-featured-track {
+    grid-auto-columns: minmax(18rem, min(34rem, 88vw));
+  }
+
+  .publication-card-featured {
+    grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
+  }
+
+  .publication-card {
+    grid-template-columns: 10rem minmax(0, 1fr);
+  }
+
+  .contact-map-card iframe {
+    min-height: 22rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   17. Responsive — Mobile (≤48rem)
+   ------------------------------------------------------------ */
+@media (max-width: 48rem) {
+  main {
+    padding: var(--space-4) var(--space-3) var(--space-5);
+  }
+
+  .site-header {
+    padding: 0.45rem var(--space-3);
+    gap: 0.55rem;
+  }
+
+  .site-brand-stack {
+    gap: 0.1rem;
+  }
+
+  .site-brand-subtitle-link,
+  .site-brand-subtitle-spacer {
+    font-size: 0.68rem;
+  }
+
+  .site-brand-title {
+    font-size: 1rem;
+    line-height: 1.14;
+  }
+
+  .site-header-controls {
+    gap: 0.45rem;
+  }
+
+  .theme-toggle,
+  .site-navigation-mobile-shell > .nav-toggle {
+    flex-shrink: 0;
+  }
+
+  .theme-toggle {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  .theme-toggle-logo {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .site-navigation-mobile-shell > .nav-toggle {
+    padding: 0.58rem;
+  }
+
+  .site-navigation-mobile-shell > .nav-toggle .nav-toggle-icon span {
+    width: 0.95rem;
+  }
+
+  .hero-section {
+    padding-top: 0;
+  }
+
+  .hero-section h1 {
+    max-width: none;
+    font-size: clamp(2rem, 9vw, 2.9rem);
+  }
+
+  .hero-copy {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-link {
+    width: 100%;
+    min-height: 3.35rem;
+  }
+
+  .feature-card,
+  .callout-card,
+  .contact-card,
+  .team-card,
+  .publication-content,
+  .book-card-details,
+  .embed-block,
+  .publication-empty,
+  .teaching-item,
+  .news-body {
+    padding: var(--card-pad-tablet);
+  }
+
+  .publication-card {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-browse-primary {
+    margin-inline: calc(var(--space-1) * -1);
+    padding-inline: var(--space-1);
+  }
+
+  .publication-filter-chips {
+    margin-inline: calc(var(--space-1) * -1);
+    padding-inline: var(--space-1);
+  }
+
+  .publication-browse-list {
+    min-width: max-content;
+    justify-content: flex-start;
+  }
+
+  .publication-browse-secondary {
+    gap: 0.35rem 0.85rem;
+  }
+
+  .publication-featured-track {
+    grid-auto-columns: minmax(17rem, 88vw);
+  }
+
+  .publication-card-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .journal-topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-media-featured img {
+    min-height: 12rem;
+  }
+
+  .publication-media img {
+    min-height: 12rem;
+  }
+
+  .publication-content p,
+  .book-card-details p {
+    word-break: break-word;
+  }
+
+  .feature-grid,
+  .card-grid,
+  .bookshelf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-list {
+    grid-template-columns: 1fr;
+  }
+
+  .team-list > :last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .alumni-card-body {
+    align-items: start;
+    gap: var(--card-gap-tight);
+  }
+
+  .alumni-card {
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .alumni-card-head,
+  .alumni-current-position {
+    flex-basis: 100%;
+  }
+
+  .alumni-links {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .team-photo-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .team-photo img,
+  .team-photo-fallback {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .books-library,
+  .team-photo-feature,
+  .news-placeholder {
+    padding: var(--card-pad-tablet);
+  }
+
+  .book-cover-stage {
+    min-height: 16rem;
+    padding-bottom: 1.4rem;
+  }
+
+  .molstar-shell,
+  .molstar-poster,
+  .molstar-root,
+  .molstar-frame {
+    min-height: 22rem;
+    height: 22rem;
+  }
+
+  .molstar-status {
+    bottom: var(--space-1);
+    font-size: 0.84rem;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .section-heading h2 {
+    font-size: 1.65rem;
+  }
+
+  .contact-map-card iframe {
+    min-height: 18rem;
+  }
+
+  .news-feed::before {
+    left: 0.8rem;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .news-date {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    text-align: left;
+    padding-left: 1.6rem;
+    justify-items: start;
+  }
+
+  .news-marker {
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
+    width: 1.6rem;
+    min-height: 0;
+  }
+
+  .news-marker::before {
+    top: 0.5rem;
+    left: 0.8rem;
+    transform: translateX(-50%);
+  }
+
+  .news-day {
+    font-size: 1.5rem;
+  }
+
+  .news-body {
+    margin-left: 1.6rem;
+  }
+
+  .news-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .news-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .news-image img {
+    min-height: 0;
+  }
+
+  .site-footer-grid {
+    padding: var(--space-3) var(--space-3);
+    gap: var(--space-3);
+  }
+}
+
+/* ------------------------------------------------------------
+   18. Responsive — Small (≤32rem)
+   ------------------------------------------------------------ */
+@media (max-width: 32rem) {
+  main {
+    padding: var(--space-4) var(--space-2) var(--space-5);
+  }
+
+  .site-header {
+    padding: 0.42rem var(--space-2);
+    gap: 0.45rem;
+  }
+
+  .site-brand-subtitle-link,
+  .site-brand-subtitle-spacer {
+    font-size: 0.64rem;
+  }
+
+  .site-brand-title {
+    font-size: 0.94rem;
+    line-height: 1.12;
+  }
+
+  .site-header-controls {
+    width: auto;
+    justify-content: flex-end;
+    gap: 0.4rem;
+  }
+
+  .site-navigation-mobile-shell > .nav-toggle {
+    padding: 0.5rem;
+  }
+
+  .theme-toggle {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .theme-toggle-logo {
+    width: 1.52rem;
+    height: 1.52rem;
+  }
+
+  .site-navigation-mobile-shell > .nav-toggle .nav-toggle-icon span {
+    width: 0.88rem;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.85rem, 10vw, 2.4rem);
+  }
+
+  .feature-card,
+  .callout-card,
+  .contact-card,
+  .team-card,
+  .publication-content,
+  .book-card-details,
+  .embed-block,
+  .news-body,
+  .publication-empty,
+  .teaching-item {
+    padding: var(--card-pad-mobile);
+  }
+
+  .books-library,
+  .team-photo-feature,
+  .news-placeholder {
+    padding: var(--card-pad-mobile);
+  }
+
+  .book-cover-stage {
+    min-height: 14rem;
+  }
+
+  .publication-featured-track {
+    grid-auto-columns: minmax(15rem, 90vw);
+  }
+
+  .molstar-shell,
+  .molstar-poster,
+  .molstar-root,
+  .molstar-frame {
+    min-height: 18rem;
+    height: 18rem;
+  }
+
+  .contact-map-card iframe {
+    min-height: 15rem;
+  }
+}

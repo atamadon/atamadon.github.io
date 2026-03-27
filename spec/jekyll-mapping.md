@@ -2,19 +2,56 @@
 
 This file explains how the current GitHub Pages/Jekyll site implements the website specification.
 
+## Reduced Component Map
+
+The product-level component model is intentionally small and static-first:
+
+- `Shell`
+- `Section`
+- `Content Block`
+- `Archive/List`
+
+In the Jekyll reference implementation, those map to the current source like this:
+
+- `Shell`
+  - `_layouts/default.html`
+  - `_includes/site-header.html`
+  - `_includes/site-footer.html`
+  - `_includes/theme-vars.html`
+  - `assets/css/style.css`
+  - `assets/css/site/`
+- `Section`
+  - `_includes/section-heading.html`
+  - page-level section wrappers in Markdown and layouts
+- `Content Block`
+  - `feature-card` patterns in Markdown
+  - `_includes/team-card.html`
+  - `_includes/publication-card.html`
+  - `_includes/publications/`
+  - `_includes/embed-block.html`
+  - `_includes/molstar-viewer.html`
+- `Archive/List`
+  - `_includes/publication-browse.html`
+  - `_includes/publication-archive.html`
+  - news timeline composition in `news/index.md`
+  - grouped team roster composition in `team/index.md`
+  - `_includes/team-member-grid.html`
+
+Jekyll and Liquid remain build-time assembly tools. They are not a separate product-level component family.
+
 ## Specification to Jekyll Adapters
 
 ### Design tokens
 
 - Spec source: `spec/design-tokens.yml`
 - Jekyll adapter: `_data/theme.yml`
-- Runtime wiring: `_includes/theme-vars.html` and `_sass/_tokens.scss`
+- Runtime wiring: `_includes/theme-vars.html`, `assets/css/style.css`, and `assets/css/site/_tokens.scss`
 
 ### Site metadata
 
-- Spec source: `spec/content-model.md`
+- Spec source: `spec/content-model.md` and `spec/header.md`
 - Jekyll adapter: `_data/site.yml`
-- Header implementation: `_includes/site-header.html` and `assets/js/site.js`
+- Shell implementation: `_includes/site-header.html` and `_includes/site-footer.html`
 
 ### Navigation
 
@@ -38,9 +75,11 @@ This file explains how the current GitHub Pages/Jekyll site implements the websi
 - Spec source: `spec/content-model.md` and `spec/components.md`
 - Jekyll adapter:
   - `_data/generated/publications.json`
+  - `_data/featured_publications.yml`
   - `_data/publication_overrides.yml`
   - `scripts/generate_publications.rb`
   - `lib/lab_site/publication_generator.rb`
+  - `lib/lab_site/publication_generator/`
 
 ### Embeds and Mol*
 
@@ -51,6 +90,14 @@ This file explains how the current GitHub Pages/Jekyll site implements the websi
   - `_includes/embed-block.html`
   - `_includes/molstar-viewer.html`
   - `assets/js/molstar-viewer.js`
+
+## Minimalism Rule in the Reference Implementation
+
+- Content should begin as Markdown whenever possible.
+- Shared structure should come from layouts and includes that emit plain HTML.
+- Styling should come from shared CSS tokens and classes.
+- JavaScript is reserved for optional Mol* enhancement rather than routine shell behavior.
+- New visual work should prefer existing `Section`, `Content Block`, and `Archive/List` patterns over adding new top-level component concepts.
 
 ### Editorial workflow
 
@@ -74,7 +121,7 @@ This file explains how the current GitHub Pages/Jekyll site implements the websi
 These details belong to the Jekyll reference implementation, not to the website specification:
 
 - Liquid include names and template composition
-- Sass partial structure
+- modular stylesheet source structure under `assets/css/site/`
 - exact CSS selectors
 - JavaScript event names
 - GitHub Actions workflow file names

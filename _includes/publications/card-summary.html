@@ -1,0 +1,7 @@
+{% assign publication = include.publication %}
+{% assign truncate_length = include.truncate | default: 240 %}
+{% if publication.summary_override %}
+  <p>{{ publication.summary_override | truncate: truncate_length }}</p>
+{% elsif publication.abstract %}
+  <p>{{ publication.abstract | strip_html | truncate: truncate_length }}</p>
+{% endif %}

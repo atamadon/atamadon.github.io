@@ -6,9 +6,9 @@ title: Home
 {% assign site_info = site.data.site %}
 {% assign recent_pubs = site.data.generated.publications | sort: "date" | reverse | slice: 0, 3 %}
 
-<!-- Homepage hero variants: hero-section-structural, hero-section-mechanical,
-hero-section-molecular, hero-section-editorial -->
-<section class="hero-section hero-section-mechanical">
+<!-- Homepage hero variants remain available: hero-section-structural,
+hero-section-mechanical, hero-section-molecular, hero-section-editorial -->
+<section class="hero-section">
   <p class="eyebrow">{{ site_info.tagline }}</p>
   <h1>Modeling how physical forces shape living systems</h1>
   <p class="hero-copy">
@@ -26,16 +26,16 @@ hero-section-molecular, hero-section-editorial -->
   {% include section-heading.html title="Research Areas" link_label="See all research" link_url="/research/" %}
   <div class="feature-grid">
     <article class="feature-card">
-      <h3><a href="{{ '/research/nuclear-mechanotransduction/' | relative_url }}">Nuclear Mechanotransduction</a></h3>
-      <p>Mechanics at the nuclear envelope, force transmission, and structure-function relationships in protein assemblies.</p>
+      <h3><a href="{{ '/research/nuclear-mechanotransduction/' | relative_url }}">Cell &amp; Nuclear Biomechanics</a></h3>
+      <p>Cell and nuclear mechanics, force transmission across the nuclear envelope, and structure-function relationships at the cell-nucleus interface.</p>
     </article>
     <article class="feature-card">
-      <h3><a href="{{ '/research/microbiome/' | relative_url }}">Microbiome</a></h3>
-      <p>Computational models of host-microbe systems, ecological dynamics, and spatial organization in the gut environment.</p>
+      <h3><a href="{{ '/research/microbiome/' | relative_url }}">Microbiome &amp; Bacterial Community Biomechanics</a></h3>
+      <p>Biomechanics and multiscale modeling of host-microbe systems, bacterial communities, gut biogeography, and ecological dynamics.</p>
     </article>
     <article class="feature-card">
-      <h3><a href="{{ '/research/ai/' | relative_url }}">Artificial Intelligence</a></h3>
-      <p>Machine learning and automation for biological discovery, predictive modeling, and analysis of complex datasets.</p>
+      <h3><a href="{{ '/research/ai/' | relative_url }}">Statistical Learning &amp; Biological Language Processing</a></h3>
+      <p>Statistical learning, biological language processing, and model-driven discovery across sequence, genome, and microbiome data.</p>
     </article>
   </div>
 </section>

@@ -295,7 +295,7 @@ content:
     view:
       fields: [name, role, active]
       primary: name
-      sort: [sort_order, name]
+      sort: [active, role, join_date, leave_date, name]
     fields:
       - name: berkeley_username
         label: Berkeley username
@@ -334,39 +334,50 @@ content:
       - name: groups
         label: Research groups
         type: select
-        required: true
+        required: false
         list: true
-        description: Public research-area tags only. Do not use this field for IT or access grouping.
+        description: Public research-area tags only. Active current-team entries should use this; historical alumni records may leave it blank.
         options:
           values:
             - label: Molecular Dynamics
               value: molecular-dynamics
-            - label: Artificial Intelligence
+            - label: Statistical Learning & Biological Language Processing
               value: ai
-            - label: Microbiome
+            - label: Microbiome & Bacterial Community Biomechanics
               value: microbiome
       - name: email
         label: Email
         type: string
-        required: true
-        description: Public-safe contact email. The site only renders it when `Show public email link` is enabled.
+        required: false
+        description: Public-safe contact email. Active current-team entries should include this. Historical alumni records may leave it blank. The site only renders it when `Show public email link` is enabled.
         pattern:
           regex: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
           message: Enter a valid email address.
       - name: image
         label: Profile image
         type: image
-        required: true
-        description: Public headshot for the website team card.
+        required: false
+        description: Public headshot for the website team card. Active current-team entries should include this; historical alumni records may leave it blank.
       - name: active
         label: Show publicly
         type: boolean
         default: true
+      - name: join_date
+        label: Join date
+        type: date
+        hidden: true
+        description: Maintainer-only internal chronology field used to rank active members.
+      - name: leave_date
+        label: Leave date
+        type: date
+        hidden: true
+        description: Maintainer-only internal chronology field used to rank alumni and other inactive members.
       - name: sort_order
-        label: Sort order
+        label: Legacy sort order
         type: number
-        required: true
-        description: Lower numbers appear earlier within the role grouping.
+        required: false
+        hidden: true
+        description: Legacy fallback ordering only. Public ranking should come from join or leave date.
       - name: bio_short
         label: Short bio
         type: text
@@ -413,6 +424,7 @@ content:
       - name: placeholder
         label: Placeholder profile
         type: boolean
+        hidden: true
         default: false
         description: Maintainer-only temporary flag for incomplete public profiles.
       - name: body
@@ -429,7 +441,7 @@ content:
       - .gitkeep
     filename: "{year}-{month}-{day}-{primary}.md"
     format: yaml-frontmatter
-    description: PI-editable news entries for the public archive. This is one of the primary demo-ready CMS surfaces.
+    description: PI-editable news entries for the public archive. New posts should be creatable with title, date, and body alone; recovered legacy entries may stay text-only until an editor uploads a featured image later.
     view:
       fields: [title, date]
       primary: title
@@ -453,7 +465,7 @@ content:
       - name: featured_image
         label: Featured image
         type: image
-        description: Optional lead image for the archive card and post body.
+        description: Optional lead image for the archive card. Leave blank for text-only recovered entries and add it later in Pages CMS when an approved image is available.
       - name: featured_image_alt
         label: Featured image alt text
         type: string
@@ -461,7 +473,7 @@ content:
       - name: body
         label: Post content
         type: rich-text
-        description: Keep posts concise and public-facing. Use embeds only when they materially help.
+        description: Keep posts concise and public-facing. The first paragraph becomes the archive summary. Use embeds only when they materially help.
       - name: embeds
         label: Embedded content
         component: embed_blocks
@@ -552,7 +564,7 @@ content:
           - name: logo
             label: Logo
             type: image
-            description: Lab logo used in the header theme toggle.
+            description: Lab logo used in the header home button.
       - name: accessibility
         label: Accessibility
         type: object
@@ -621,6 +633,7 @@ content:
           - name: migration_status
             label: Migration status
             type: select
+            hidden: true
             description: Maintainer-facing note about the legacy news import state.
             options:
               values:
@@ -679,11 +692,7 @@ content:
           - name: enabled
             label: Enable motion
             type: boolean
-            description: Turns decorative motion on or off site-wide without changing the theme toggle or navigation behavior.
-          - name: scale
-            label: Motion scale
-            type: number
-            description: Multiplier for transition and hero animation timing. `1` is the current default.
+            description: Turns site motion on or off without changing navigation behavior.
       - name: colors
         label: Colors
         type: object
@@ -848,6 +857,19 @@ content:
                 type: string
                 required: true
                 description: Site-relative or external destination for the dropdown item.
+
+  - name: featured_publications
+    label: Featured Publications
+    type: file
+    path: _data/featured_publications.yml
+    format: yaml
+    description: Small editor-safe ordered list of generated publication IDs for the featured carousel on /publications/.
+    fields:
+      - name: featured_publication_ids
+        label: Featured publication IDs
+        type: string
+        list: true
+        description: Use generated publication IDs from `_data/generated/publications.json`. Order controls the carousel order on the publications page.
 
   - name: structures
     label: Mol* Structures

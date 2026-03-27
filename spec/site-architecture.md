@@ -26,6 +26,12 @@ The site must provide these public sections:
 
 These are stable navigation sections, not campaign pages or temporary landing pages.
 
+## Service Pages
+
+- The site must provide a branded `404` page that uses the normal site shell.
+- The `404` page should stay minimal and redirect readers back to the primary public sections.
+- A generic application-style runtime error system is not required for the static site.
+
 ## Page Classes
 
 The site supports four page classes:
@@ -50,6 +56,7 @@ The site supports four page classes:
 
 - Primary navigation is persistent and site-wide.
 - Dropdowns are allowed only when they clarify a stable content hierarchy.
+- A submenu should not duplicate the parent landing page link; the parent text already serves that role.
 - Primary navigation items must continue to work without JavaScript.
 - The mobile navigation pattern may change by implementation, but it must preserve access to all primary and secondary destinations.
 

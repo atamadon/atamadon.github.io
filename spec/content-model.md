@@ -59,7 +59,7 @@ Must support:
 - content width
 - card and pill radii
 - light and dark shadow presets
-- motion enablement and timing scale
+- motion enablement
 
 This model is editorially safe and must not require stylesheet edits for routine tuning.
 
@@ -81,14 +81,15 @@ Required fields:
 - `name`
 - `role`
 - `status`
-- `groups`
-- `email`
-- `image`
 - `active`
-- `sort_order`
 
 Optional fields:
 
+- `groups`
+- `email`
+- `image`
+- `join_date`
+- `leave_date`
 - `show_email`
 - `website`
 - `scholar`
@@ -96,6 +97,9 @@ Optional fields:
 - `linkedin`
 - `github`
 - `bio_short`
+- `current_position`
+- `alumni_since`
+- `sort_order`
 - long-form body content
 - placeholder marker
 
@@ -105,6 +109,16 @@ Rules:
 - `groups` is a controlled public list, not freeform IT metadata
 - `show_email` controls whether the public site renders the email link
 - active members must render cleanly with valid public content
+- active current-team records should include `groups`, `email`, `image`, and `join_date`
+- inactive historical alumni records may omit `groups`, `email`, and `image` when those fields are not public-safe or not needed for the alumni list, but they should include `leave_date`
+- alumni records may be minimal historical records built from `name`, `status`, optional `current_position`, and ordering fields alone
+- current team display order should prefer existing public fields over extra tuning knobs:
+  - top-level grouping comes from `role`
+  - empty public role sections should be omitted
+  - active members are ranked by `join_date`
+  - alumni are ranked by `leave_date`
+  - within graduate students, `status` establishes a soft hierarchy of `PhD Candidate`, then `PhD Student`, then master's-level entries, with `join_date` preserved inside each band
+  - `sort_order` is a legacy fallback and should not be the primary public ranking control
 - this schema is public-facing only and must not absorb private IT data
 
 ### Team Onboarding Export
@@ -167,6 +181,7 @@ Canonical generated source:
 Editorial overlay:
 
 - publication overrides
+- ordered featured-publications list
 
 Must support:
 
@@ -174,16 +189,21 @@ Must support:
 - title
 - date
 - authors
+- truthful subtype
 - truthful display type
 - optional image
 - optional research-area label
-- optional featured state
+- optional curated featured-carousel membership and order
 
 Rules:
 
 - generated records are not directly CMS-edited
+- the featured carousel on `/publications/` should be driven by an ordered list of generated publication IDs rather than a per-record checkbox
 - local publication detail pages are not required
 - the archive is external-link-first
+- browse surfaces should group records by truthful subtype rather than a misleading journal-only umbrella
+- the main `/publications/` surface may use in-page filter chips rather than routing every subtype browse action to a separate page
+- the `/publications/journal-articles/` surface may group records into the lab's three current research areas, using curated labels when available and implementation-level fallback logic for unlabeled historical records
 
 ### Structures / Mol*
 

@@ -17,9 +17,6 @@ exclude:
   - test
   - vendor
 
-sass:
-  style: compressed
-
 # defaults:
 #   - scope:
 #       path: "_publications"

@@ -1,0 +1,30 @@
+{% assign publication = include.publication %}
+{% assign href = publication.source_url | default: publication.external_url %}
+{% assign image_alt = 'Visual for ' | append: publication.title %}
+<article class="publication-card{% if include.compact %} publication-card-compact{% endif %}">
+  <div class="publication-media">
+    {% include publications/card-image.html image_url=publication.image_url alt=image_alt %}
+  </div>
+  <div class="publication-content">
+    <p class="publication-meta">
+      {{ publication.date | date: "%Y" }} &middot; {{ publication.display_type | default: publication.type | capitalize }}
+      {% if publication.venue %} &middot; {{ publication.venue }}{% endif %}
+    </p>
+    {% include publications/card-title.html title=publication.title href=href %}
+    {% if publication.research_area %}
+      <p class="publication-tags">
+        <span class="publication-tag">{{ publication.research_area }}</span>
+      </p>
+    {% endif %}
+    {% if publication.citation %}
+      <p class="publication-citation"><em>{{ publication.citation }}</em></p>
+    {% endif %}
+    {% if publication.authors %}
+      <p><strong>Authors:</strong> {{ publication.authors | join: ", " }}</p>
+    {% endif %}
+    {% include publications/card-summary.html publication=publication truncate=240 %}
+    {% if publication.keywords %}
+      <p class="publication-keywords"><strong>Keywords:</strong> {{ publication.keywords | join: ", " }}</p>
+    {% endif %}
+  </div>
+</article>
